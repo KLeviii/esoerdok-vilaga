@@ -50,9 +50,8 @@ A projekt célja egy olyan oktató és szemléletformáló digitális platform l
 ---
 
 ## Csapattagok és feladatkörök
-*   **Tag 1 (Projektmenedzser / Kutató):** Tartalom összeállítása, Git munkafolyamat koordinálása.
-*   **Tag 2 (UI/UX Designer / Frontend fejlesztő):** Dizájntervek elkészítése, CSS struktúra és reszponzivitás.
-*   **Tag 3 (Frontend / JavaScript fejlesztő):** Interaktív funkciók lefejlesztése, tesztelés.
+*   **Káldor Levente (Projektmenedzser / Kutató):** Tartalom összeállítása, Git munkafolyamat koordinálása.
+*   **Ménes Megyer (UI/UX Designer / Frontend fejlesztő):** Dizájntervek elkészítése, CSS struktúra és reszponzivitás.
 
 ---
 
