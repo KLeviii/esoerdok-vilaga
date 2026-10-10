@@ -1,24 +1,32 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&display=swap'); 
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
 
 body{
     min-height: 100vh;
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    background-color: var(--primary) ;
+}
+
+main{
+    flex: 1;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
-    background-color: #285943 ;
 }
 
 section{
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    gap: 5px;
-    color: #eddfef ;
+    gap: 20px;
+    color: var(--secondary);    
+    width: 100%;
 }
+
 
 .box{
     max-width: 600px;
@@ -33,13 +41,29 @@ p{
     font-size: 1.2em;
 }
 
-iframe{
-    border-radius: 10px;
-    border:5px solid  ;
-    width: 500px;
+.terkep-doboz{
+    width: 100%;
+    max-width: 500px;
     height: 500px;
-    transition: 0.3s ease-in-out;
+    overflow: hidden;
+    border-radius: 10px;
+    border: 5px solid var(--secondary);
     opacity: 0.7;
+    transition: 0.3s ease-in-out;
+}
+
+.terkep-doboz iframe {
+    width: 100%;
+    height: calc(100% + 75px);
+    margin-top: -75px;
+    border: none;
+}
+
+.card{
+background-color: var(--border);
+color: var(--secondary);
+border: 2px solid var(--border-muted);
+
 }
 
 /*
@@ -47,5 +71,15 @@ iframe{
 iframe:hover{
     transform: scale(1.1);
     opacity: 1;
+}
+
+iframe{
+    border-radius: 10px;
+    border:5px solid  ;
+    width: 500px;
+    height: 500px;
+    transition: 0.3s ease-in-out;
+    opacity: 0.7;
+
 }
     */
