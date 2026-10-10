@@ -1,102 +1,46 @@
 :root {
-  /* dark: zöld alapú háttér, a megadott színek pontosan szerepelnek */
-  --bg-dark: oklch(0.17 0.03 162);
-  --bg: oklch(0.22 0.04 162);
-  --bg-light: oklch(0.27 0.045 162);
-  --text: oklch(0.92 0.026 322);          /* #eddfef */
-  --text-muted: oklch(0.75 0.03 322);
-  --highlight: oklch(0.52 0.07 162);
-  --border: oklch(0.423 0.066 162);       /* #285943 */
-  --border-muted: oklch(0.32 0.05 162);
-  --primary: oklch(0.72 0.1 162);         /* a #285943 világosított változata */
-  --secondary: oklch(0.925 0.076 103);    /* #efe9ae */
-  --accent: oklch(0.279 0.035 56);        /* #362417 */
-  --danger: oklch(0.7 0.08 30);
-  --warning: oklch(0.78 0.08 90);
-  --success: oklch(0.72 0.09 150);
-  --info: oklch(0.72 0.07 240);
-
-  --unit: 4px;
-
-  /* spacing (margin, padding, gap) */
-  --space-0: 0px;
-  --space-1: calc(var(--unit) * 1);    /* 4px */
-  --space-2: calc(var(--unit) * 2);    /* 8px */
-  --space-3: calc(var(--unit) * 3);    /* 12px */
-  --space-4: calc(var(--unit) * 4);    /* 16px */
-  --space-5: calc(var(--unit) * 5);    /* 20px */
-  --space-6: calc(var(--unit) * 6);    /* 24px */
-  --space-8: calc(var(--unit) * 8);    /* 32px */
-  --space-10: calc(var(--unit) * 10);  /* 40px */
-  --space-12: calc(var(--unit) * 12);  /* 48px */
-  --space-16: calc(var(--unit) * 16);  /* 64px */
-  --space-20: calc(var(--unit) * 20);  /* 80px */
-  --space-24: calc(var(--unit) * 24);  /* 96px */
-  --space-32: calc(var(--unit) * 32);  /* 128px */
-
-  /* méretek: vezérlők (gomb, input), ikonok */
-  --control-sm: calc(var(--unit) * 8);   /* 32px */
-  --control-md: calc(var(--unit) * 10);  /* 40px */
-  --control-lg: calc(var(--unit) * 12);  /* 48px */
-  --icon-sm: calc(var(--unit) * 4);      /* 16px */
-  --icon-md: calc(var(--unit) * 5);      /* 20px */
-  --icon-lg: calc(var(--unit) * 6);      /* 24px */
-  --icon-xl: calc(var(--unit) * 8);      /* 32px */
-
-  /* konténer szélességek */
-  --container-sm: calc(var(--unit) * 160);  /* 640px */
-  --container-md: calc(var(--unit) * 192);  /* 768px */
-  --container-lg: calc(var(--unit) * 256);  /* 1024px */
-  --container-xl: calc(var(--unit) * 320);  /* 1280px */
-
-  /* tipográfia (betűméret és sormagasság is 4-gyel osztható) */
-  --text-xs: calc(var(--unit) * 3);   /* 12px */
-  --text-sm: calc(var(--unit) * 4);   /* 16px */
-  --text-md: calc(var(--unit) * 5);   /* 20px */
-  --text-lg: calc(var(--unit) * 6);   /* 24px */
-  --text-xl: calc(var(--unit) * 7);   /* 28px */
-  --text-2xl: calc(var(--unit) * 8);  /* 32px */
-  --text-3xl: calc(var(--unit) * 10); /* 40px */
-  --text-4xl: calc(var(--unit) * 12); /* 48px */
-  --leading-xs: calc(var(--unit) * 4);   /* 16px */
-  --leading-sm: calc(var(--unit) * 6);   /* 24px */
-  --leading-md: calc(var(--unit) * 7);   /* 28px */
-  --leading-lg: calc(var(--unit) * 8);   /* 32px */
-  --leading-xl: calc(var(--unit) * 9);   /* 36px */
-  --leading-2xl: calc(var(--unit) * 10); /* 40px */
-  --leading-3xl: calc(var(--unit) * 12); /* 48px */
-  --leading-4xl: calc(var(--unit) * 14); /* 56px */
-
-  /* border vastagság (ezek szándékosan nem 4-gyel oszthatók) */
-  --border-width: 1px;
-  --border-width-thick: 2px;
-
-  /* radius alapskála: ezek a legkülső elem radiusai */
-  --radius-xs: calc(var(--unit) * 1);   /* 4px */
-  --radius-sm: calc(var(--unit) * 2);   /* 8px */
-  --radius-md: calc(var(--unit) * 3);   /* 12px */
-  --radius-lg: calc(var(--unit) * 4);   /* 16px */
-  --radius-xl: calc(var(--unit) * 6);   /* 24px */
-  --radius-2xl: calc(var(--unit) * 8);  /* 32px */
-  --radius-full: 9999px;
-
+    /* dark: zöld alapú háttér, a megadott színek pontosan szerepelnek */
+    --bg-dark: oklch(0.17 0.03 162);
+    --bg: oklch(0.22 0.04 162);
+    --bg-light: oklch(0.27 0.045 162);
+    --text: oklch(0.92 0.026 322);
+    /* #eddfef */
+    --text-muted: oklch(0.75 0.03 322);
+    --highlight: oklch(0.52 0.07 162);
+    --border: oklch(0.423 0.066 162);
+    /* #285943 */
+    --border-muted: oklch(0.32 0.05 162);
+    --primary: oklch(0.72 0.1 162);
+    /* a #285943 világosított változata */
+    --secondary: oklch(0.925 0.076 103);
+    /* #efe9ae */
+    --accent: oklch(0.279 0.035 56);
+    /* #362417 */
+    --danger: oklch(0.7 0.08 30);
+    --warning: oklch(0.78 0.08 90);
+    --success: oklch(0.72 0.09 150);
+    --info: oklch(0.72 0.07 240);
 }
 
 body.light {
-  /* light: krémsárga alap, barna szöveg, a zöld a primary */
-  --bg-dark: oklch(0.9 0.04 103);
-  --bg: oklch(0.94 0.035 103);            /* #efe9ae halványítva */
-  --bg-light: oklch(0.975 0.02 103);
-  --text: oklch(0.279 0.035 56);          /* #362417 */
-  --text-muted: oklch(0.43 0.04 56);
-  --highlight: oklch(0.99 0.02 103);
-  --border: oklch(0.6 0.05 162);
-  --border-muted: oklch(0.72 0.05 162);
-  --primary: oklch(0.423 0.066 162);      /* #285943 */
-  --secondary: oklch(0.5 0.09 95);
-  --accent: oklch(0.279 0.035 56);        /* #362417 */
-  --danger: oklch(0.5 0.1 30);
-  --warning: oklch(0.52 0.09 85);
-  --success: oklch(0.5 0.09 150);
-  --info: oklch(0.5 0.08 240);
+    /* light: krémsárga alap, barna szöveg, a zöld a primary */
+    --bg-dark: oklch(0.9 0.04 103);
+    --bg: oklch(0.94 0.035 103);
+    /* #efe9ae halványítva */
+    --bg-light: oklch(0.975 0.02 103);
+    --text: oklch(0.279 0.035 56);
+    /* #362417 */
+    --text-muted: oklch(0.43 0.04 56);
+    --highlight: oklch(0.99 0.02 103);
+    --border: oklch(0.6 0.05 162);
+    --border-muted: oklch(0.72 0.05 162);
+    --primary: oklch(0.423 0.066 162);
+    /* #285943 */
+    --secondary: oklch(0.5 0.09 95);
+    --accent: oklch(0.279 0.035 56);
+    /* #362417 */
+    --danger: oklch(0.5 0.1 30);
+    --warning: oklch(0.52 0.09 85);
+    --success: oklch(0.5 0.09 150);
+    --info: oklch(0.5 0.08 240);
 }
