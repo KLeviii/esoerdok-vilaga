@@ -175,7 +175,6 @@ nav .btn-outline:hover {
     display: inline-flex;
 }
 
-/* a Bootstrap menü az oldal tokenjeit használja, így a témával együtt vált */
 .menu {
     --bs-menu-bg: var(--bg-light);
     --bs-menu-color: var(--text);
@@ -221,6 +220,43 @@ body.light .menu {
     width: 700px;
 }
 
+@media (width < 768px) {
+    .hero {
+        background-image:
+            linear-gradient(color-mix(in oklch, var(--bg-dark) 75%, transparent), color-mix(in oklch, var(--bg-dark) 75%, transparent)),
+            url("../assets/img/hero-image.webp");
+    }
+
+    .hero-container {
+        margin-inline: auto;
+        text-align: center;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .hero h1 {
+        font-size: 60px !important;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .hero-buttons {
+        flex-direction: column;
+    }
+    .hero-buttons > div {
+        width: 80%;
+        margin-inline: auto;
+    }
+    .hero-buttons button {
+        width: 100%;
+    }
+    .hero h1 {
+        font-size: 48px !important;
+    }
+}
+
 h1 {
     font-size: 80px !important;
 }
@@ -243,4 +279,45 @@ h1 {
     background-color: var(--secondary);
     border-color: var(--secondary);
     color: var(--bg-dark);
+}
+
+.primary-btn-container {
+    position: relative;
+}
+
+.primary-btn-container .badge {
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(35%, -50%);
+    background-color: var(--secondary);
+    color: var(--bg-dark);
+    box-shadow: 0 0 0 2px var(--bg-dark);
+    pointer-events: none;
+}
+
+/* hamburger nézetben (768px alatt) a drawer az oldal tokenjeit használja */
+@media (width < 768px) {
+    .navbar .drawer {
+        --bs-drawer-bg: var(--bg-light);
+        --bs-drawer-color: var(--text);
+        --bs-drawer-border-color: var(--border-muted);
+        --bs-drawer-backdrop-bg: color-mix(in oklch, var(--bg-dark) 60%, transparent);
+    }
+
+    .navbar .drawer-title {
+        font-family: var(--font-heading);
+    }
+
+    .navbar .drawer .nav-link {
+        border-radius: var(--bs-radius-5);
+    }
+
+    .navbar .drawer .nav-link:hover {
+        background-color: var(--highlight);
+    }
+
+    .navbar .drawer .nav-link.active {
+        color: var(--primary);
+    }
 }
