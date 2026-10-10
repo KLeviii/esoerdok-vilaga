@@ -12,7 +12,13 @@
       <nav class="navbar md:navbar-expand bg-1">
         <div class="container-fluid">
           <a class="navbar-brand" href="#">
-            <img src="assets/brand/icon-dark.webp" alt="Esőerdők világa" title="Esőerdők világa" width="30" height="30">
+            <img
+              src="assets/brand/icon-dark.webp"
+              alt="Esőerdők világa"
+              title="Esőerdők világa"
+              width="30"
+              height="30"
+            />
           </a>
           <button
             class="btn-icon navbar-toggler"
@@ -32,7 +38,7 @@
             aria-labelledby="navbarDrawerLabel"
           >
             <div class="drawer-header">
-              <h5 class="drawer-title" id="navbarDrawerLabel">Menu</h5>
+              <h5 class="drawer-title" id="navbarDrawerLabel">Menü</h5>
               <button
                 type="button"
                 class="btn-close"
@@ -49,9 +55,11 @@
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="#">Élővilág</a>
-                </li><li class="nav-item">
+                </li>
+                <li class="nav-item">
                   <a class="nav-link" href="#">Kvíz</a>
-                </li><li class="nav-item">
+                </li>
+                <li class="nav-item">
                   <a class="nav-link" href="#">Térkép</a>
                 </li>
                 <li class="nav-item">
@@ -59,30 +67,166 @@
                 </li>
               </ul>
 
-              <button
-                type="button"
-                class="btn-icon btn-outline"
-                aria-label="Icon only"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  fill="currentColor"
-                  class="bi bi-brightness-high-fill"
-                  viewBox="0 0 16 16"
-                  id="themeSwitch"
+              <div class="theme-switcher">
+                <button
+                  type="button"
+                  class="btn-outline theme-switcher-toggle"
+                  id="themeToggle"
+                  data-bs-toggle="menu"
+                  data-bs-placement="bottom-end"
+                  aria-expanded="false"
+                  aria-label="Téma választása"
                 >
-                  <path
-                    id="svgPath"
-                    d="M12 8a4 4 0 1 1-8 0 4 4 0 0 1 8 0M8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0m0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13m8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5M3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8m10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0m-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0m9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707M4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708"
-                  />
-                </svg>
-              </button>
+                  <span class="theme-switcher-icon" id="themeToggleIcon"
+                    ><svg
+                      class="bi bi-circle-half"
+                      width="16"
+                      height="16"
+                      fill="currentColor"
+                      viewBox="0 0 16 16"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M8 15A7 7 0 1 0 8 1zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16"
+                      /></svg
+                  ></span>
+                  <svg
+                    class="bi bi-chevron-expand"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    viewBox="0 0 16 16"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M3.646 9.146a.5.5 0 0 1 .708 0L8 12.793l3.646-3.647a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 0-.708m0-2.292a.5.5 0 0 0 .708 0L8 3.207l3.646 3.647a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 0 0 0 .708"
+                    />
+                  </svg>
+                </button>
+                <div class="menu" aria-labelledby="themeToggle">
+                  <button
+                    class="menu-item"
+                    type="button"
+                    data-theme-value="light"
+                    aria-pressed="false"
+                  >
+                    <svg
+                      class="bi menu-item-icon bi-brightness-high-fill"
+                      width="16"
+                      height="16"
+                      fill="currentColor"
+                      viewBox="0 0 16 16"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M12 8a4 4 0 1 1-8 0 4 4 0 0 1 8 0M8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0m0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13m8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5M3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8m10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0m-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0m9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707M4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708"
+                      />
+                    </svg>
+                    <span class="menu-item-content">Világos</span>
+                    <svg
+                      class="bi menu-item-check bi-check2"
+                      width="16"
+                      height="16"
+                      fill="currentColor"
+                      viewBox="0 0 16 16"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0"
+                      />
+                    </svg>
+                  </button>
+                  <button
+                    class="menu-item"
+                    type="button"
+                    data-theme-value="dark"
+                    aria-pressed="false"
+                  >
+                    <svg
+                      class="bi menu-item-icon bi-moon-fill"
+                      width="16"
+                      height="16"
+                      fill="currentColor"
+                      viewBox="0 0 16 16"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M6 .278a.77.77 0 0 1 .08.858 7.2 7.2 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277q.792-.001 1.533-.16a.79.79 0 0 1 .81.316.73.73 0 0 1-.031.893A8.35 8.35 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.75.75 0 0 1 6 .278"
+                      />
+                    </svg>
+                    <span class="menu-item-content">Sötét</span>
+                    <svg
+                      class="bi menu-item-check bi-check2"
+                      width="16"
+                      height="16"
+                      fill="currentColor"
+                      viewBox="0 0 16 16"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0"
+                      />
+                    </svg>
+                  </button>
+                  <button
+                    class="menu-item"
+                    type="button"
+                    data-theme-value="auto"
+                    aria-pressed="false"
+                  >
+                    <svg
+                      class="bi menu-item-icon bi-circle-half"
+                      width="16"
+                      height="16"
+                      fill="currentColor"
+                      viewBox="0 0 16 16"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M8 15A7 7 0 1 0 8 1zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16"
+                      />
+                    </svg>
+                    <span class="menu-item-content">Automatikus</span>
+                    <svg
+                      class="bi menu-item-check bi-check2"
+                      width="16"
+                      height="16"
+                      fill="currentColor"
+                      viewBox="0 0 16 16"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0"
+                      />
+                    </svg>
+                  </button>
+                </div>
+              </div>
             </div>
           </dialog>
         </div>
       </nav>
+      <div class="hero d-flex flex-column justify-content-center">
+        <div class="hero-container ms-12">
+          <div class="hero-title mb-4">
+            <h1>Esőerdők világa</h1>
+          </div>
+          <div class="hero-hook-text mb-8">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque
+            delectus quis ut minus consequatur dolore quidem non quasi, itaque
+            pariatur consequuntur corrupti tempore doloremque placeat facilis
+            repudiandae. Tempore, ipsam suscipit?
+          </div>
+          <div class="hero-buttons">
+            <button type="button" class="btn-solid btn-lg me-4">
+              Fedezd fel!
+            </button>
+            <button type="button" class="btn-outline btn-lg">
+              Lépj velünk kapcsolatba!
+            </button>
+          </div>
+        </div>
+      </div>
     </header>
     <main></main>
     <footer></footer>

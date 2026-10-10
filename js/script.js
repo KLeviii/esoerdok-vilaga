@@ -1,16 +1,60 @@
-const SUN_SVG_CODE = "M12 8a4 4 0 1 1-8 0 4 4 0 0 1 8 0M8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0m0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13m8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5M3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8m10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0m-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0m9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707M4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708"
-const MOON_SVG_CODE = "M6 .278a.77.77 0 0 1 .08.858 7.2 7.2 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277q.792-.001 1.533-.16a.79.79 0 0 1 .81.316.73.73 0 0 1-.031.893A8.35 8.35 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.75.75 0 0 1 6 .278"
+const THEMES = ["light", "dark", "auto"]
+const STORAGE_KEY = "theme"
 
 let body = document.querySelector("body")
-let themeSwitch = document.querySelector("#themeSwitch")
-let themeSwitchSvgPath = document.querySelector("#svgPath")
+let themeToggleIcon = document.querySelector("#themeToggleIcon")
+let themeItems = document.querySelectorAll("[data-theme-value]")
+let brandLogo = document.querySelector(".navbar-brand img")
+let systemPrefersLight = window.matchMedia("(prefers-color-scheme: light)")
 
-const switchTheme = () => {
-    const isLight = body.classList.toggle("light")
-    themeSwitch.classList.toggle("bi-moon-fill", isLight)
-    themeSwitch.classList.toggle("bi-brightness-high-fill", !isLight)
-    themeSwitchSvgPath.setAttribute("d", isLight ? MOON_SVG_CODE : SUN_SVG_CODE)
+const loadTheme = () => {
+    try {
+        const saved = localStorage.getItem(STORAGE_KEY)
+        return THEMES.includes(saved) ? saved : "auto"
+    } catch {
+        return "auto"
+    }
 }
 
-themeSwitch.closest("button").addEventListener("click", switchTheme)
+const saveTheme = (theme) => {
+    try {
+        localStorage.setItem(STORAGE_KEY, theme)
+    } catch {}
+}
 
+let currentTheme = loadTheme()
+
+const applyTheme = () => {
+    const isLight = currentTheme === "light" || (currentTheme === "auto" && systemPrefersLight.matches)
+
+    body.classList.toggle("light", isLight)
+    document.documentElement.setAttribute("data-bs-theme", isLight ? "light" : "dark")
+
+    brandLogo.src = isLight ? "assets/brand/icon-light.webp" : "assets/brand/icon-dark.webp"
+
+    themeItems.forEach((item) => {
+        const isSelected = item.dataset.themeValue === currentTheme
+        item.classList.toggle("selected", isSelected)
+        item.classList.toggle("active", isSelected)
+        item.setAttribute("aria-pressed", isSelected)
+        if (isSelected) {
+            const icon = item.querySelector(".menu-item-icon").cloneNode(true)
+            icon.classList.remove("menu-item-icon")
+            themeToggleIcon.replaceChildren(icon)
+        }
+    })
+}
+
+themeItems.forEach((item) => {
+    item.addEventListener("click", () => {
+        currentTheme = item.dataset.themeValue
+        saveTheme(currentTheme)
+        applyTheme()
+    })
+})
+
+systemPrefersLight.addEventListener("change", () => {
+    if (currentTheme === "auto") applyTheme()
+})
+
+applyTheme()

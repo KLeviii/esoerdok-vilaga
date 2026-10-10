@@ -130,6 +130,10 @@ body.light {
     --info: oklch(0.5 0.08 240);
 }
 
+body {
+    background-color: var(--bg);
+}
+
 nav {
     background-color: var(--bg-light);
     
@@ -139,12 +143,104 @@ nav * {
     color: var(--text);
 }
 
-.btn-outline {
-    border: 1px solid var(--secondary);
-    color: var(--secondary);
+nav .btn-outline {
+    border: 1px solid var(--primary);
+    color: var(--primary);
 }
 
-/* márkanév a navbarban: címfont, hogy a fejléc illeszkedjen a címekhez */
+nav .btn-outline * {
+    color: inherit;
+}
+
+nav .btn-outline:hover {
+    background-color: var(--primary);
+    color: var(--bg-light) !important;
+}
+
+.nav-item .active, .hero-buttons button {
+    font-weight: 700;
+}
+
 .navbar-brand {
     font-family: var(--font-heading);
+}
+
+.theme-switcher-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.theme-switcher-icon {
+    display: inline-flex;
+}
+
+/* a Bootstrap menü az oldal tokenjeit használja, így a témával együtt vált */
+.menu {
+    --bs-menu-bg: var(--bg-light);
+    --bs-menu-color: var(--text);
+    --bs-menu-border-color: var(--border-muted);
+    --bs-menu-item-color: var(--text);
+    --bs-menu-item-hover-color: var(--text);
+    --bs-menu-item-hover-bg: var(--highlight);
+    --bs-menu-item-active-color: var(--bg-dark);
+    --bs-menu-item-active-bg: var(--primary);
+    --bs-menu-check-color: currentcolor;
+}
+
+body.light .menu {
+    --bs-menu-item-active-color: var(--bg-light);
+}
+
+.menu-item {
+    color: var(--bs-menu-item-color);
+}
+
+.menu-item.active,
+.menu-item:active {
+    color: var(--bs-menu-item-active-color);
+}
+
+.menu-item * {
+    color: inherit;
+}
+
+.hero {
+    min-height: calc(100vh - 58px);
+    background-image:
+        linear-gradient(90deg, color-mix(in oklch, var(--bg-dark) 90%, transparent) 0%, transparent 75%),
+        url("../assets/img/hero-image.webp");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.hero-container {
+    max-width: 80%;
+    width: 700px;
+}
+
+h1 {
+    font-size: 80px !important;
+}
+
+.hero-buttons .btn-solid {
+    background-color: var(--primary);
+    color: var(--bg-dark);
+}
+
+.hero-buttons .btn-solid:hover {
+    background-color: var(--secondary);
+}
+
+.hero-buttons .btn-outline {
+    background-color: none;
+    color: var(--primary);
+    border: 2px solid var(--primary);
+}
+.hero-buttons .btn-outline:hover {
+    background-color: var(--secondary);
+    border-color: var(--secondary);
+    color: var(--bg-dark);
 }
