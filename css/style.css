@@ -1,29 +1,69 @@
 :root {
+    /* Bootstrap 6 :root-on scrollbar-gutter: stable-t állít -> üres sáv jobb oldalt */
+    scrollbar-gutter: auto;
+
     /* dark: zöld alapú háttér, a megadott színek pontosan szerepelnek */
+
+    /* --- Háttér és felületek (spec 3.3) ---
+       Rétegzés: minél "magasabban" van egy elem, annál közelebb a bg-light-hoz.
+       Beágyazás sorrendje: oldal (bg) -> kártya (bg-light) -> kártyán belüli mező (bg vagy bg-dark) */
+    /* legmélyebb réteg: oldalsáv, footer, beágyazott mezők hátterének mélyítése */
     --bg-dark: oklch(0.17 0.03 162);
+    /* oldal alap háttere (body) */
     --bg: oklch(0.22 0.04 162);
+    /* emelt felületek: kártya, modal, dropdown, input háttér */
     --bg-light: oklch(0.27 0.045 162);
-    --text: oklch(0.92 0.026 322);
-    /* #eddfef */
-    --text-muted: oklch(0.75 0.03 322);
+    /* hover, kijelölt sor, aktív menüpont háttere */
     --highlight: oklch(0.52 0.07 162);
+
+    /* --- Szöveg és keretek (spec 3.4) --- */
+    /* törzsszöveg, címek; #eddfef */
+    --text: oklch(0.92 0.026 322);
+    /* segédszöveg, dátum, placeholder, kikapcsolt elem */
+    --text-muted: oklch(0.75 0.03 322);
+    /* kártya, input, gomb kerete, látható elválasztó; #285943 */
     --border: oklch(0.423 0.066 162);
-    /* #285943 */
+    /* finom elválasztó vonal, táblázat sorai */
     --border-muted: oklch(0.32 0.05 162);
+
+    /* --- Márkaszínek (spec 3.5) --- */
+    /* fő gomb, link, aktív állapot, fókusz gyűrű, kiemelt ikon; a #285943 világosított változata */
     --primary: oklch(0.72 0.1 162);
-    /* a #285943 világosított változata */
+    /* másodlagos gomb, címke, díszítő kiemelés, csillag/értékelés; #efe9ae */
     --secondary: oklch(0.925 0.076 103);
-    /* #efe9ae */
+    /* #362417; dark módban alig különbözik a háttértől -> NE szövegnek/ikonnak,
+       csak finom hangulati felületnek (pl. kiemelt sáv háttere).
+       Light módban = text szín, ott szövegnek és sötét felületnek is jó */
     --accent: oklch(0.279 0.035 56);
-    /* #362417 */
+
+    /* --- Állapotszínek (spec 3.6) ---
+       Dark módban világosabb, light módban sötétebb árnyalat a kontraszt miatt */
+    /* hiba, törlés gomb, hibás mező kerete, érvénytelen állapot
+       (hibaüzenet: háttér danger ~15% átlátszósággal, szöveg + keret danger) */
     --danger: oklch(0.7 0.08 30);
+    /* figyelmeztetés, nem végleges vagy kockázatos művelet */
     --warning: oklch(0.78 0.08 90);
+    /* sikeres mentés, kész állapot, megerősítés.
+       Hasonlít a primary-re -> sikert mindig ikonnal/szöveggel is jelezd, ne csak színnel */
     --success: oklch(0.72 0.09 150);
+    /* semleges tájékoztatás, tipp, súgó */
     --info: oklch(0.72 0.07 240);
+
+    /* --- Gyakori párosítások (spec 3.7) ---
+       Oldal:            háttér bg,          szöveg text,       keret nincs
+       Kártya:           háttér bg-light,    szöveg text,       keret border-muted
+       Fő gomb:          háttér primary,     szöveg bg-dark (light: bg-light)
+       Másodlagos gomb:  háttér secondary,   szöveg bg-dark (light: bg-light)
+       Körvonalas gomb:  háttér átlátszó,    szöveg primary,    keret primary
+       Input:            háttér bg-dark (light: bg-light), szöveg text, keret border, fókuszon primary
+       Hover sor/menü:   háttér highlight,   szöveg text
+       Link:             szöveg primary
+       Segédszöveg:      szöveg text-muted */
 }
 
 body.light {
-    /* light: krémsárga alap, barna szöveg, a zöld a primary */
+    /* light: krémsárga alap, barna szöveg, a zöld a primary
+       Ugyanazok a tokenek, ugyanarra a célra -> használati leírás a :root-ban */
     --bg-dark: oklch(0.9 0.04 103);
     --bg: oklch(0.94 0.035 103);
     /* #efe9ae halványítva */
@@ -43,4 +83,13 @@ body.light {
     --warning: oklch(0.52 0.09 85);
     --success: oklch(0.5 0.09 150);
     --info: oklch(0.5 0.08 240);
+}
+
+nav {
+    background-color: var(--bg-light);
+}
+
+.btn-outline {
+    border: 1px solid var(--secondary);
+    color: var(--secondary);
 }
