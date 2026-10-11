@@ -58,3 +58,5 @@ systemPrefersLight.addEventListener("change", () => {
 })
 
 applyTheme()
+
+document.querySelectorAll('.gallery .carousel-indicators [data-bs-slide-to="0"]').forEach((dot) => dot.click())
