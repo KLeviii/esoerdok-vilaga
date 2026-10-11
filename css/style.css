@@ -80,6 +80,9 @@
        csak finom hangulati felületnek (pl. kiemelt sáv háttere).
        Light módban = text szín, ott szövegnek és sötét felületnek is jó */
     --accent: oklch(0.279 0.035 56);
+    /* szöveg primary/secondary háttéren (fő és másodlagos gomb, kiválasztott menüelem, badge):
+       dark módban bg-dark, light módban bg-light (spec 3.7) */
+    --on-primary: var(--bg-dark);
 
     /* --- Állapotszínek (spec 3.6) ---
        Dark módban világosabb, light módban sötétebb árnyalat a kontraszt miatt */
@@ -124,6 +127,7 @@ body.light {
     --secondary: oklch(0.5 0.09 95);
     --accent: oklch(0.279 0.035 56);
     /* #362417 */
+    --on-primary: var(--bg-light);
     --danger: oklch(0.5 0.1 30);
     --warning: oklch(0.52 0.09 85);
     --success: oklch(0.5 0.09 150);
@@ -132,11 +136,56 @@ body.light {
 
 body {
     background-color: var(--bg);
+    color: var(--text);
 }
 
+a {
+    color: var(--primary);
+}
+
+.text-muted {
+    color: var(--text-muted);
+}
+
+.bg-body {
+    background-color: var(--bg);
+}
+
+.bg-dark {
+    background-color: var(--bg-dark);
+}
+
+.btn-solid {
+    background-color: var(--primary);
+    color: var(--on-primary);
+    border: 2px solid var(--primary);
+}
+
+.btn-solid:hover {
+    background-color: var(--secondary);
+    border-color: var(--secondary);
+    color: var(--on-primary);
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: var(--primary);
+    border: 2px solid var(--primary);
+}
+
+.btn-outline:hover {
+    background-color: var(--primary);
+    color: var(--on-primary);
+}
+
+.btn-solid *,
+.btn-outline * {
+    color: inherit;
+}
+
+/* --- Navbar --- */
 nav {
     background-color: var(--bg-light);
-    
 }
 
 nav * {
@@ -144,27 +193,29 @@ nav * {
 }
 
 nav .btn-outline {
-    border: 1px solid var(--primary);
+    border-width: 1px;
     color: var(--primary);
 }
 
-nav .btn-outline * {
-    color: inherit;
-}
-
 nav .btn-outline:hover {
-    background-color: var(--primary);
-    color: var(--bg-light) !important;
-}
-
-.nav-item .active, .hero-buttons button {
-    font-weight: 700;
+    color: var(--on-primary);
 }
 
 .navbar-brand {
     font-family: var(--font-heading);
 }
 
+.navbar-brand img {
+    width: 1.875rem;
+    height: 1.875rem;
+}
+
+.navbar .nav-link.active {
+    color: var(--primary);
+    font-weight: 700;
+}
+
+/* --- Témaválasztó menü --- */
 .theme-switcher-toggle {
     display: inline-flex;
     align-items: center;
@@ -182,13 +233,9 @@ nav .btn-outline:hover {
     --bs-menu-item-color: var(--text);
     --bs-menu-item-hover-color: var(--text);
     --bs-menu-item-hover-bg: var(--highlight);
-    --bs-menu-item-active-color: var(--bg-dark);
+    --bs-menu-item-active-color: var(--on-primary);
     --bs-menu-item-active-bg: var(--primary);
     --bs-menu-check-color: currentcolor;
-}
-
-body.light .menu {
-    --bs-menu-item-active-color: var(--bg-light);
 }
 
 .menu-item {
@@ -204,8 +251,9 @@ body.light .menu {
     color: inherit;
 }
 
+/* --- Hero --- */
 .hero {
-    min-height: calc(100vh - 58px);
+    min-height: calc(100vh - 3.625rem);
     background-image:
         linear-gradient(90deg, color-mix(in oklch, var(--bg-dark) 90%, transparent) 0%, transparent 75%),
         url("../assets/img/hero-image.webp");
@@ -217,7 +265,243 @@ body.light .menu {
 
 .hero-container {
     max-width: 80%;
-    width: 700px;
+    width: 43.75rem;
+}
+
+.hero h1 {
+    font-size: 5rem;
+}
+
+.hero-buttons button {
+    font-weight: 700;
+}
+
+.hero-buttons .btn-outline:hover {
+    background-color: var(--secondary);
+    border-color: var(--secondary);
+}
+
+.primary-btn-container {
+    position: relative;
+}
+
+.primary-btn-container .badge {
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(35%, -50%);
+    background-color: var(--secondary);
+    color: var(--on-primary);
+    box-shadow: 0 0 0 2px var(--bg-dark);
+    pointer-events: none;
+}
+
+.accordion {
+    --bs-accordion-color: var(--text);
+    --bs-accordion-bg: var(--bg-light);
+    --bs-accordion-border-color: var(--border-muted);
+    --bs-accordion-btn-color: var(--text);
+    --bs-accordion-btn-bg: var(--bg-light);
+}
+
+.accordion-item {
+    background-color: var(--bg-light);
+    color: var(--text);
+}
+
+.accordion-item summary {
+    background-color: var(--bg-light);
+    color: var(--text);
+}
+
+.accordion-item summary:hover {
+    background-color: var(--highlight);
+}
+
+
+.card {
+    --bs-card-bg: var(--bg-light);
+    --bs-card-color: var(--text);
+    --bs-card-border-color: var(--border-muted);
+    background-color: var(--bg-light);
+    color: var(--text);
+    border-color: var(--border-muted);
+}
+
+.accordion .card {
+    --bs-card-bg: var(--bg);
+    background-color: var(--bg);
+}
+
+.gallery {
+    container: gallery / inline-size;
+}
+
+.gallery .grid {
+    grid-template-rows: none;
+}
+
+.gallery-tile {
+    position: relative;
+    overflow: hidden;
+    background-color: var(--bg-light);
+    border: 1px solid var(--border-muted);
+    border-radius: 3rem 1rem;
+}
+
+@container gallery (width < 768px) {
+    .gallery-tile:nth-child(even) {
+        border-radius: 1rem 3rem;
+    }
+}
+
+.gallery-tile-a {
+    aspect-ratio: 1 / 1;
+}
+
+.gallery-tile-b {
+    min-height: 20rem;
+}
+
+.gallery-tile-c {
+    aspect-ratio: 21 / 9;
+}
+
+.gallery-tile-d {
+    aspect-ratio: 4 / 5;
+}
+
+.gallery-tile-e {
+    aspect-ratio: 16 / 9;
+}
+
+.gallery-tile .carousel {
+    position: absolute;
+    inset: 0;
+    --bs-carousel-indicator-bg: var(--text);
+}
+
+.gallery-tile .carousel-inner,
+.gallery-tile .carousel-item {
+    height: 100%;
+}
+
+.gallery-tile .carousel-item img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.gallery-controls {
+    position: absolute;
+    inset-block-end: 1rem;
+    inset-inline-end: 1rem;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0.25rem;
+    border-radius: 999px;
+    background-color: color-mix(in oklch, var(--bg-dark) 70%, transparent);
+    backdrop-filter: blur(8px);
+    color: var(--text);
+}
+
+.gallery-control {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background-color: transparent;
+    color: inherit;
+    cursor: pointer;
+}
+
+.gallery-control:hover {
+    background-color: var(--highlight);
+}
+
+.gallery-control:focus-visible,
+.gallery-controls .carousel-indicators button:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+
+.gallery-tile-action {
+    position: absolute;
+    inset-block-end: 1rem;
+    inset-inline-start: 1rem;
+    z-index: 1;
+    font-weight: 700;
+}
+
+.gallery-fact {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    padding: 2rem 2rem 5rem;
+}
+
+.gallery-fact-eyebrow {
+    margin-bottom: 0.5rem;
+    color: var(--secondary);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.gallery-fact-title {
+    margin-bottom: 0.75rem;
+    font-size: 1.75rem;
+}
+
+.gallery-fact-text {
+    margin: 0;
+    color: var(--text-muted);
+}
+
+@container gallery (width >=768px) {
+    .gallery .grid {
+        grid-auto-rows: 13rem;
+    }
+
+    .gallery-tile {
+        aspect-ratio: auto;
+        min-height: 0;
+        border-radius: 1rem;
+    }
+
+    .gallery-tile-a {
+        grid-row: span 3;
+        border-start-start-radius: 4rem;
+    }
+
+    .gallery-tile-b {
+        grid-row: span 2;
+        border-start-end-radius: 4rem;
+    }
+
+    .gallery-tile-c {
+        grid-row: span 1;
+        border-radius: 2.5rem 1rem;
+    }
+
+    .gallery-tile-d {
+        grid-row: span 2;
+        border-end-start-radius: 4rem;
+    }
+
+    .gallery-tile-e {
+        grid-row: span 2;
+        border-end-end-radius: 4rem;
+    }
 }
 
 @media (width < 768px) {
@@ -237,67 +521,9 @@ body.light .menu {
     }
 
     .hero h1 {
-        font-size: 60px !important;
+        font-size: 3.75rem;
     }
-}
 
-@media only screen and (max-width: 600px) {
-    .hero-buttons {
-        flex-direction: column;
-    }
-    .hero-buttons > div {
-        width: 80%;
-        margin-inline: auto;
-    }
-    .hero-buttons button {
-        width: 100%;
-    }
-    .hero h1 {
-        font-size: 48px !important;
-    }
-}
-
-h1 {
-    font-size: 80px !important;
-}
-
-.hero-buttons .btn-solid {
-    background-color: var(--primary);
-    color: var(--bg-dark);
-}
-
-.hero-buttons .btn-solid:hover {
-    background-color: var(--secondary);
-}
-
-.hero-buttons .btn-outline {
-    background-color: none;
-    color: var(--primary);
-    border: 2px solid var(--primary);
-}
-.hero-buttons .btn-outline:hover {
-    background-color: var(--secondary);
-    border-color: var(--secondary);
-    color: var(--bg-dark);
-}
-
-.primary-btn-container {
-    position: relative;
-}
-
-.primary-btn-container .badge {
-    position: absolute;
-    top: 0;
-    right: 0;
-    transform: translate(35%, -50%);
-    background-color: var(--secondary);
-    color: var(--bg-dark);
-    box-shadow: 0 0 0 2px var(--bg-dark);
-    pointer-events: none;
-}
-
-/* hamburger nézetben (768px alatt) a drawer az oldal tokenjeit használja */
-@media (width < 768px) {
     .navbar .drawer {
         --bs-drawer-bg: var(--bg-light);
         --bs-drawer-color: var(--text);
@@ -316,8 +542,39 @@ h1 {
     .navbar .drawer .nav-link:hover {
         background-color: var(--highlight);
     }
+}
 
-    .navbar .drawer .nav-link.active {
-        color: var(--primary);
+@media (width <=600px) {
+    .hero-buttons {
+        flex-direction: column;
+    }
+
+    .hero-buttons>div {
+        width: 80%;
+        margin-inline: auto;
+    }
+
+    .hero-buttons button {
+        width: 100%;
+    }
+
+    .hero h1 {
+        font-size: 3rem;
+    }
+}
+
+@media (width >=1920px) {
+    html {
+        font-size: clamp(16px, calc(100vw / 120), 32px);
+    }
+
+    .container {
+        max-width: 90rem;
+    }
+
+    .hero {
+        background-image:
+            linear-gradient(90deg, var(--bg-dark) 0%, transparent 75%),
+            url("../assets/img/hero-image.webp");
     }
 }
