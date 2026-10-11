@@ -17,7 +17,7 @@
     </header>
 
     <main>
-        <section class="p-5">
+        <section class="p-5 terkep">
             <div class="box">
                 <h2>Térkép</h2>
                 <p class="mt-5">Az Amazonas a Föld legnagyobb esőerdője és egyben a világ legnagyobb vízhozamú
@@ -38,7 +38,7 @@
             </div>
 
         </section>
-        <section class="p-5">
+        <section class="p-5 kartyak">
 
             <div class="container">
                 <div class="row sm:row-cols-1 md:row-cols-2 lg:row-cols-4 g-3 text-center">
@@ -91,8 +91,11 @@
 
                 </div>
             </div>
-            <h3>alma</h3>
-            <div class="container idegenvezetok">
+        </section>
+
+        <section class="idegenvezetok">
+            <h3 class="text-center">Idegenvezetőink</h3>
+            <div class="container ">
                 <div class="row sm:row-cols-1 md:row-cols-2 lg:row-cols-3 g-3 text-center ">
 
 
@@ -200,6 +203,75 @@
 
 
                 </div>
+            </div>
+        </section>
+        <section class="galeria m-5 p-5">
+            <div class="container">
+
+                <div id="slider">
+                    <input type="radio" name="slider" id="slide1" checked>
+                    <input type="radio" name="slider" id="slide2">
+                    <input type="radio" name="slider" id="slide3">
+                    <input type="radio" name="slider" id="slide4">
+
+                    <div id="slides">
+                        <div id="overflow">
+                            <div class="inner">
+                                <div class="slide slide_1">
+                                    <div class="slide-content">
+                                        <h2>Slide 1</h2>
+                                        <p>Content for Slide 1</p>
+                                    </div>
+                                </div>
+                                <div class="slide slide_2">
+                                    <div class="slide-content">
+                                        <h2>Slide 2</h2>
+                                        <p>Content for Slide 2</p>
+                                    </div>
+                                </div>
+                                <div class="slide slide_3">
+                                    <div class="slide-content">
+                                        <h2>Slide 3</h2>
+                                        <p>Content for Slide 3</p>
+                                    </div>
+                                </div>
+                                <div class="slide slide_4">
+                                    <div class="slide-content">
+                                        <h2>Slide 4</h2>
+                                        <p>Content for Slide 4</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="controls">
+                        <div class="ctrl c1">
+                            <label for="slide4" class="prev">‹</label>
+                            <label for="slide2" class="next">›</label>
+                        </div>
+                        <div class="ctrl c2">
+                            <label for="slide1" class="prev">‹</label>
+                            <label for="slide3" class="next">›</label>
+                        </div>
+                        <div class="ctrl c3">
+                            <label for="slide2" class="prev">‹</label>
+                            <label for="slide4" class="next">›</label>
+                        </div>
+                        <div class="ctrl c4">
+                            <label for="slide3" class="prev">‹</label>
+                            <label for="slide1" class="next">›</label>
+                        </div>
+                    </div>
+
+                    <div id="bullets">
+                        <label for="slide1"></label>
+                        <label for="slide2"></label>
+                        <label for="slide3"></label>
+                        <label for="slide4"></label>
+                    </div>
+                </div>
+
             </div>
         </section>
     </main>
