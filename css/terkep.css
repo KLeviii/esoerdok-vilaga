@@ -6,7 +6,7 @@ body{
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    background-color: var(--primary) ;
+    background-color: var(--bg) ;
 }
 
 main{
@@ -22,7 +22,7 @@ section{
     flex-wrap: wrap;
     justify-content: center;
     gap: 20px;
-    color: var(--secondary);    
+    color: var(--text);    
     width: 100%;
 }
 
@@ -62,14 +62,37 @@ p{
 }
 
 .card{
-background-color: var(--border);
-color: var(--secondary);
-border: 2px solid var(--border-muted);
+background-color: var(--bg-light);
+color: var(--text);
+border: 2px solid var(--border);
 }
 
 .card-title{
     height: 2.7em;
 }
+
+.accordion-header, .accordion-body, .accordion{
+    background-color: var(--bg-light);
+    color: var(--text);
+}
+
+.accordion-body{
+    max-height: 390px;
+}
+
+.accordion{
+    max-height: 440px;
+    
+}
+
+.idegenvezetok .col{
+    display: flex;
+    justify-content: center;
+    
+}
+
+
+
 
 /*
 
