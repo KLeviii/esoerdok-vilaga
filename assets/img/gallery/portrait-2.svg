@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 1200" width="960" height="1200">
+<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2a1b11"/><stop offset="1" stop-color="#362417"/></linearGradient>
+<filter id="b"><feGaussianBlur stdDeviation="19"/></filter></defs>
+<rect width="960" height="1200" fill="url(#g)"/>
+<g filter="url(#b)"><path d="M1036,1133 Q994,1251 875,1290 Q757,1329 668,1260 Q580,1191 559,1103 Q538,1014 555,922 Q572,830 665,791 Q757,751 834,805 Q911,860 995,937 Q1078,1014 1036,1133 Z" fill="#285943" opacity="0.81"/><path d="M297,1048 Q269,1102 214,1115 Q160,1128 116,1105 Q73,1081 43,1037 Q13,993 44,951 Q76,909 118,883 Q160,856 208,877 Q256,897 291,945 Q325,993 297,1048 Z" fill="#5a3d27" opacity="0.69"/></g>
+<path d="M413,1258 Q370,1404 224,1450 Q77,1495 -41,1422 Q-159,1348 -222,1230 Q-285,1111 -206,1009 Q-127,907 -25,856 Q77,805 228,808 Q378,811 417,961 Q457,1111 413,1258 Z" fill="#efe9ae" opacity="0.56"/><path d="M488,492 Q438,552 378,610 Q318,668 228,641 Q137,614 144,523 Q150,433 168,366 Q186,300 252,250 Q318,201 379,256 Q439,312 489,372 Q539,433 488,492 Z" fill="#efe9ae" opacity="0.77"/><path d="M104,805 Q480,250 858,352" fill="none" stroke="#efe9ae" stroke-width="8" opacity="0.5"/>
+<text x="912" y="86" text-anchor="end" font-family="sans-serif" font-size="43" fill="#efe9ae" opacity="0.7">4:5</text>
+</svg>

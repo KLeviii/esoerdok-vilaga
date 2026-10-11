@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1200" width="1200" height="1200">
+<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1d3f30"/><stop offset="1" stop-color="#285943"/></linearGradient>
+<filter id="b"><feGaussianBlur stdDeviation="24"/></filter></defs>
+<rect width="1200" height="1200" fill="url(#g)"/>
+<g filter="url(#b)"><path d="M823,643 Q792,787 647,889 Q503,991 361,886 Q219,782 171,640 Q122,498 193,378 Q263,258 383,181 Q503,103 641,163 Q778,222 817,360 Q855,498 823,643 Z" fill="#5f9e7c" opacity="0.81"/><path d="M518,304 Q517,447 373,501 Q230,554 64,523 Q-102,493 -147,327 Q-192,161 -104,37 Q-16,-86 107,-136 Q230,-186 359,-142 Q488,-97 504,32 Q520,161 518,304 Z" fill="#3f7d5f" opacity="0.52"/></g>
+<path d="M199,151 Q184,234 101,271 Q18,308 -52,258 Q-122,208 -161,138 Q-199,68 -165,-7 Q-131,-81 -56,-137 Q18,-192 110,-153 Q201,-115 208,-23 Q214,68 199,151 Z" fill="#eddfef" opacity="0.45"/><path d="M714,1312 Q696,1424 584,1418 Q471,1412 383,1394 Q295,1375 224,1287 Q152,1199 236,1123 Q319,1047 395,1000 Q471,953 566,981 Q661,1009 697,1104 Q732,1199 714,1312 Z" fill="#eddfef" opacity="0.44"/><path d="M113,728 Q600,527 1164,5" fill="none" stroke="#efe9ae" stroke-width="10" opacity="0.5"/>
+<text x="1140" y="108" text-anchor="end" font-family="sans-serif" font-size="54" fill="#efe9ae" opacity="0.7">1:1</text>
+</svg>
