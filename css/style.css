@@ -155,6 +155,10 @@ a {
     background-color: var(--bg-dark);
 }
 
+.bg-light {
+  background-color: var(--bg-light);
+}
+
 .btn-solid {
     background-color: var(--primary);
     color: var(--on-primary);
@@ -466,6 +470,21 @@ nav .btn-outline:hover {
     margin: 0;
     color: var(--text-muted);
 }
+
+.footer-title {
+  display: inline-block;
+  border-bottom: 3px solid var(--secondary);
+  border-bottom-right-radius: 4px;
+}
+
+.copyright-footer {
+  border-top: 1px solid  var(--border);
+}
+
+.copyright-footer {
+  color: var(--text-muted);
+}
+
 
 @container gallery (width >=768px) {
     .gallery .grid {

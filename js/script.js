@@ -6,6 +6,7 @@ let themeToggleIcon = document.querySelector("#themeToggleIcon")
 let themeItems = document.querySelectorAll("[data-theme-value]")
 let brandLogo = document.querySelector(".navbar-brand img")
 let systemPrefersLight = window.matchMedia("(prefers-color-scheme: light)")
+let footerLogo = document.querySelector(".footer-brand img")
 
 const loadTheme = () => {
     try {
@@ -31,6 +32,7 @@ const applyTheme = () => {
     document.documentElement.setAttribute("data-bs-theme", isLight ? "light" : "dark")
 
     brandLogo.src = isLight ? "assets/brand/icon-light.webp" : "assets/brand/icon-dark.webp"
+    footerLogo.src = isLight ? "assets/brand/brand-light.webp" : "assets/brand/brand-dark.webp"
 
     themeItems.forEach((item) => {
         const isSelected = item.dataset.themeValue === currentTheme
