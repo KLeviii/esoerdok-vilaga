@@ -62,3 +62,25 @@ systemPrefersLight.addEventListener("change", () => {
 applyTheme()
 
 document.querySelectorAll('.gallery .carousel-indicators [data-bs-slide-to="0"]').forEach((dot) => dot.click())
+
+// --- Próbakérdés ---
+let probaKerdes = document.querySelector("#probaKerdes")
+let probaHelyes = document.querySelector("#probaHelyes")
+let probaHibas = document.querySelector("#probaHibas")
+
+probaKerdes.addEventListener("submit", (event) => {
+    event.preventDefault()
+    const isCorrect = probaKerdes.elements.proba.value === "lajhar"
+    probaHelyes.hidden = !isCorrect
+    probaHibas.hidden = isCorrect
+})
+
+// --- Vissza a tetejére gomb: csak lefelé görgetés után látszik ---
+let backToTop = document.querySelector("#backToTop")
+
+const updateBackToTop = () => {
+    backToTop.hidden = window.scrollY < window.innerHeight
+}
+
+window.addEventListener("scroll", updateBackToTop, { passive: true })
+updateBackToTop()
