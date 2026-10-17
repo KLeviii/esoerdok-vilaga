@@ -14,7 +14,6 @@
 
 <body>
   <script>
-    // a mentett témát azonnal beállítjuk, így betöltéskor nem villan át a sötét téma
     try {
       const saved = localStorage.getItem("theme")
       if (saved === "light" || (saved !== "dark" && matchMedia("(prefers-color-scheme: light)").matches)) {
@@ -23,8 +22,8 @@
     } catch {}
   </script>
   <a class="visually-hidden-focusable" href="#main">Ugrás a tartalomra</a>
-  <header>
-    <nav class="navbar md:navbar-expand bg-1 md:sticky-top" id="pageTop">
+  <header class="sticky-top" id="siteHeader">
+    <nav class="navbar md:navbar-expand bg-1" id="pageTop">
       <div class="container">
         <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
           <img src="assets/brand/icon-dark.webp" alt="" width="30" height="30" />
@@ -116,6 +115,9 @@
         </dialog>
       </div>
     </nav>
+  </header>
+
+  <main id="main">
     <div class="hero d-flex flex-column justify-content-center">
       <div class="container">
         <div class="hero-container">
@@ -141,10 +143,8 @@
         </div>
       </div>
     </div>
-  </header>
 
-  <main id="main" class="mt-8">
-    <section class="container mb-12" id="bevezetes" aria-labelledby="bevezetesTitle">
+    <section class="container mt-8 mb-12" id="bevezetes" aria-labelledby="bevezetesTitle">
       <div class="row gy-8 align-items-center">
         <div class="col-12 lg:col-7">
           <h2 class="mb-6" id="bevezetesTitle">Miért fontosak az esőerdők?</h2>
@@ -518,10 +518,7 @@
           </div>
           <div class="col-12 md:col-6 lg:col-4">
             <h2 class="footer-title h6 pb-2 mb-4">A projektről</h2>
-            <p class="mb-2">Készítették: Káldor Levente és Megyer Menes</p>
-            <a href="https://github.com/KLeviii/esoerdok-vilaga" target="_blank" rel="noopener">
-              A projekt a GitHubon
-            </a>
+            <p class="mb-2">Készítették: Káldor Levente és Ménes Megyer</p>
           </div>
         </div>
       </div>
@@ -531,7 +528,7 @@
     </div>
   </footer>
 
-  <a href="#pageTop" class="btn-solid btn-icon position-fixed bottom-0 end-0 m-6 z-3" id="backToTop"
+  <a href="#top" class="btn-solid btn-icon position-fixed bottom-0 end-0 m-6 z-3" id="backToTop"
     aria-label="Vissza a tetejére" hidden>
     <svg class="bi" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
       <path fill-rule="evenodd"

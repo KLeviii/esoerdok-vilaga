@@ -84,3 +84,17 @@ const updateBackToTop = () => {
 
 window.addEventListener("scroll", updateBackToTop, { passive: true })
 updateBackToTop()
+
+// --- Navbar: lefelé görgetéskor elbújik, felfelé görgetéskor egyből megjelenik ---
+let siteHeader = document.querySelector("#siteHeader")
+let lastScrollY = window.scrollY
+
+const updateNavbar = () => {
+    const scrollY = window.scrollY
+    // apró rezdülésekre (pl. touchpad) ne villogjon
+    if (Math.abs(scrollY - lastScrollY) < 5) return
+    siteHeader.classList.toggle("header-hidden", scrollY > lastScrollY && scrollY > siteHeader.offsetHeight)
+    lastScrollY = scrollY
+}
+
+window.addEventListener("scroll", updateNavbar, { passive: true })

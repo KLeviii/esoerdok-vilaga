@@ -570,6 +570,11 @@ nav .btn-outline:hover {
         font-size: 3.75rem;
     }
 
+    /* mobilon lefelé görgetéskor elbújik, felfelé azonnal visszajön (script.js) */
+    #siteHeader.header-hidden {
+        transform: translateY(-100%);
+    }
+
     .navbar .drawer {
         --bs-drawer-bg: var(--bg-light);
         --bs-drawer-color: var(--text);
