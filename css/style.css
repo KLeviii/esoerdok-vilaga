@@ -134,12 +134,19 @@ body.light {
     --info: oklch(0.5 0.08 240);
 }
 
+html {
+    scroll-padding-top: 3.5rem;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    html {
+        scroll-behavior: smooth;
+    }
+}
+
 body {
     background-color: var(--bg);
     color: var(--text);
-
-    /* a saját tokenek ráhúzása a Bootstrap 6 változóira, így a beépített komponensek
-       (tabok, rádiógombok, alertek, form) külön szabály nélkül átveszik a témát */
     --bs-bg-body: var(--bg);
     --bs-bg-1: var(--bg-light);
     --bs-fg-body: var(--text);
@@ -156,7 +163,6 @@ body {
     --bs-control-checked-bg: var(--primary);
     --bs-control-checked-border-color: var(--primary);
     --bs-focus-ring-color: color-mix(in oklch, var(--primary) 45%, transparent);
-    /* állapot üzenet: háttér ~15% átlátszósággal, szöveg + keret a szín (spec 3.7) */
     --bs-success-fg: var(--success);
     --bs-success-border: var(--success);
     --bs-success-bg-subtle: color-mix(in oklch, var(--success) 15%, transparent);
@@ -326,6 +332,27 @@ nav .btn-outline:hover {
 @keyframes hero-scroll {
     50% {
         transform: translateY(4px);
+    }
+}
+
+#backToTop {
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease,
+        box-shadow 0.2s ease,
+        visibility 0.3s;
+}
+
+#backToTop.is-hidden {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(1rem);
+    pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #backToTop {
+        transition: none;
     }
 }
 
@@ -570,7 +597,6 @@ nav .btn-outline:hover {
         font-size: 3.75rem;
     }
 
-    /* mobilon lefelé görgetéskor elbújik, felfelé azonnal visszajön (script.js) */
     #siteHeader.header-hidden {
         transform: translateY(-100%);
     }

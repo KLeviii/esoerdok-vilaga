@@ -63,7 +63,6 @@ applyTheme()
 
 document.querySelectorAll('.gallery .carousel-indicators [data-bs-slide-to="0"]').forEach((dot) => dot.click())
 
-// --- Próbakérdés ---
 let probaKerdes = document.querySelector("#probaKerdes")
 let probaHelyes = document.querySelector("#probaHelyes")
 let probaHibas = document.querySelector("#probaHibas")
@@ -75,23 +74,20 @@ probaKerdes.addEventListener("submit", (event) => {
     probaHibas.hidden = isCorrect
 })
 
-// --- Vissza a tetejére gomb: csak lefelé görgetés után látszik ---
 let backToTop = document.querySelector("#backToTop")
 
 const updateBackToTop = () => {
-    backToTop.hidden = window.scrollY < window.innerHeight
+    backToTop.classList.toggle("is-hidden", window.scrollY < window.innerHeight)
 }
 
 window.addEventListener("scroll", updateBackToTop, { passive: true })
 updateBackToTop()
 
-// --- Navbar: lefelé görgetéskor elbújik, felfelé görgetéskor egyből megjelenik ---
 let siteHeader = document.querySelector("#siteHeader")
 let lastScrollY = window.scrollY
 
 const updateNavbar = () => {
     const scrollY = window.scrollY
-    // apró rezdülésekre (pl. touchpad) ne villogjon
     if (Math.abs(scrollY - lastScrollY) < 5) return
     siteHeader.classList.toggle("header-hidden", scrollY > lastScrollY && scrollY > siteHeader.offsetHeight)
     lastScrollY = scrollY
