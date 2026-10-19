@@ -9,11 +9,39 @@ body {
 
 }
 
+.kepek{
+    max-width: 300px;
+    max-height: 300px;
+    object-fit: contain;
+}
 
+.tarolo{
+    margin-top:20px ;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.szovegTarolo{
+    width: 70%;
+    
+}
+
+.kepTarolo{
+    width: 30%;
+}
 
 .accordion,
 .accordion-body,
 .accordion-header {
     color: var(--text);
     background-color: var(--bg);
+}
+
+@media (max-width: 850px){
+    .szovegTarolo,.kepTarolo{
+        width: 100%;
+    }
+    .kepTarolo{
+        text-align: center;
+    }
 }
