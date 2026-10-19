@@ -612,8 +612,27 @@ nav .btn-outline:hover {
         font-family: var(--font-heading);
     }
 
+    /* a drawerben az ms-auto me-4 jobbra tolná a menüpontokat */
+    .navbar .drawer .navbar-nav {
+        margin-inline: 0;
+    }
+
     .navbar .drawer .nav-link {
+        display: flex;
+        justify-content: flex-start;
+        width: 100%;
+        padding: 0.625rem 0.75rem;
         border-radius: var(--bs-radius-5);
+    }
+
+    .navbar .drawer .nav-link.active {
+        background-color: color-mix(in oklch, var(--primary) 15%, transparent);
+    }
+
+    .navbar .drawer .theme-switcher {
+        margin-top: 1rem;
+        padding-top: 1rem;
+        border-top: 1px solid var(--border-muted);
     }
 
     .navbar .drawer .nav-link:hover {
