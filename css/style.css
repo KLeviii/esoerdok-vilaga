@@ -134,9 +134,41 @@ body.light {
     --info: oklch(0.5 0.08 240);
 }
 
+html {
+    scroll-padding-top: 3.5rem;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    html {
+        scroll-behavior: smooth;
+    }
+}
+
 body {
     background-color: var(--bg);
     color: var(--text);
+    --bs-bg-body: var(--bg);
+    --bs-bg-1: var(--bg-light);
+    --bs-fg-body: var(--text);
+    --bs-secondary-fg: var(--text-muted);
+    --bs-border-color: var(--border);
+    --bs-border-muted: var(--border-muted);
+    --bs-border-subtle: var(--border-muted);
+    --bs-link-color: var(--primary);
+    --bs-link-hover-color: var(--primary);
+    --bs-primary-base: var(--primary);
+    --bs-primary-bg: var(--primary);
+    --bs-primary-fg: var(--primary);
+    --bs-primary-contrast: var(--on-primary);
+    --bs-control-checked-bg: var(--primary);
+    --bs-control-checked-border-color: var(--primary);
+    --bs-focus-ring-color: color-mix(in oklch, var(--primary) 45%, transparent);
+    --bs-success-fg: var(--success);
+    --bs-success-border: var(--success);
+    --bs-success-bg-subtle: color-mix(in oklch, var(--success) 15%, transparent);
+    --bs-danger-fg: var(--danger);
+    --bs-danger-border: var(--danger);
+    --bs-danger-bg-subtle: color-mix(in oklch, var(--danger) 15%, transparent);
 }
 
 a {
@@ -153,6 +185,10 @@ a {
 
 .bg-dark {
     background-color: var(--bg-dark);
+}
+
+.bg-light {
+  background-color: var(--bg-light);
 }
 
 .btn-solid {
@@ -272,7 +308,7 @@ nav .btn-outline:hover {
     font-size: 5rem;
 }
 
-.hero-buttons button {
+.hero-buttons a {
     font-weight: 700;
 }
 
@@ -281,19 +317,43 @@ nav .btn-outline:hover {
     border-color: var(--secondary);
 }
 
-.primary-btn-container {
-    position: relative;
+/* az egyetlen díszítő animáció: a nyíl lassan le-fel mozog */
+.hero-scroll {
+    color: var(--text);
+    text-decoration: none;
 }
 
-.primary-btn-container .badge {
-    position: absolute;
-    top: 0;
-    right: 0;
-    transform: translate(35%, -50%);
-    background-color: var(--secondary);
-    color: var(--on-primary);
-    box-shadow: 0 0 0 2px var(--bg-dark);
+@media (prefers-reduced-motion: no-preference) {
+    .hero-scroll svg {
+        animation: hero-scroll 2s ease-in-out infinite;
+    }
+}
+
+@keyframes hero-scroll {
+    50% {
+        transform: translateY(4px);
+    }
+}
+
+#backToTop {
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease,
+        box-shadow 0.2s ease,
+        visibility 0.3s;
+}
+
+#backToTop.is-hidden {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(1rem);
     pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #backToTop {
+        transition: none;
+    }
 }
 
 .accordion {
@@ -369,6 +429,7 @@ nav .btn-outline:hover {
 
 .gallery-tile-d {
     aspect-ratio: 4 / 5;
+    border-radius: 1rem !important;
 }
 
 .gallery-tile-e {
@@ -467,6 +528,18 @@ nav .btn-outline:hover {
     color: var(--text-muted);
 }
 
+.footer-title {
+  display: inline-block;
+  border-bottom: 3px solid var(--secondary);
+  border-bottom-right-radius: 4px;
+}
+
+.copyright-footer {
+  border-top: 1px solid var(--border);
+  color: var(--text-muted);
+}
+
+
 @container gallery (width >=768px) {
     .gallery .grid {
         grid-auto-rows: 13rem;
@@ -524,6 +597,10 @@ nav .btn-outline:hover {
         font-size: 3.75rem;
     }
 
+    #siteHeader.header-hidden {
+        transform: translateY(-100%);
+    }
+
     .navbar .drawer {
         --bs-drawer-bg: var(--bg-light);
         --bs-drawer-color: var(--text);
@@ -549,12 +626,12 @@ nav .btn-outline:hover {
         flex-direction: column;
     }
 
-    .hero-buttons>div {
+    .hero-buttons {
         width: 80%;
         margin-inline: auto;
     }
 
-    .hero-buttons button {
+    .hero-buttons a {
         width: 100%;
     }
 

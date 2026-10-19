@@ -1,817 +1,543 @@
 <!doctype html>
 <html lang="hu">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/bootstrap.min.css" />
-    <link rel="stylesheet" href="css/style.css" />
-    <title>Esőerdők világa</title>
-  </head>
-  <body>
-    <header>
-      <nav class="navbar md:navbar-expand bg-1" id="pageTop">
-        <div class="container">
-          <a class="navbar-brand" href="#">
-            <img
-              src="assets/brand/icon-dark.webp"
-              alt="Esőerdők világa"
-              title="Esőerdők világa"
-              width="30"
-              height="30"
-            />
-          </a>
-          <button
-            class="btn-icon navbar-toggler"
-            type="button"
-            data-bs-toggle="drawer"
-            data-bs-target="#navbarDrawer"
-            aria-controls="navbarDrawer"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon" aria-hidden="true"></span>
-          </button>
-          <dialog
-            class="drawer drawer-end"
-            tabindex="-1"
-            id="navbarDrawer"
-            aria-labelledby="navbarDrawerLabel"
-          >
-            <div class="drawer-header">
-              <h5 class="drawer-title" id="navbarDrawerLabel">Menü</h5>
-              <button
-                type="button"
-                class="btn-close"
-                data-bs-dismiss="drawer"
-                aria-label="Close"
-              ></button>
-            </div>
-            <div class="drawer-body mb-2 md:mb-0">
-              <ul class="nav navbar-nav me-auto">
-                <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="#pageTop"
-                    >Főoldal</a
-                  >
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Élővilág</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Kvíz</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Térkép</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Tippek</a>
-                </li>
-              </ul>
 
-              <div class="theme-switcher">
-                <button
-                  type="button"
-                  class="btn-outline theme-switcher-toggle"
-                  id="themeToggle"
-                  data-bs-toggle="menu"
-                  data-bs-placement="bottom-end"
-                  aria-expanded="false"
-                  aria-label="Téma választása"
-                >
-                  <span class="theme-switcher-icon" id="themeToggleIcon"
-                    ><svg
-                      class="bi bi-circle-half"
-                      width="16"
-                      height="16"
-                      fill="currentColor"
-                      viewBox="0 0 16 16"
-                      aria-hidden="true"
-                    >
-                      <path
-                        d="M8 15A7 7 0 1 0 8 1zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16"
-                      /></svg
-                  ></span>
-                  <svg
-                    class="bi bi-chevron-expand"
-                    width="16"
-                    height="16"
-                    fill="currentColor"
-                    viewBox="0 0 16 16"
-                    aria-hidden="true"
-                  >
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Ismerd meg az esőerdők élővilágát és szintjeit, járd be a túraútvonalakat, és töltsd ki a túlélő kvízt." />
+  <link rel="icon" href="assets/brand/icon-logo.webp" type="image/webp" />
+  <link rel="stylesheet" href="css/bootstrap.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <title>Esőerdők világa</title>
+</head>
+
+<body>
+  <script>
+    try {
+      const saved = localStorage.getItem("theme")
+      if (saved === "light" || (saved !== "dark" && matchMedia("(prefers-color-scheme: light)").matches)) {
+        document.body.classList.add("light")
+      }
+    } catch {}
+  </script>
+  <a class="visually-hidden-focusable" href="#main">Ugrás a tartalomra</a>
+  <header class="sticky-top" id="siteHeader">
+    <nav class="navbar md:navbar-expand bg-1" id="pageTop">
+      <div class="container">
+        <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+          <img src="assets/brand/icon-dark.webp" alt="" width="30" height="30" />
+          Esőerdők világa
+        </a>
+        <button class="btn-icon navbar-toggler" type="button" data-bs-toggle="drawer" data-bs-target="#navbarDrawer"
+          aria-controls="navbarDrawer" aria-expanded="false" aria-label="Menü megnyitása">
+          <span class="navbar-toggler-icon" aria-hidden="true"></span>
+        </button>
+        <dialog class="drawer drawer-end" tabindex="-1" id="navbarDrawer" aria-labelledby="navbarDrawerLabel">
+          <div class="drawer-header">
+            <h5 class="drawer-title" id="navbarDrawerLabel">Menü</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="drawer" aria-label="Bezárás"></button>
+          </div>
+          <div class="drawer-body mb-2 md:mb-0">
+            <ul class="nav navbar-nav ms-auto me-4">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="index.html">Főoldal</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="pages/elovilag.html">Élővilág</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="pages/kviz.html">Kvíz</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="pages/terkep.html">Térkép</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="pages/tippek.html">Tippek</a>
+              </li>
+            </ul>
+
+            <div class="theme-switcher">
+              <button type="button" class="btn-outline theme-switcher-toggle" id="themeToggle" data-bs-toggle="menu"
+                data-bs-placement="bottom-end" aria-expanded="false" aria-label="Téma választása">
+                <span class="theme-switcher-icon" id="themeToggleIcon"><svg class="bi bi-circle-half" width="16"
+                    height="16" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
+                    <path d="M8 15A7 7 0 1 0 8 1zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16" />
+                  </svg></span>
+                <svg class="bi bi-chevron-expand" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"
+                  aria-hidden="true">
+                  <path
+                    d="M3.646 9.146a.5.5 0 0 1 .708 0L8 12.793l3.646-3.647a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 0-.708m0-2.292a.5.5 0 0 0 .708 0L8 3.207l3.646 3.647a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 0 0 0 .708" />
+                </svg>
+              </button>
+              <div class="menu" aria-labelledby="themeToggle">
+                <button class="menu-item" type="button" data-theme-value="light" aria-pressed="false">
+                  <svg class="bi menu-item-icon bi-brightness-high-fill" width="16" height="16" fill="currentColor"
+                    viewBox="0 0 16 16" aria-hidden="true">
                     <path
-                      d="M3.646 9.146a.5.5 0 0 1 .708 0L8 12.793l3.646-3.647a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 0-.708m0-2.292a.5.5 0 0 0 .708 0L8 3.207l3.646 3.647a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 0 0 0 .708"
-                    />
+                      d="M12 8a4 4 0 1 1-8 0 4 4 0 0 1 8 0M8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0m0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13m8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5M3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8m10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0m-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0m9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707M4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708" />
+                  </svg>
+                  <span class="menu-item-content">Világos</span>
+                  <svg class="bi menu-item-check bi-check2" width="16" height="16" fill="currentColor"
+                    viewBox="0 0 16 16" aria-hidden="true">
+                    <path
+                      d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0" />
                   </svg>
                 </button>
-                <div class="menu" aria-labelledby="themeToggle">
-                  <button
-                    class="menu-item"
-                    type="button"
-                    data-theme-value="light"
-                    aria-pressed="false"
-                  >
-                    <svg
-                      class="bi menu-item-icon bi-brightness-high-fill"
-                      width="16"
-                      height="16"
-                      fill="currentColor"
-                      viewBox="0 0 16 16"
-                      aria-hidden="true"
-                    >
-                      <path
-                        d="M12 8a4 4 0 1 1-8 0 4 4 0 0 1 8 0M8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0m0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13m8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5M3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8m10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0m-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0m9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707M4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708"
-                      />
-                    </svg>
-                    <span class="menu-item-content">Világos</span>
-                    <svg
-                      class="bi menu-item-check bi-check2"
-                      width="16"
-                      height="16"
-                      fill="currentColor"
-                      viewBox="0 0 16 16"
-                      aria-hidden="true"
-                    >
-                      <path
-                        d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0"
-                      />
-                    </svg>
-                  </button>
-                  <button
-                    class="menu-item"
-                    type="button"
-                    data-theme-value="dark"
-                    aria-pressed="false"
-                  >
-                    <svg
-                      class="bi menu-item-icon bi-moon-fill"
-                      width="16"
-                      height="16"
-                      fill="currentColor"
-                      viewBox="0 0 16 16"
-                      aria-hidden="true"
-                    >
-                      <path
-                        d="M6 .278a.77.77 0 0 1 .08.858 7.2 7.2 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277q.792-.001 1.533-.16a.79.79 0 0 1 .81.316.73.73 0 0 1-.031.893A8.35 8.35 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.75.75 0 0 1 6 .278"
-                      />
-                    </svg>
-                    <span class="menu-item-content">Sötét</span>
-                    <svg
-                      class="bi menu-item-check bi-check2"
-                      width="16"
-                      height="16"
-                      fill="currentColor"
-                      viewBox="0 0 16 16"
-                      aria-hidden="true"
-                    >
-                      <path
-                        d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0"
-                      />
-                    </svg>
-                  </button>
-                  <button
-                    class="menu-item"
-                    type="button"
-                    data-theme-value="auto"
-                    aria-pressed="false"
-                  >
-                    <svg
-                      class="bi menu-item-icon bi-circle-half"
-                      width="16"
-                      height="16"
-                      fill="currentColor"
-                      viewBox="0 0 16 16"
-                      aria-hidden="true"
-                    >
-                      <path
-                        d="M8 15A7 7 0 1 0 8 1zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16"
-                      />
-                    </svg>
-                    <span class="menu-item-content">Automatikus</span>
-                    <svg
-                      class="bi menu-item-check bi-check2"
-                      width="16"
-                      height="16"
-                      fill="currentColor"
-                      viewBox="0 0 16 16"
-                      aria-hidden="true"
-                    >
-                      <path
-                        d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0"
-                      />
-                    </svg>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </dialog>
-        </div>
-      </nav>
-      <div class="hero d-flex flex-column justify-content-center">
-        <div class="container">
-          <div class="hero-container">
-            <div class="hero-title mb-4">
-              <h1>Esőerdők világa</h1>
-            </div>
-            <div class="hero-hook-text mb-8">
-              A Föld szárazföldjeinek alig 6%-át borítják, mégis itt él a fajok
-              több mint fele. Ismerd meg a lakóikat, járd be a túraútvonalakat
-              térképen, és tudd meg kvízünkből, meddig húznád ki a vadonban!
-            </div>
-            <div class="hero-buttons d-flex">
-              <div class="me-4 mb-4 primary-btn-container">
-                <button type="button" class="btn-solid btn-lg">
-                  Fedezd fel!
+                <button class="menu-item" type="button" data-theme-value="dark" aria-pressed="false">
+                  <svg class="bi menu-item-icon bi-moon-fill" width="16" height="16" fill="currentColor"
+                    viewBox="0 0 16 16" aria-hidden="true">
+                    <path
+                      d="M6 .278a.77.77 0 0 1 .08.858 7.2 7.2 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277q.792-.001 1.533-.16a.79.79 0 0 1 .81.316.73.73 0 0 1-.031.893A8.35 8.35 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.75.75 0 0 1 6 .278" />
+                  </svg>
+                  <span class="menu-item-content">Sötét</span>
+                  <svg class="bi menu-item-check bi-check2" width="16" height="16" fill="currentColor"
+                    viewBox="0 0 16 16" aria-hidden="true">
+                    <path
+                      d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0" />
+                  </svg>
                 </button>
-                <span class="badge">Új</span>
-              </div>
-              <div class="secondary-btn-container">
-                <button type="button" class="btn-outline btn-lg">
-                  Lépj velünk kapcsolatba!
+                <button class="menu-item" type="button" data-theme-value="auto" aria-pressed="false">
+                  <svg class="bi menu-item-icon bi-circle-half" width="16" height="16" fill="currentColor"
+                    viewBox="0 0 16 16" aria-hidden="true">
+                    <path d="M8 15A7 7 0 1 0 8 1zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16" />
+                  </svg>
+                  <span class="menu-item-content">Automatikus</span>
+                  <svg class="bi menu-item-check bi-check2" width="16" height="16" fill="currentColor"
+                    viewBox="0 0 16 16" aria-hidden="true">
+                    <path
+                      d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0" />
+                  </svg>
                 </button>
               </div>
             </div>
           </div>
+        </dialog>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <div class="hero d-flex flex-column justify-content-center">
+      <div class="container">
+        <div class="hero-container">
+          <div class="hero-title mb-4">
+            <h1>Esőerdők világa</h1>
+          </div>
+          <div class="hero-hook-text mb-8">
+            A Föld szárazföldjeinek alig 6%-át borítják, mégis itt él a fajok
+            több mint fele. Ismerd meg a lakóikat, járd be a túraútvonalakat
+            térképen, és tudd meg kvízünkből, meddig húznád ki a vadonban!
+          </div>
+          <div class="hero-buttons d-flex flex-wrap gap-4 mb-8">
+            <a href="pages/elovilag.html" class="btn-solid btn-lg">Fedezd fel az élővilágot</a>
+            <a href="pages/kviz.html" class="btn-outline btn-lg">Kvíz kitöltése</a>
+          </div>
+          <a href="#bevezetes" class="icon-link hero-scroll">
+            Görgess tovább
+            <svg class="bi" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
+              <path fill-rule="evenodd"
+                d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708" />
+            </svg>
+          </a>
         </div>
       </div>
-    </header>
+    </div>
 
-    <main class="my-8">
-      <div class="bg-body mb-8">
-        <section class="introduction container">
-          <div class="mb-8">
-            <h2 class="mb-4">Bevezetés az esőerdők világába</h2>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Distinctio quibusdam numquam modi sit incidunt omnis voluptatem
-              rem. Quia error ipsum ratione ducimus, corrupti aperiam suscipit
-              voluptate ut labore consequatur quidem!
-            </p>
-          </div>
-          <div>
-            <div class="accordion accordion-gap">
-              <details class="accordion-item" open>
-                <summary class="accordion-header">
-                  Accordion Item #1
-                  <svg
-                    class="accordion-icon"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 16 16"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                    <path d="m2 5 6 6 6-6" />
-                  </svg>
-                </summary>
-                <div
-                  class="accordion-body d-flex gap-12 p-8 justify-content-center flex-wrap"
-                >
-                  <section class="card" style="max-width: 20rem">
-                    <img
-                      src="https://placehold.co/320"
-                      class="card-img-top"
-                      alt="..."
-                    />
-                    <div class="card-body">
-                      <h4 class="card-title">Card title</h4>
-                      <p class="card-text">
-                        Some quick example text to build on the card title and
-                        make up the bulk of the card’s content.
-                      </p>
-                      <a href="#" class="btn-solid theme-primary"
-                        >Go somewhere</a
-                      >
-                    </div>
-                  </section>
-                  <section class="card" style="max-width: 20rem">
-                    <img
-                      src="https://placehold.co/320"
-                      class="card-img-top"
-                      alt="..."
-                    />
-                    <div class="card-body">
-                      <h4 class="card-title">Card title</h4>
-                      <p class="card-text">
-                        Some quick example text to build on the card title and
-                        make up the bulk of the card’s content.
-                      </p>
-                      <a href="#" class="btn-solid theme-primary"
-                        >Go somewhere</a
-                      >
-                    </div>
-                  </section>
-                  <section class="card" style="max-width: 20rem">
-                    <img
-                      src="https://placehold.co/320"
-                      class="card-img-top"
-                      alt="..."
-                    />
-                    <div class="card-body">
-                      <h4 class="card-title">Card title</h4>
-                      <p class="card-text">
-                        Some quick example text to build on the card title and
-                        make up the bulk of the card’s content.
-                      </p>
-                      <a href="#" class="btn-solid theme-primary"
-                        >Go somewhere</a
-                      >
-                    </div>
-                  </section>
+    <section class="container mt-8 mb-12" id="bevezetes" aria-labelledby="bevezetesTitle">
+      <div class="row gy-8 align-items-center">
+        <div class="col-12 lg:col-7">
+          <h2 class="mb-6" id="bevezetesTitle">Miért fontosak az esőerdők?</h2>
+          <p>
+            A trópusi esőerdők az Egyenlítő két oldalán húzódnak Dél-Amerikában, Közép-Afrikában és
+            Délkelet-Ázsiában. Itt egész évben meleg van, és szinte minden nap esik: évente 2000–4000
+            milliméter csapadék is lehull.
+          </p>
+          <p>
+            Bár a szárazföldnek csak kis részét borítják, a Föld ismert növény- és állatfajainak több mint
+            fele itt él. Az esőerdők fáiban rengeteg szén raktározódik, a párologtatásukkal pedig a
+            környező tájak csapadékát is befolyásolják.
+          </p>
+          <p class="mb-0">
+            Évről évre hatalmas területeket vágnak ki fakitermelés, legelők és ültetvények miatt. Ha egy
+            esőerdő eltűnik, vele együtt fajok ezrei és a bolygó egyik fontos éghajlat-szabályozója is elvész.
+          </p>
+        </div>
+        <div class="col-12 lg:col-5">
+          <figure class="figure mb-0">
+            <img src="assets/img/bevezetes.webp" class="img-fluid rounded-5" width="1000" height="545"
+              alt="Idegenvezető a lombkorona felé mutat, ahol két ara papagáj ül, mellette túrázók figyelnek"
+              loading="lazy" />
+            <figcaption class="figure-caption mt-2">Túrázók és idegenvezető az esőerdő aljnövényzetében.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="container mb-12" aria-labelledby="szintekTitle">
+      <h2 class="mb-4" id="szintekTitle">Az esőerdő szintjei</h2>
+      <p class="mb-6">
+        Az esőerdő több egymás feletti szintből áll. Mindegyikben más a fény, a páratartalom és az élővilág.
+      </p>
+      <ul class="nav nav-tabs flex-nowrap overflow-x-auto text-nowrap" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="szint-kiemelkedo-tab" type="button" role="tab" data-bs-toggle="tab"
+            data-bs-target="#szint-kiemelkedo" aria-controls="szint-kiemelkedo" aria-selected="false">
+            Kiemelkedő fák
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link active" id="szint-lombkorona-tab" type="button" role="tab" data-bs-toggle="tab"
+            data-bs-target="#szint-lombkorona" aria-controls="szint-lombkorona" aria-selected="true">
+            Lombkorona
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="szint-cserje-tab" type="button" role="tab" data-bs-toggle="tab"
+            data-bs-target="#szint-cserje" aria-controls="szint-cserje" aria-selected="false">
+            Cserjeszint
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="szint-talaj-tab" type="button" role="tab" data-bs-toggle="tab"
+            data-bs-target="#szint-talaj" aria-controls="szint-talaj" aria-selected="false">
+            Talajszint
+          </button>
+        </li>
+      </ul>
+      <div class="tab-content pt-6">
+        <div class="tab-pane tab-pane-instant" id="szint-kiemelkedo" role="tabpanel"
+          aria-labelledby="szint-kiemelkedo-tab" tabindex="0">
+          <p>
+            Egy-egy óriásfa 50–60 méter magasra is megnő, és kilóg a lombkorona tetejéből. Itt éri a legtöbb
+            napfény és szél, a levegő is szárazabb, mint lejjebb.
+          </p>
+          <p class="mb-0">Itt él például a hárpia, amely a lombok közül kapja el a majmokat és a lajhárokat.</p>
+        </div>
+        <div class="tab-pane tab-pane-instant active" id="szint-lombkorona" role="tabpanel"
+          aria-labelledby="szint-lombkorona-tab" tabindex="0">
+          <p>
+            Nagyjából 30–45 méter magasan a fák koronái szinte összefüggő tetőt alkotnak. A napfény nagy része
+            itt nyelődik el, ezért ez az erdő legélénkebb része: a fajok többsége a lombkoronában él.
+          </p>
+          <p class="mb-0">Itt él például a tukán, a pókmajom és a háromujjú lajhár.</p>
+        </div>
+        <div class="tab-pane tab-pane-instant" id="szint-cserje" role="tabpanel" aria-labelledby="szint-cserje-tab"
+          tabindex="0">
+          <p>
+            A lombkorona alatt félhomály van, ide a napfénynek csak néhány százaléka jut le. A növények nagy
+            levelekkel próbálnak minél több fényt elkapni, a fiatal fák pedig évekig várnak egy résre.
+          </p>
+          <p class="mb-0">Itt él például a jaguár, a levelibékák és a boák.</p>
+        </div>
+        <div class="tab-pane tab-pane-instant" id="szint-talaj" role="tabpanel" aria-labelledby="szint-talaj-tab"
+          tabindex="0">
+          <p>
+            Az erdő alja sötét és nedves. A lehulló levelek a meleg miatt néhány hét alatt lebomlanak, ebben
+            gombák, termeszek és rengeteg rovar segít, ezért a talaj meglepően vékony.
+          </p>
+          <p class="mb-0">Itt él például a tapír, az óriás hangyász és a levélvágó hangyák.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="bg-dark pt-8">
+      <section class="container" aria-labelledby="galleryTitle">
+        <div class="mb-8">
+          <h2 class="my-4" id="galleryTitle">Galéria</h2>
+          <p>
+            Lapozz végig az esőerdő arcain: lombkorona, panorámák, rejtett
+            zugok és néhány meglepő tény. Minden ablak külön léptethető.
+          </p>
+        </div>
+        <div class="gallery pb-8">
+          <div class="grid">
+            <div class="g-col-12 md:g-col-7 gallery-tile gallery-tile-a">
+              <div id="galleryA" class="carousel" aria-roledescription="carousel" aria-label="Lombkorona képek">
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img src="assets/img/gallery/square-1.svg" alt="Absztrakt lombkorona, zöld foltokkal"
+                      loading="lazy" />
+                  </div>
+                  <div class="carousel-item">
+                    <img src="assets/img/gallery/square-2.svg" alt="Absztrakt erdei talaj, barna és zöld formákkal"
+                      loading="lazy" />
+                  </div>
+                  <div class="carousel-item">
+                    <img src="assets/img/gallery/square-3.svg" alt="Absztrakt napfény a fák között" loading="lazy" />
+                  </div>
                 </div>
-              </details>
-              <details class="accordion-item">
-                <summary class="accordion-header">
-                  Accordion Item #2
-                  <svg
-                    class="accordion-icon"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 16 16"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                    <path d="m2 5 6 6 6-6" />
-                  </svg>
-                </summary>
-                <div class="accordion-body">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Similique doloremque impedit provident officia, officiis
-                  veniam culpa quas nostrum assumenda dolores nulla aut debitis
-                  eveniet inventore suscipit quae laboriosam ea iusto!
+                <div class="gallery-controls">
+                  <button type="button" class="gallery-control" data-bs-target="#galleryA" data-bs-slide="prev"
+                    aria-label="Előző">
+                    <span class="carousel-icon-prev" aria-hidden="true"></span>
+                  </button>
+                  <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#galleryA" data-bs-slide-to="0" class="active"
+                      aria-current="true" aria-label="1. dia"></button>
+                    <button type="button" data-bs-target="#galleryA" data-bs-slide-to="1" aria-label="2. dia"></button>
+                    <button type="button" data-bs-target="#galleryA" data-bs-slide-to="2" aria-label="3. dia"></button>
+                  </div>
+                  <button type="button" class="gallery-control" data-bs-target="#galleryA" data-bs-slide="next"
+                    aria-label="Következő">
+                    <span class="carousel-icon-next" aria-hidden="true"></span>
+                  </button>
                 </div>
-              </details>
-              <details class="accordion-item">
-                <summary class="accordion-header">
-                  Accordion Item #3
-                  <svg
-                    class="accordion-icon"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 16 16"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                    <path d="m2 5 6 6 6-6" />
-                  </svg>
-                </summary>
-                <div class="accordion-body">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Eveniet quam, architecto cumque ipsa ipsum cum ad dolore porro
-                  similique quia? Quasi debitis beatae facere voluptas,
-                  veritatis voluptatum deserunt perferendis optio.
+              </div>
+              <a href="pages/elovilag.html" class="btn-solid gallery-tile-action hover-lift">Élővilág</a>
+            </div>
+            <div class="g-col-12 md:g-col-5 gallery-tile gallery-tile-b">
+              <div id="galleryB" class="carousel slide" aria-roledescription="carousel"
+                aria-label="Érdekességek az esőerdőkről">
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <div class="gallery-fact">
+                      <span class="gallery-fact-eyebrow">Tudtad?</span>
+                      <h3 class="gallery-fact-title">
+                        Kilenc ország osztozik rajta
+                      </h3>
+                      <p class="gallery-fact-text">
+                        Az Amazonas-esőerdő több mint 5,5 millió km²-en terül
+                        el, kilenc dél-amerikai ország területén.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <div class="gallery-fact">
+                      <span class="gallery-fact-eyebrow">Tudtad?</span>
+                      <h3 class="gallery-fact-title">
+                        Szinte minden nap esik
+                      </h3>
+                      <p class="gallery-fact-text">
+                        Egy trópusi esőerdőben évente akár 2000–4000 mm
+                        csapadék is hullhat, ez Magyarország átlagának
+                        többszöröse.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <div class="gallery-fact">
+                      <span class="gallery-fact-eyebrow">Tudtad?</span>
+                      <h3 class="gallery-fact-title">Élő patika</h3>
+                      <p class="gallery-fact-text">
+                        Számos ma használt gyógyszer hatóanyaga esőerdei
+                        növényekből származik, és a legtöbb fajt még nem is
+                        vizsgálták.
+                      </p>
+                    </div>
+                  </div>
                 </div>
-              </details>
+                <div class="gallery-controls">
+                  <button type="button" class="gallery-control" data-bs-target="#galleryB" data-bs-slide="prev"
+                    aria-label="Előző">
+                    <span class="carousel-icon-prev" aria-hidden="true"></span>
+                  </button>
+                  <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#galleryB" data-bs-slide-to="0" class="active"
+                      aria-current="true" aria-label="1. dia"></button>
+                    <button type="button" data-bs-target="#galleryB" data-bs-slide-to="1" aria-label="2. dia"></button>
+                    <button type="button" data-bs-target="#galleryB" data-bs-slide-to="2" aria-label="3. dia"></button>
+                  </div>
+                  <button type="button" class="gallery-control" data-bs-target="#galleryB" data-bs-slide="next"
+                    aria-label="Következő">
+                    <span class="carousel-icon-next" aria-hidden="true"></span>
+                  </button>
+                </div>
+              </div>
+              <a href="pages/kviz.html" class="btn-solid gallery-tile-action hover-lift">Kvíz kitöltése</a>
+            </div>
+            <div class="g-col-12 md:g-col-5 gallery-tile gallery-tile-c">
+              <div id="galleryC" class="carousel" aria-roledescription="carousel" aria-label="Panorámaképek">
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img src="assets/img/gallery/wide-1.svg" alt="Absztrakt folyóvölgy panoráma" loading="lazy" />
+                  </div>
+                  <div class="carousel-item">
+                    <img src="assets/img/gallery/wide-2.svg" alt="Absztrakt hegyvonulat panoráma" loading="lazy" />
+                  </div>
+                  <div class="carousel-item">
+                    <img src="assets/img/gallery/wide-3.svg" alt="Absztrakt ködös erdő panoráma" loading="lazy" />
+                  </div>
+                </div>
+                <div class="gallery-controls">
+                  <button type="button" class="gallery-control" data-bs-target="#galleryC" data-bs-slide="prev"
+                    aria-label="Előző">
+                    <span class="carousel-icon-prev" aria-hidden="true"></span>
+                  </button>
+                  <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#galleryC" data-bs-slide-to="0" class="active"
+                      aria-current="true" aria-label="1. dia"></button>
+                    <button type="button" data-bs-target="#galleryC" data-bs-slide-to="1" aria-label="2. dia"></button>
+                    <button type="button" data-bs-target="#galleryC" data-bs-slide-to="2" aria-label="3. dia"></button>
+                  </div>
+                  <button type="button" class="gallery-control" data-bs-target="#galleryC" data-bs-slide="next"
+                    aria-label="Következő">
+                    <span class="carousel-icon-next" aria-hidden="true"></span>
+                  </button>
+                </div>
+              </div>
+              <a href="pages/terkep.html" class="btn-solid gallery-tile-action hover-lift">Túraútvonalak</a>
+            </div>
+            <div class="g-col-12 md:g-col-4 gallery-tile gallery-tile-d">
+              <div id="galleryD" class="carousel" aria-roledescription="carousel" aria-label="Álló képek">
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img src="assets/img/gallery/portrait-1.svg" alt="Absztrakt magas fatörzs" loading="lazy" />
+                  </div>
+                  <div class="carousel-item">
+                    <img src="assets/img/gallery/portrait-2.svg" alt="Absztrakt vízesés" loading="lazy" />
+                  </div>
+                  <div class="carousel-item">
+                    <img src="assets/img/gallery/portrait-3.svg" alt="Absztrakt liánok" loading="lazy" />
+                  </div>
+                </div>
+                <div class="gallery-controls">
+                  <button type="button" class="gallery-control" data-bs-target="#galleryD" data-bs-slide="prev"
+                    aria-label="Előző">
+                    <span class="carousel-icon-prev" aria-hidden="true"></span>
+                  </button>
+                  <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#galleryD" data-bs-slide-to="0" class="active"
+                      aria-current="true" aria-label="1. dia"></button>
+                    <button type="button" data-bs-target="#galleryD" data-bs-slide-to="1" aria-label="2. dia"></button>
+                    <button type="button" data-bs-target="#galleryD" data-bs-slide-to="2" aria-label="3. dia"></button>
+                  </div>
+                  <button type="button" class="gallery-control" data-bs-target="#galleryD" data-bs-slide="next"
+                    aria-label="Következő">
+                    <span class="carousel-icon-next" aria-hidden="true"></span>
+                  </button>
+                </div>
+              </div>
+              <a href="pages/tippek.html" class="btn-solid gallery-tile-action hover-lift">Tippek</a>
+            </div>
+            <div class="g-col-12 md:g-col-8 gallery-tile gallery-tile-e">
+              <div id="galleryE" class="carousel" aria-roledescription="carousel" aria-label="Fekvő képek">
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img src="assets/img/gallery/landscape-1.svg" alt="Absztrakt esőerdő tájkép" loading="lazy" />
+                  </div>
+                  <div class="carousel-item">
+                    <img src="assets/img/gallery/landscape-2.svg" alt="Absztrakt folyópart" loading="lazy" />
+                  </div>
+                  <div class="carousel-item">
+                    <img src="assets/img/gallery/landscape-3.svg" alt="Absztrakt tisztás" loading="lazy" />
+                  </div>
+                </div>
+                <div class="gallery-controls">
+                  <button type="button" class="gallery-control" data-bs-target="#galleryE" data-bs-slide="prev"
+                    aria-label="Előző">
+                    <span class="carousel-icon-prev" aria-hidden="true"></span>
+                  </button>
+                  <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#galleryE" data-bs-slide-to="0" class="active"
+                      aria-current="true" aria-label="1. dia"></button>
+                    <button type="button" data-bs-target="#galleryE" data-bs-slide-to="1" aria-label="2. dia"></button>
+                    <button type="button" data-bs-target="#galleryE" data-bs-slide-to="2" aria-label="3. dia"></button>
+                  </div>
+                  <button type="button" class="gallery-control" data-bs-target="#galleryE" data-bs-slide="next"
+                    aria-label="Következő">
+                    <span class="carousel-icon-next" aria-hidden="true"></span>
+                  </button>
+                </div>
+              </div>
+              <a href="pages/terkep.html" class="btn-solid gallery-tile-action hover-lift">Térkép</a>
             </div>
           </div>
-        </section>
-      </div>
+        </div>
+      </section>
+    </div>
 
-      <div class="bg-dark pt-8">
-        <section class="container" aria-labelledby="galleryTitle">
-          <div class="mb-8">
-            <h2 class="my-4" id="galleryTitle">Galéria</h2>
-            <p>
-              Lapozz végig az esőerdő arcain: lombkorona, panorámák, rejtett
-              zugok és néhány meglepő tény. Minden ablak külön léptethető.
-            </p>
-          </div>
-          <div class="gallery pb-8">
-            <div class="grid">
-              <div class="g-col-12 md:g-col-7 gallery-tile gallery-tile-a">
-                <div
-                  id="galleryA"
-                  class="carousel"
-                  aria-roledescription="carousel"
-                  aria-label="Lombkorona képek"
-                >
-                  <div class="carousel-inner">
-                    <div class="carousel-item active">
-                      <img
-                        src="assets/img/gallery/square-1.svg"
-                        alt="Absztrakt lombkorona, zöld foltokkal"
-                        loading="lazy"
-                      />
-                    </div>
-                    <div class="carousel-item">
-                      <img
-                        src="assets/img/gallery/square-2.svg"
-                        alt="Absztrakt erdei talaj, barna és zöld formákkal"
-                        loading="lazy"
-                      />
-                    </div>
-                    <div class="carousel-item">
-                      <img
-                        src="assets/img/gallery/square-3.svg"
-                        alt="Absztrakt napfény a fák között"
-                        loading="lazy"
-                      />
-                    </div>
-                  </div>
-                  <div class="gallery-controls">
-                    <button
-                      type="button"
-                      class="gallery-control"
-                      data-bs-target="#galleryA"
-                      data-bs-slide="prev"
-                      aria-label="Előző"
-                    >
-                      <span
-                        class="carousel-icon-prev"
-                        aria-hidden="true"
-                      ></span>
-                    </button>
-                    <div class="carousel-indicators">
-                      <button
-                        type="button"
-                        data-bs-target="#galleryA"
-                        data-bs-slide-to="0"
-                        class="active"
-                        aria-current="true"
-                        aria-label="1. dia"
-                      ></button>
-                      <button
-                        type="button"
-                        data-bs-target="#galleryA"
-                        data-bs-slide-to="1"
-                        aria-label="2. dia"
-                      ></button>
-                      <button
-                        type="button"
-                        data-bs-target="#galleryA"
-                        data-bs-slide-to="2"
-                        aria-label="3. dia"
-                      ></button>
-                    </div>
-                    <button
-                      type="button"
-                      class="gallery-control"
-                      data-bs-target="#galleryA"
-                      data-bs-slide="next"
-                      aria-label="Következő"
-                    >
-                      <span
-                        class="carousel-icon-next"
-                        aria-hidden="true"
-                      ></span>
-                    </button>
-                  </div>
+    <section class="container my-12" aria-labelledby="probaTitle">
+      <div class="row gy-8 align-items-center">
+        <div class="col-12 lg:col-5">
+          <h2 class="mb-4" id="probaTitle">Meddig húznád ki a vadonban?</h2>
+          <p class="mb-0">
+            A kvíz tíz kérdésből megmutatja, mekkora eséllyel élnéd túl az esőerdőt. Előtte próbáld ki ezt az egyet.
+          </p>
+        </div>
+        <div class="col-12 lg:col-7">
+          <form class="card" id="probaKerdes">
+            <div class="card-body">
+              <fieldset class="vstack gap-3 mb-6">
+                <legend class="h5 mb-4">Melyik állat tölti a napja nagy részét szinte mozdulatlanul?</legend>
+                <div class="form-field">
+                  <input class="radio" type="radio" name="proba" id="proba-a" value="jaguar" required />
+                  <label for="proba-a">Jaguár</label>
                 </div>
-                <a href="#" class="btn-solid gallery-tile-action">Élővilág</a>
+                <div class="form-field">
+                  <input class="radio" type="radio" name="proba" id="proba-b" value="lajhar" />
+                  <label for="proba-b">Lajhár</label>
+                </div>
+                <div class="form-field">
+                  <input class="radio" type="radio" name="proba" id="proba-c" value="tukan" />
+                  <label for="proba-c">Tukán</label>
+                </div>
+                <div class="form-field">
+                  <input class="radio" type="radio" name="proba" id="proba-d" value="anakonda" />
+                  <label for="proba-d">Anakonda</label>
+                </div>
+              </fieldset>
+              <div class="alert theme-success mb-6" id="probaHelyes" role="status" hidden>
+                <p><strong>Helyes!</strong> A lajhár olyan lassan mozog, hogy a bundájában algák nőnek, ezért
+                  zöldes színű.</p>
               </div>
-              <div class="g-col-12 md:g-col-5 gallery-tile gallery-tile-b">
-                <div
-                  id="galleryB"
-                  class="carousel slide"
-                  aria-roledescription="carousel"
-                  aria-label="Érdekességek az esőerdőkről"
-                >
-                  <div class="carousel-inner">
-                    <div class="carousel-item active">
-                      <div class="gallery-fact">
-                        <span class="gallery-fact-eyebrow">Tudtad?</span>
-                        <h3 class="gallery-fact-title">
-                          Kilenc ország osztozik rajta
-                        </h3>
-                        <p class="gallery-fact-text">
-                          Az Amazonas-esőerdő több mint 5,5 millió km²-en terül
-                          el, kilenc dél-amerikai ország területén.
-                        </p>
-                      </div>
-                    </div>
-                    <div class="carousel-item">
-                      <div class="gallery-fact">
-                        <span class="gallery-fact-eyebrow">Tudtad?</span>
-                        <h3 class="gallery-fact-title">
-                          Szinte minden nap esik
-                        </h3>
-                        <p class="gallery-fact-text">
-                          Egy trópusi esőerdőben évente akár 2000–4000 mm
-                          csapadék is hullhat, ez Magyarország átlagának
-                          többszöröse.
-                        </p>
-                      </div>
-                    </div>
-                    <div class="carousel-item">
-                      <div class="gallery-fact">
-                        <span class="gallery-fact-eyebrow">Tudtad?</span>
-                        <h3 class="gallery-fact-title">Élő patika</h3>
-                        <p class="gallery-fact-text">
-                          Számos ma használt gyógyszer hatóanyaga esőerdei
-                          növényekből származik, és a legtöbb fajt még nem is
-                          vizsgálták.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="gallery-controls">
-                    <button
-                      type="button"
-                      class="gallery-control"
-                      data-bs-target="#galleryB"
-                      data-bs-slide="prev"
-                      aria-label="Előző"
-                    >
-                      <span
-                        class="carousel-icon-prev"
-                        aria-hidden="true"
-                      ></span>
-                    </button>
-                    <div class="carousel-indicators">
-                      <button
-                        type="button"
-                        data-bs-target="#galleryB"
-                        data-bs-slide-to="0"
-                        class="active"
-                        aria-current="true"
-                        aria-label="1. dia"
-                      ></button>
-                      <button
-                        type="button"
-                        data-bs-target="#galleryB"
-                        data-bs-slide-to="1"
-                        aria-label="2. dia"
-                      ></button>
-                      <button
-                        type="button"
-                        data-bs-target="#galleryB"
-                        data-bs-slide-to="2"
-                        aria-label="3. dia"
-                      ></button>
-                    </div>
-                    <button
-                      type="button"
-                      class="gallery-control"
-                      data-bs-target="#galleryB"
-                      data-bs-slide="next"
-                      aria-label="Következő"
-                    >
-                      <span
-                        class="carousel-icon-next"
-                        aria-hidden="true"
-                      ></span>
-                    </button>
-                  </div>
-                </div>
-                <a href="#" class="btn-solid gallery-tile-action"
-                  >Kvíz kitöltése</a
-                >
+              <div class="alert theme-danger mb-6" id="probaHibas" role="status" hidden>
+                <p><strong>Nem talált.</strong> A lajhár a helyes válasz: olyan lassan mozog, hogy a bundájában
+                  algák nőnek.</p>
               </div>
-              <div class="g-col-12 md:g-col-5 gallery-tile gallery-tile-c">
-                <div
-                  id="galleryC"
-                  class="carousel"
-                  aria-roledescription="carousel"
-                  aria-label="Panorámaképek"
-                >
-                  <div class="carousel-inner">
-                    <div class="carousel-item active">
-                      <img
-                        src="assets/img/gallery/wide-1.svg"
-                        alt="Absztrakt folyóvölgy panoráma"
-                        loading="lazy"
-                      />
-                    </div>
-                    <div class="carousel-item">
-                      <img
-                        src="assets/img/gallery/wide-2.svg"
-                        alt="Absztrakt hegyvonulat panoráma"
-                        loading="lazy"
-                      />
-                    </div>
-                    <div class="carousel-item">
-                      <img
-                        src="assets/img/gallery/wide-3.svg"
-                        alt="Absztrakt ködös erdő panoráma"
-                        loading="lazy"
-                      />
-                    </div>
-                  </div>
-                  <div class="gallery-controls">
-                    <button
-                      type="button"
-                      class="gallery-control"
-                      data-bs-target="#galleryC"
-                      data-bs-slide="prev"
-                      aria-label="Előző"
-                    >
-                      <span
-                        class="carousel-icon-prev"
-                        aria-hidden="true"
-                      ></span>
-                    </button>
-                    <div class="carousel-indicators">
-                      <button
-                        type="button"
-                        data-bs-target="#galleryC"
-                        data-bs-slide-to="0"
-                        class="active"
-                        aria-current="true"
-                        aria-label="1. dia"
-                      ></button>
-                      <button
-                        type="button"
-                        data-bs-target="#galleryC"
-                        data-bs-slide-to="1"
-                        aria-label="2. dia"
-                      ></button>
-                      <button
-                        type="button"
-                        data-bs-target="#galleryC"
-                        data-bs-slide-to="2"
-                        aria-label="3. dia"
-                      ></button>
-                    </div>
-                    <button
-                      type="button"
-                      class="gallery-control"
-                      data-bs-target="#galleryC"
-                      data-bs-slide="next"
-                      aria-label="Következő"
-                    >
-                      <span
-                        class="carousel-icon-next"
-                        aria-hidden="true"
-                      ></span>
-                    </button>
-                  </div>
-                </div>
-                <a href="#" class="btn-solid gallery-tile-action"
-                  >Túraútvonalak</a
-                >
-              </div>
-              <div class="g-col-12 md:g-col-4 gallery-tile gallery-tile-d">
-                <div
-                  id="galleryD"
-                  class="carousel"
-                  aria-roledescription="carousel"
-                  aria-label="Álló képek"
-                >
-                  <div class="carousel-inner">
-                    <div class="carousel-item active">
-                      <img
-                        src="assets/img/gallery/portrait-1.svg"
-                        alt="Absztrakt magas fatörzs"
-                        loading="lazy"
-                      />
-                    </div>
-                    <div class="carousel-item">
-                      <img
-                        src="assets/img/gallery/portrait-2.svg"
-                        alt="Absztrakt vízesés"
-                        loading="lazy"
-                      />
-                    </div>
-                    <div class="carousel-item">
-                      <img
-                        src="assets/img/gallery/portrait-3.svg"
-                        alt="Absztrakt liánok"
-                        loading="lazy"
-                      />
-                    </div>
-                  </div>
-                  <div class="gallery-controls">
-                    <button
-                      type="button"
-                      class="gallery-control"
-                      data-bs-target="#galleryD"
-                      data-bs-slide="prev"
-                      aria-label="Előző"
-                    >
-                      <span
-                        class="carousel-icon-prev"
-                        aria-hidden="true"
-                      ></span>
-                    </button>
-                    <div class="carousel-indicators">
-                      <button
-                        type="button"
-                        data-bs-target="#galleryD"
-                        data-bs-slide-to="0"
-                        class="active"
-                        aria-current="true"
-                        aria-label="1. dia"
-                      ></button>
-                      <button
-                        type="button"
-                        data-bs-target="#galleryD"
-                        data-bs-slide-to="1"
-                        aria-label="2. dia"
-                      ></button>
-                      <button
-                        type="button"
-                        data-bs-target="#galleryD"
-                        data-bs-slide-to="2"
-                        aria-label="3. dia"
-                      ></button>
-                    </div>
-                    <button
-                      type="button"
-                      class="gallery-control"
-                      data-bs-target="#galleryD"
-                      data-bs-slide="next"
-                      aria-label="Következő"
-                    >
-                      <span
-                        class="carousel-icon-next"
-                        aria-hidden="true"
-                      ></span>
-                    </button>
-                  </div>
-                </div>
-                <a href="#" class="btn-solid gallery-tile-action">Tippek</a>
-              </div>
-              <div class="g-col-12 md:g-col-8 gallery-tile gallery-tile-e">
-                <div
-                  id="galleryE"
-                  class="carousel"
-                  aria-roledescription="carousel"
-                  aria-label="Fekvő képek"
-                >
-                  <div class="carousel-inner">
-                    <div class="carousel-item active">
-                      <img
-                        src="assets/img/gallery/landscape-1.svg"
-                        alt="Absztrakt esőerdő tájkép"
-                        loading="lazy"
-                      />
-                    </div>
-                    <div class="carousel-item">
-                      <img
-                        src="assets/img/gallery/landscape-2.svg"
-                        alt="Absztrakt folyópart"
-                        loading="lazy"
-                      />
-                    </div>
-                    <div class="carousel-item">
-                      <img
-                        src="assets/img/gallery/landscape-3.svg"
-                        alt="Absztrakt tisztás"
-                        loading="lazy"
-                      />
-                    </div>
-                  </div>
-                  <div class="gallery-controls">
-                    <button
-                      type="button"
-                      class="gallery-control"
-                      data-bs-target="#galleryE"
-                      data-bs-slide="prev"
-                      aria-label="Előző"
-                    >
-                      <span
-                        class="carousel-icon-prev"
-                        aria-hidden="true"
-                      ></span>
-                    </button>
-                    <div class="carousel-indicators">
-                      <button
-                        type="button"
-                        data-bs-target="#galleryE"
-                        data-bs-slide-to="0"
-                        class="active"
-                        aria-current="true"
-                        aria-label="1. dia"
-                      ></button>
-                      <button
-                        type="button"
-                        data-bs-target="#galleryE"
-                        data-bs-slide-to="1"
-                        aria-label="2. dia"
-                      ></button>
-                      <button
-                        type="button"
-                        data-bs-target="#galleryE"
-                        data-bs-slide-to="2"
-                        aria-label="3. dia"
-                      ></button>
-                    </div>
-                    <button
-                      type="button"
-                      class="gallery-control"
-                      data-bs-target="#galleryE"
-                      data-bs-slide="next"
-                      aria-label="Következő"
-                    >
-                      <span
-                        class="carousel-icon-next"
-                        aria-hidden="true"
-                      ></span>
-                    </button>
-                  </div>
-                </div>
-                <a href="#" class="btn-solid gallery-tile-action">Térkép</a>
+              <div class="d-flex flex-wrap gap-4">
+                <button type="submit" class="btn-outline">Ellenőrzés</button>
+                <a href="pages/kviz.html" class="btn-solid">A teljes kvíz</a>
               </div>
             </div>
-          </div>
-        </section>
+          </form>
+        </div>
       </div>
-    </main>
-    <footer></footer>
+    </section>
+  </main>
+  <footer>
+    <div class="bg-light pt-10">
+      <div class="container mb-8">
+        <div class="row gy-8">
+          <div class="col-12 md:col-6 lg:col-4">
+            <a class="footer-brand d-inline-block mb-4" href="index.html">
+              <img src="assets/brand/brand-logo.webp" alt="Esőerdők világa" class="w-50 rounded-5" />
+            </a>
+            <p class="mb-0">
+              Iskolai projekt az esőerdők élővilágáról, túraútvonalairól és a vadonban hasznos tudásról.
+            </p>
+          </div>
+          <div class="col-12 md:col-6 lg:col-4">
+            <h2 class="footer-title h6 pb-2 mb-4">Oldalak</h2>
+            <ul class="list-unstyled vstack gap-2 mb-0">
+              <li><a href="pages/elovilag.html">Élővilág</a></li>
+              <li><a href="pages/kviz.html">Kvíz</a></li>
+              <li><a href="pages/terkep.html">Térkép</a></li>
+              <li><a href="pages/tippek.html">Tippek</a></li>
+            </ul>
+          </div>
+          <div class="col-12 md:col-6 lg:col-4">
+            <h2 class="footer-title h6 pb-2 mb-4">A projektről</h2>
+            <p class="mb-2">Készítették: Káldor Levente és Ménes Megyer</p>
+          </div>
+        </div>
+      </div>
+      <div class="container copyright-footer pt-8 pb-4">
+        <p class="text-center">&copy; 2026 Esőerdők világa</p>
+      </div>
+    </div>
+  </footer>
 
-    <script src="js/bootstrap.bundle.min.js"></script>
-    <script src="js/script.js"></script>
-  </body>
+  <a href="#top" class="btn-solid btn-icon hover-lift position-fixed bottom-0 end-0 m-6 z-3 is-hidden" id="backToTop"
+    aria-label="Vissza a tetejére">
+    <svg class="bi" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
+      <path fill-rule="evenodd"
+        d="M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708z" />
+    </svg>
+  </a>
+
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/script.js"></script>
+</body>
+
 </html>
