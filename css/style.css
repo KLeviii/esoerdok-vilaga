@@ -358,6 +358,16 @@ nav .btn-outline:hover {
     }
 }
 
+/* érintőképernyőn a :hover a koppintás után beragad -> ne maradjon felemelve és átszínezve */
+@media (hover: none) {
+    #backToTop:hover {
+        background-color: var(--primary);
+        border-color: var(--primary);
+        transform: none;
+        box-shadow: none;
+    }
+}
+
 .accordion {
     --bs-accordion-color: var(--text);
     --bs-accordion-bg: var(--bg-light);
