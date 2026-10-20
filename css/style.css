@@ -162,6 +162,11 @@ body {
     --bs-primary-bg: var(--primary);
     --bs-primary-fg: var(--primary);
     --bs-primary-contrast: var(--on-primary);
+    --bs-primary-bg-subtle: color-mix(in oklch, var(--primary) 15%, transparent);
+    --bs-primary-border: var(--primary);
+    --bs-warning-fg: var(--warning);
+    --bs-warning-border: var(--warning);
+    --bs-warning-bg-subtle: color-mix(in oklch, var(--warning) 15%, transparent);
     --bs-control-checked-bg: var(--primary);
     --bs-control-checked-border-color: var(--primary);
     --bs-focus-ring-color: color-mix(in oklch, var(--primary) 45%, transparent);
@@ -390,6 +395,15 @@ nav .btn-outline:hover {
     background-color: var(--highlight);
 }
 
+
+.progress {
+    --bs-progress-bg: var(--border-muted);
+}
+
+/* a kvíz a fókuszt a kérdés vagy az eredmény címére teszi a felolvasóknak, ez ne rajzoljon keretet */
+[tabindex="-1"]:focus {
+    outline: none;
+}
 
 .card {
     --bs-card-bg: var(--bg-light);

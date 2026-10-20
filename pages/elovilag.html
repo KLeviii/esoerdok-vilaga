@@ -1,0 +1,737 @@
+<!doctype html>
+<html lang="hu">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Egzotikus, veszélyeztetett és mérgező esőerdei fajok, képgaléria és teendők vészhelyzetben." />
+  <link rel="icon" href="../assets/brand/icon-logo.webp" type="image/webp" />
+  <link rel="stylesheet" href="../css/bootstrap.min.css" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <title>Élővilág – Esőerdők világa</title>
+</head>
+
+<body>
+  <script>
+    try {
+      const saved = localStorage.getItem("theme")
+      if (saved === "light" || (saved !== "dark" && matchMedia("(prefers-color-scheme: light)").matches)) {
+        document.body.classList.add("light")
+      }
+    } catch {}
+  </script>
+  <a class="visually-hidden-focusable" href="#main">Ugrás a tartalomra</a>
+  <header class="sticky-top" id="siteHeader">
+    <nav class="navbar md:navbar-expand bg-1" id="pageTop">
+      <div class="container">
+        <a class="navbar-brand d-flex align-items-center gap-2" href="../index.html">
+          <img src="../assets/brand/icon-dark.webp" alt="" width="30" height="30" />
+          Esőerdők világa
+        </a>
+        <button class="btn-icon navbar-toggler" type="button" data-bs-toggle="drawer" data-bs-target="#navbarDrawer"
+          aria-controls="navbarDrawer" aria-expanded="false" aria-label="Menü megnyitása">
+          <span class="navbar-toggler-icon" aria-hidden="true"></span>
+        </button>
+        <dialog class="drawer drawer-end" tabindex="-1" id="navbarDrawer" aria-labelledby="navbarDrawerLabel">
+          <div class="drawer-header">
+            <h5 class="drawer-title" id="navbarDrawerLabel">Menü</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="drawer" aria-label="Bezárás"></button>
+          </div>
+          <div class="drawer-body mb-2 md:mb-0">
+            <ul class="nav navbar-nav ms-auto me-4">
+              <li class="nav-item">
+                <a class="nav-link" href="../index.html">Főoldal</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="elovilag.html">Élővilág</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="kviz.html">Kvíz</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="terkep.html">Térkép</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="tippek.html">Tippek</a>
+              </li>
+            </ul>
+
+            <div class="theme-switcher">
+              <button type="button" class="btn-outline theme-switcher-toggle" id="themeToggle" data-bs-toggle="menu"
+                data-bs-placement="bottom-end" aria-expanded="false" aria-label="Téma választása">
+                <span class="theme-switcher-icon" id="themeToggleIcon"><svg class="bi bi-circle-half" width="16"
+                    height="16" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
+                    <path d="M8 15A7 7 0 1 0 8 1zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16" />
+                  </svg></span>
+                <svg class="bi bi-chevron-expand" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"
+                  aria-hidden="true">
+                  <path
+                    d="M3.646 9.146a.5.5 0 0 1 .708 0L8 12.793l3.646-3.647a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 0-.708m0-2.292a.5.5 0 0 0 .708 0L8 3.207l3.646 3.647a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 0 0 0 .708" />
+                </svg>
+              </button>
+              <div class="menu" aria-labelledby="themeToggle">
+                <button class="menu-item" type="button" data-theme-value="light" aria-pressed="false">
+                  <svg class="bi menu-item-icon bi-brightness-high-fill" width="16" height="16" fill="currentColor"
+                    viewBox="0 0 16 16" aria-hidden="true">
+                    <path
+                      d="M12 8a4 4 0 1 1-8 0 4 4 0 0 1 8 0M8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0m0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13m8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5M3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8m10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0m-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0m9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707M4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708" />
+                  </svg>
+                  <span class="menu-item-content">Világos</span>
+                  <svg class="bi menu-item-check bi-check2" width="16" height="16" fill="currentColor"
+                    viewBox="0 0 16 16" aria-hidden="true">
+                    <path
+                      d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0" />
+                  </svg>
+                </button>
+                <button class="menu-item" type="button" data-theme-value="dark" aria-pressed="false">
+                  <svg class="bi menu-item-icon bi-moon-fill" width="16" height="16" fill="currentColor"
+                    viewBox="0 0 16 16" aria-hidden="true">
+                    <path
+                      d="M6 .278a.77.77 0 0 1 .08.858 7.2 7.2 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277q.792-.001 1.533-.16a.79.79 0 0 1 .81.316.73.73 0 0 1-.031.893A8.35 8.35 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.75.75 0 0 1 6 .278" />
+                  </svg>
+                  <span class="menu-item-content">Sötét</span>
+                  <svg class="bi menu-item-check bi-check2" width="16" height="16" fill="currentColor"
+                    viewBox="0 0 16 16" aria-hidden="true">
+                    <path
+                      d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0" />
+                  </svg>
+                </button>
+                <button class="menu-item" type="button" data-theme-value="auto" aria-pressed="false">
+                  <svg class="bi menu-item-icon bi-circle-half" width="16" height="16" fill="currentColor"
+                    viewBox="0 0 16 16" aria-hidden="true">
+                    <path d="M8 15A7 7 0 1 0 8 1zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16" />
+                  </svg>
+                  <span class="menu-item-content">Automatikus</span>
+                  <svg class="bi menu-item-check bi-check2" width="16" height="16" fill="currentColor"
+                    viewBox="0 0 16 16" aria-hidden="true">
+                    <path
+                      d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </dialog>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <div class="bg-dark py-12">
+      <div class="container">
+        <h1 class="mb-4">Élővilág</h1>
+        <p class="mb-6 col-12 lg:col-8">
+          Az esőerdőkben él a Föld ismert állat- és növényfajainak több mint fele. Ezen az oldalon három csoportban
+          mutatunk be néhányat: feltűnő, veszélyeztetett és mérgező fajokat. A végén azt is leírjuk, mit tegyél, ha
+          baj történik.
+        </p>
+        <div role="navigation" aria-label="Az oldal részei">
+          <ul class="list-unstyled d-flex flex-wrap gap-2 mb-0">
+            <li><a class="btn-outline btn-sm" href="#egzotikus">Egzotikus</a></li>
+            <li><a class="btn-outline btn-sm" href="#veszelyeztetett">Veszélyeztetett</a></li>
+            <li><a class="btn-outline btn-sm" href="#mergezo">Mérgező</a></li>
+            <li><a class="btn-outline btn-sm" href="#galeria">Galéria</a></li>
+            <li><a class="btn-outline btn-sm" href="#veszhelyzet">Vészhelyzetben</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <section class="container mt-12 mb-12" id="egzotikus" aria-labelledby="egzotikusTitle">
+      <h2 class="mb-4" id="egzotikusTitle">Egzotikus fajok</h2>
+      <p class="mb-8">Feltűnő színű vagy szokatlan életmódú állatok, amelyek csak a trópusi erdőkben élnek.</p>
+      <div class="row row-cols-1 md:row-cols-2 lg:row-cols-4 g-6">
+        <div class="col">
+          <article class="card h-100">
+            <img src="../assets/img/elovilag/oriastukan.webp" class="card-img-top ratio-4x3 h-auto object-fit-cover" width="800"
+                height="600" loading="lazy" alt="Óriás tukán ágon ülve, nagy narancssárga csőrrel" />
+            <div class="card-body d-flex flex-column">
+              <h3 class="h5 mb-1">Óriás tukán</h3>
+              <p class="text-muted fst-italic small mb-3">Ramphastos toco</p>
+              <p>
+                Narancssárga csőre a testhossz harmadát is elérheti, mégis könnyű, mert belül szivacsos szerkezetű. A
+                csőrén keresztül hőt is lead, így hűti magát.
+              </p>
+              <div class="d-flex flex-wrap gap-2 mt-auto">
+                <span class="badge badge-subtle theme-primary">Lombkorona</span>
+              </div>
+            </div>
+          </article>
+        </div>
+        <div class="col">
+          <article class="card h-100">
+            <img src="../assets/img/elovilag/arakanga.webp" class="card-img-top ratio-4x3 h-auto object-fit-cover" width="800"
+                height="600" loading="lazy" alt="Piros, sárga és kék tollú arakanga" />
+            <div class="card-body d-flex flex-column">
+              <h3 class="h5 mb-1">Arakanga</h3>
+              <p class="text-muted fst-italic small mb-3">Ara macao</p>
+              <p>
+                Nagy testű, élénk színű papagáj, párban vagy kisebb csapatokban él. Folyóparti agyagfalakról agyagot is
+                eszik, valószínűleg a só miatt.
+              </p>
+              <div class="d-flex flex-wrap gap-2 mt-auto">
+                <span class="badge badge-subtle theme-primary">Lombkorona</span>
+              </div>
+            </div>
+          </article>
+        </div>
+        <div class="col">
+          <article class="card h-100">
+            <img src="../assets/img/elovilag/morfolepke.webp" class="card-img-top ratio-4x3 h-auto object-fit-cover" width="800"
+                height="600" loading="lazy" alt="Kék morfólepke kiterjesztett, fémesen csillogó kék szárnyakkal, banánon táplálkozik" />
+            <div class="card-body d-flex flex-column">
+              <h3 class="h5 mb-1">Kék morfólepke</h3>
+              <p class="text-muted fst-italic small mb-3">Morpho peleides</p>
+              <p>
+                Szárnyának kék színét nem festék adja, hanem a pikkelyek apró szerkezete, amely a fényt veri vissza.
+                Összecsukott szárnya barna, így pihenés közben alig látszik.
+              </p>
+              <div class="d-flex flex-wrap gap-2 mt-auto">
+                <span class="badge badge-subtle theme-primary">Cserjeszint</span>
+              </div>
+            </div>
+          </article>
+        </div>
+        <div class="col">
+          <article class="card h-100">
+            <img src="../assets/img/elovilag/lajhar.webp" class="card-img-top ratio-4x3 h-auto object-fit-cover" width="800"
+                height="600" loading="lazy" alt="Barnatorkú lajhár egy fatörzsbe kapaszkodva" />
+            <div class="card-body d-flex flex-column">
+              <h3 class="h5 mb-1">Barnatorkú lajhár</h3>
+              <p class="text-muted fst-italic small mb-3">Bradypus variegatus</p>
+              <p>
+                Napja nagy részét szinte mozdulatlanul tölti a fák ágain. Olyan lassan mozog, hogy bundájában algák
+                nőnek, ettől zöldes színű, és nehezebb észrevenni.
+              </p>
+              <div class="d-flex flex-wrap gap-2 mt-auto">
+                <span class="badge badge-subtle theme-primary">Lombkorona</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="container mb-12" id="veszelyeztetett" aria-labelledby="veszelyeztetettTitle">
+      <h2 class="mb-4" id="veszelyeztetettTitle">Veszélyeztetett fajok</h2>
+      <p class="mb-8">
+        Ezeknek a fajoknak a száma az erdőirtás és az orvvadászat miatt erősen csökken. A besorolás az IUCN Vörös
+        Listája szerint szerepel.
+      </p>
+      <div class="row row-cols-1 md:row-cols-2 lg:row-cols-4 g-6">
+        <div class="col">
+          <article class="card h-100">
+            <img src="../assets/img/elovilag/orangutan.webp" class="card-img-top ratio-4x3 h-auto object-fit-cover" width="800"
+                height="600" loading="lazy" alt="Hím borneói orangután széles arcpárnákkal, vörösesbarna szőrrel az erdőben" />
+            <div class="card-body d-flex flex-column">
+              <h3 class="h5 mb-1">Borneói orangután</h3>
+              <p class="text-muted fst-italic small mb-3">Pongo pygmaeus</p>
+              <p>
+                Az idejének nagy részét a fákon tölti, minden este új fészket épít ágakból. Élőhelyét főleg az
+                olajpálma-ültetvények és a fakitermelés szűkíti.
+              </p>
+              <div class="d-flex flex-wrap gap-2 mt-auto">
+                <span class="badge badge-subtle theme-primary">Lombkorona</span>
+                <span class="badge badge-subtle theme-danger">Súlyosan veszélyeztetett (CR)</span>
+              </div>
+            </div>
+          </article>
+        </div>
+        <div class="col">
+          <article class="card h-100">
+            <img src="../assets/img/elovilag/szumatrai-tigris.webp" class="card-img-top ratio-4x3 h-auto object-fit-cover"
+                width="800" height="600" loading="lazy" alt="Szumátrai tigris sziklás terepen sétál" />
+            <div class="card-body d-flex flex-column">
+              <h3 class="h5 mb-1">Szumátrai tigris</h3>
+              <p class="text-muted fst-italic small mb-3">Panthera tigris sumatrae</p>
+              <p>
+                A legkisebb ma élő tigris, csak Szumátra szigetén fordul elő. Becslések szerint néhány száz példány él
+                a vadonban.
+              </p>
+              <div class="d-flex flex-wrap gap-2 mt-auto">
+                <span class="badge badge-subtle theme-primary">Talajszint</span>
+                <span class="badge badge-subtle theme-danger">Súlyosan veszélyeztetett (CR)</span>
+              </div>
+            </div>
+          </article>
+        </div>
+        <div class="col">
+          <article class="card h-100">
+            <img src="../assets/img/elovilag/harpia.webp" class="card-img-top ratio-4x3 h-auto object-fit-cover" width="800"
+                height="600" loading="lazy" alt="Hárpia szürke fejjel, fekete-fehér tollazattal egy fatönkön" />
+            <div class="card-body d-flex flex-column">
+              <h3 class="h5 mb-1">Hárpia</h3>
+              <p class="text-muted fst-italic small mb-3">Harpia harpyja</p>
+              <p>
+                Az amerikai esőerdők legerősebb ragadozó madara. A fák koronájából csap le a majmokra és a lajhárokra,
+                hátsó karmai 12 centiméteresek is lehetnek.
+              </p>
+              <div class="d-flex flex-wrap gap-2 mt-auto">
+                <span class="badge badge-subtle theme-primary">Kiemelkedő fák</span>
+                <span class="badge badge-subtle theme-warning">Sebezhető (VU)</span>
+              </div>
+            </div>
+          </article>
+        </div>
+        <div class="col">
+          <article class="card h-100">
+            <img src="../assets/img/elovilag/okapi.webp" class="card-img-top ratio-4x3 h-auto object-fit-cover" width="800"
+                height="600" loading="lazy" alt="Okapi sötétbarna testtel és fehér csíkos lábakkal füves területen" />
+            <div class="card-body d-flex flex-column">
+              <h3 class="h5 mb-1">Okapi</h3>
+              <p class="text-muted fst-italic small mb-3">Okapia johnstoni</p>
+              <p>
+                Csíkos lába miatt zebrának tűnik, de a zsiráf legközelebbi élő rokona. Csak a Kongói Demokratikus
+                Köztársaság esőerdeiben él.
+              </p>
+              <div class="d-flex flex-wrap gap-2 mt-auto">
+                <span class="badge badge-subtle theme-primary">Talajszint</span>
+                <span class="badge badge-subtle theme-danger">Veszélyeztetett (EN)</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="container mb-12" id="mergezo" aria-labelledby="mergezoTitle">
+      <h2 class="mb-4" id="mergezoTitle">Mérgező fajok</h2>
+      <p class="mb-8">
+        Van, amelyik érintésre mérgező, és van, amelyik marással vagy csípéssel juttat mérget a szervezetbe. Egyiket
+        sem szabad megfogni.
+      </p>
+      <div class="row row-cols-1 md:row-cols-2 lg:row-cols-4 g-6">
+        <div class="col">
+          <article class="card h-100">
+            <img src="../assets/img/elovilag/nyilmeregbeka.webp" class="card-img-top ratio-4x3 h-auto object-fit-cover" width="800"
+                height="600" loading="lazy" alt="Élénksárga arany nyílméregbéka sötét háttér előtt" />
+            <div class="card-body d-flex flex-column">
+              <h3 class="h5 mb-1">Arany nyílméregbéka</h3>
+              <p class="text-muted fst-italic small mb-3">Phyllobates terribilis</p>
+              <p>
+                Bőre olyan erős mérget választ ki, hogy már az érintése is veszélyes. Élénk színe figyelmeztetés a
+                ragadozóknak. Kolumbia egy kis területén él.
+              </p>
+              <div class="d-flex flex-wrap gap-2 mt-auto">
+                <span class="badge badge-subtle theme-primary">Talajszint</span>
+                <span class="badge badge-subtle theme-danger">Bőrön át mérgező</span>
+              </div>
+            </div>
+          </article>
+        </div>
+        <div class="col">
+          <article class="card h-100">
+            <img src="../assets/img/elovilag/vandorpok.webp" class="card-img-top ratio-4x3 h-auto object-fit-cover" width="800"
+                height="600" loading="lazy" alt="Brazil vándorpók közelről, vörös csáprágókkal, védekező testtartásban" />
+            <div class="card-body d-flex flex-column">
+              <h3 class="h5 mb-1">Brazil vándorpók</h3>
+              <p class="text-muted fst-italic small mb-3">Phoneutria nigriventer</p>
+              <p>
+                Nem sző hálót, éjszaka a talajon vadászik. Napközben banánfürtökbe, cipőkbe és ruhák közé is elbújik.
+                Marása orvosi ellátást igényel.
+              </p>
+              <div class="d-flex flex-wrap gap-2 mt-auto">
+                <span class="badge badge-subtle theme-primary">Talajszint</span>
+                <span class="badge badge-subtle theme-danger">Mérges marás</span>
+              </div>
+            </div>
+          </article>
+        </div>
+        <div class="col">
+          <article class="card h-100">
+            <img src="../assets/img/elovilag/landzsakigyo.webp" class="card-img-top ratio-4x3 h-auto object-fit-cover" width="800"
+                height="600" loading="lazy" alt="Barna, mintás lándzsakígyó összetekeredve, kiöltött nyelvvel" />
+            <div class="card-body d-flex flex-column">
+              <h3 class="h5 mb-1">Lándzsakígyó</h3>
+              <p class="text-muted fst-italic small mb-3">Bothrops atrox</p>
+              <p>
+                Mintázata beleolvad a lehullott levelekbe, ezért könnyű rálépni. Dél-Amerikában a kígyómarásos
+                balesetek nagy részét ez a faj okozza.
+              </p>
+              <div class="d-flex flex-wrap gap-2 mt-auto">
+                <span class="badge badge-subtle theme-primary">Talajszint</span>
+                <span class="badge badge-subtle theme-danger">Mérges marás</span>
+              </div>
+            </div>
+          </article>
+        </div>
+        <div class="col">
+          <article class="card h-100">
+            <img src="../assets/img/elovilag/golyohangya.webp" class="card-img-top ratio-4x3 h-auto object-fit-cover" width="800"
+                height="600" loading="lazy" alt="Sötétbarna golyóhangya egy levélen" />
+            <div class="card-body d-flex flex-column">
+              <h3 class="h5 mb-1">Golyóhangya</h3>
+              <p class="text-muted fst-italic small mb-3">Paraponera clavata</p>
+              <p>
+                Két-három centiméteres hangya, a fák tövében fészkel. Csípése az egyik legfájdalmasabb a rovarok
+                között, a fájdalom órákig tart.
+              </p>
+              <div class="d-flex flex-wrap gap-2 mt-auto">
+                <span class="badge badge-subtle theme-primary">Talajszint</span>
+                <span class="badge badge-subtle theme-danger">Mérges csípés</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <div class="bg-dark py-12" id="galeria">
+      <section class="container" aria-labelledby="galeriaTitle">
+        <h2 class="mb-4" id="galeriaTitle">Galéria</h2>
+        <p class="mb-8">Képek a három csoport további fajairól. Minden ablak külön léptethető.</p>
+        <div class="gallery">
+          <div class="grid">
+            <div class="g-col-12 md:g-col-7 gallery-tile gallery-tile-a">
+              <div id="galeriaEgzotikus" class="carousel" aria-roledescription="carousel"
+                aria-label="Egzotikus fajok képei">
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img src="../assets/img/elovilag/galeria-egzotikus-1.webp"
+                      alt="Vörösszemű levelibéka egy növény szárába kapaszkodva" loading="lazy" />
+                  </div>
+                  <div class="carousel-item">
+                    <img src="../assets/img/elovilag/galeria-egzotikus-2.webp" alt="Rozsdásfarkú kolibri egy vékony ágon ülve"
+                      loading="lazy" />
+                  </div>
+                  <div class="carousel-item">
+                    <img src="../assets/img/elovilag/galeria-egzotikus-3.webp" alt="Zöld párduckaméleon egy ágon"
+                      loading="lazy" />
+                  </div>
+                </div>
+                <div class="gallery-controls">
+                  <button type="button" class="gallery-control" data-bs-target="#galeriaEgzotikus"
+                    data-bs-slide="prev" aria-label="Előző">
+                    <span class="carousel-icon-prev" aria-hidden="true"></span>
+                  </button>
+                  <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#galeriaEgzotikus" data-bs-slide-to="0" class="active"
+                      aria-current="true" aria-label="1. kép"></button>
+                    <button type="button" data-bs-target="#galeriaEgzotikus" data-bs-slide-to="1"
+                      aria-label="2. kép"></button>
+                    <button type="button" data-bs-target="#galeriaEgzotikus" data-bs-slide-to="2"
+                      aria-label="3. kép"></button>
+                  </div>
+                  <button type="button" class="gallery-control" data-bs-target="#galeriaEgzotikus"
+                    data-bs-slide="next" aria-label="Következő">
+                    <span class="carousel-icon-next" aria-hidden="true"></span>
+                  </button>
+                </div>
+              </div>
+              <a href="#egzotikus" class="btn-solid gallery-tile-action hover-lift">Egzotikus</a>
+            </div>
+            <div class="g-col-12 md:g-col-5 gallery-tile gallery-tile-b">
+              <div id="galeriaVeszelyeztetett" class="carousel" aria-roledescription="carousel"
+                aria-label="Veszélyeztetett fajok képei">
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img src="../assets/img/elovilag/galeria-veszelyeztetett-1.webp"
+                      alt="Hegyi gorilla az erdő aljában ülve" loading="lazy" />
+                  </div>
+                  <div class="carousel-item">
+                    <img src="../assets/img/elovilag/galeria-veszelyeztetett-2.webp" alt="Szumátrai orrszarvú egy tisztáson"
+                      loading="lazy" />
+                  </div>
+                  <div class="carousel-item">
+                    <img src="../assets/img/elovilag/galeria-veszelyeztetett-3.webp" alt="Bonobó egy faoszlopra támaszkodva"
+                      loading="lazy" />
+                  </div>
+                </div>
+                <div class="gallery-controls">
+                  <button type="button" class="gallery-control" data-bs-target="#galeriaVeszelyeztetett"
+                    data-bs-slide="prev" aria-label="Előző">
+                    <span class="carousel-icon-prev" aria-hidden="true"></span>
+                  </button>
+                  <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#galeriaVeszelyeztetett" data-bs-slide-to="0"
+                      class="active" aria-current="true" aria-label="1. kép"></button>
+                    <button type="button" data-bs-target="#galeriaVeszelyeztetett" data-bs-slide-to="1"
+                      aria-label="2. kép"></button>
+                    <button type="button" data-bs-target="#galeriaVeszelyeztetett" data-bs-slide-to="2"
+                      aria-label="3. kép"></button>
+                  </div>
+                  <button type="button" class="gallery-control" data-bs-target="#galeriaVeszelyeztetett"
+                    data-bs-slide="next" aria-label="Következő">
+                    <span class="carousel-icon-next" aria-hidden="true"></span>
+                  </button>
+                </div>
+              </div>
+              <a href="#veszelyeztetett" class="btn-solid gallery-tile-action hover-lift">Veszélyeztetett</a>
+            </div>
+            <div class="g-col-12 md:g-col-5 gallery-tile gallery-tile-c">
+              <div id="galeriaMergezo" class="carousel" aria-roledescription="carousel"
+                aria-label="Mérgező fajok képei">
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img src="../assets/img/elovilag/galeria-mergezo-1.webp" alt="Fekete-sárga festett nyílméregbéka mohán"
+                      loading="lazy" />
+                  </div>
+                  <div class="carousel-item">
+                    <img src="../assets/img/elovilag/galeria-mergezo-2.webp" alt="Piros és fekete gyűrűs korallkígyó az avarban"
+                      loading="lazy" />
+                  </div>
+                  <div class="carousel-item">
+                    <img src="../assets/img/elovilag/galeria-mergezo-3.webp" alt="Fekete skorpió száraz leveleken"
+                      loading="lazy" />
+                  </div>
+                </div>
+                <div class="gallery-controls">
+                  <button type="button" class="gallery-control" data-bs-target="#galeriaMergezo"
+                    data-bs-slide="prev" aria-label="Előző">
+                    <span class="carousel-icon-prev" aria-hidden="true"></span>
+                  </button>
+                  <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#galeriaMergezo" data-bs-slide-to="0" class="active"
+                      aria-current="true" aria-label="1. kép"></button>
+                    <button type="button" data-bs-target="#galeriaMergezo" data-bs-slide-to="1"
+                      aria-label="2. kép"></button>
+                    <button type="button" data-bs-target="#galeriaMergezo" data-bs-slide-to="2"
+                      aria-label="3. kép"></button>
+                  </div>
+                  <button type="button" class="gallery-control" data-bs-target="#galeriaMergezo" data-bs-slide="next"
+                    aria-label="Következő">
+                    <span class="carousel-icon-next" aria-hidden="true"></span>
+                  </button>
+                </div>
+              </div>
+              <a href="#mergezo" class="btn-solid gallery-tile-action hover-lift">Mérgező</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <section class="container mt-12 mb-8" id="veszhelyzet" aria-labelledby="veszhelyzetTitle">
+      <h2 class="mb-4" id="veszhelyzetTitle">Vészhelyzetben</h2>
+      <p class="mb-8 col-12 lg:col-8">
+        Az esőerdőben a segítség órákra is lehet. Ha baj történik, először a saját biztonságodra figyelj, aztán hívj
+        segítséget. Az alábbi lépések az első teendőket írják le, az orvosi ellátást nem helyettesítik.
+      </p>
+      <div class="row gy-8">
+        <div class="col-12 lg:col-5">
+          <div class="card">
+            <div class="card-body">
+              <h3 class="h5 mb-6">Segélyhívó számok</h3>
+              <dl class="mb-6">
+                <dt class="fw-semibold">Brazília</dt>
+                <dd class="mb-4">
+                  <a class="h3 d-inline-block mb-1" href="tel:192">192</a> mentők<br />
+                  <a class="h3 d-inline-block mb-1" href="tel:193">193</a> tűzoltóság és mentés<br />
+                  <a class="h3 d-inline-block mb-0" href="tel:190">190</a> rendőrség
+                </dd>
+                <dt class="fw-semibold">Peru</dt>
+                <dd class="mb-4">
+                  <a class="h3 d-inline-block mb-1" href="tel:106">106</a> mentők<br />
+                  <a class="h3 d-inline-block mb-1" href="tel:116">116</a> tűzoltóság<br />
+                  <a class="h3 d-inline-block mb-0" href="tel:105">105</a> rendőrség
+                </dd>
+                <dt class="fw-semibold">Kolumbia</dt>
+                <dd class="mb-0">
+                  <a class="h3 d-inline-block mb-0" href="tel:123">123</a> egységes segélyhívó
+                </dd>
+              </dl>
+              <p class="small text-muted">
+                Peruban a 106-os mentőszám nem minden régióban érhető el, ilyenkor a 105-öt hívd. Térerő nélkül a
+                túravezetőnél lévő műholdas telefon vagy jeladó segít.
+              </p>
+              <a class="btn-outline" href="terkep.html">Mentőpontok a Térképen</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 lg:col-7">
+          <div class="accordion accordion-gap">
+            <details class="accordion-item" open>
+              <summary class="accordion-header">
+                Eltévedtél
+                <svg class="accordion-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none"
+                  stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="m2 5 6 6 6-6" />
+                </svg>
+              </summary>
+              <div class="accordion-body">
+                <ol class="mb-0">
+                  <li>Állj meg, és ne indulj el találomra.</li>
+                  <li>Maradj a helyeden, vagy menj egy közeli, jól látható pontra. A keresés az utolsó ismert helyedtől
+                    indul.</li>
+                  <li>Jelezz: sípszóval háromszor egymás után, zseblámpával vagy élénk színű ruhával.</li>
+                  <li>Ha van térerő, hívd a segélyhívót, és mondd el, mit látsz magad körül.</li>
+                  <li>Takarékoskodj a vízzel és az erőddel.</li>
+                </ol>
+              </div>
+            </details>
+            <details class="accordion-item">
+              <summary class="accordion-header">
+                Kígyómarás
+                <svg class="accordion-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none"
+                  stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="m2 5 6 6 6-6" />
+                </svg>
+              </summary>
+              <div class="accordion-body">
+                <ol class="mb-0">
+                  <li>Távolodj el a kígyótól, ne próbáld megfogni.</li>
+                  <li>Maradj nyugodt, ülj vagy feküdj le, a megmart végtagot tartsd mozdulatlanul.</li>
+                  <li>Vedd le a gyűrűt, az órát és a szoros ruhát, mert a végtag bedagadhat.</li>
+                  <li>Ne vágd be a sebet, ne szívd ki, ne szorítsd el, és ne hűtsd jéggel.</li>
+                  <li>Hívj segítséget, és jegyezd meg, hogyan nézett ki a kígyó.</li>
+                </ol>
+              </div>
+            </details>
+            <details class="accordion-item">
+              <summary class="accordion-header">
+                Pók- vagy rovarcsípés
+                <svg class="accordion-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none"
+                  stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="m2 5 6 6 6-6" />
+                </svg>
+              </summary>
+              <div class="accordion-body">
+                <ol class="mb-0">
+                  <li>Mosd le a csípés helyét tiszta vízzel.</li>
+                  <li>Hideg, nedves ruhával borogasd, ez csökkenti a duzzanatot és a fájdalmat.</li>
+                  <li>Ha nehezen kapsz levegőt, bedagad az arcod vagy szédülsz, azonnal hívj segítséget, mert ez
+                    allergiás reakció lehet.</li>
+                  <li>Brazil vándorpók marása után mindig orvoshoz kell menni, akkor is, ha eleinte nincs tünet.</li>
+                </ol>
+              </div>
+            </details>
+            <details class="accordion-item">
+              <summary class="accordion-header">
+                Vérző sérülés
+                <svg class="accordion-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none"
+                  stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="m2 5 6 6 6-6" />
+                </svg>
+              </summary>
+              <div class="accordion-body">
+                <ol class="mb-0">
+                  <li>Tiszta ruhával vagy kötszerrel nyomd erősen a sebre.</li>
+                  <li>Ha átázik, ne vedd le, tegyél rá újabb réteget.</li>
+                  <li>Ha lehet, emeld a sérült testrészt a szív szintje fölé.</li>
+                  <li>A vérzés elállása után tisztítsd ki a sebet, és tartsd szárazon. A párás melegben gyorsan
+                    elfertőződhet.</li>
+                </ol>
+              </div>
+            </details>
+            <details class="accordion-item">
+              <summary class="accordion-header">
+                Kiszáradás, hőguta
+                <svg class="accordion-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none"
+                  stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="m2 5 6 6 6-6" />
+                </svg>
+              </summary>
+              <div class="accordion-body">
+                <p>Jelei: szédülés, fejfájás, sötét vizelet, zavartság.</p>
+                <ol class="mb-0">
+                  <li>Vidd a beteget árnyékba, és pihentesd.</li>
+                  <li>Itasd apránként, de gyakran.</li>
+                  <li>Hűtsd nedves ruhával a nyakán, a hónaljában és a homlokán.</li>
+                  <li>Ha zavart, vagy elveszíti az eszméletét, azonnal hívj segítséget.</li>
+                </ol>
+              </div>
+            </details>
+          </div>
+          <p class="mt-6 mb-0">
+            Részletes túlélő technikák a <a href="tippek.html">Tippek</a> oldalon.
+          </p>
+        </div>
+      </div>
+    </section>
+    <section class="container mb-12" aria-labelledby="kepforrasTitle">
+      <details class="accordion-item">
+        <summary class="accordion-header" id="kepforrasTitle">
+          Képek forrása
+          <svg class="accordion-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none"
+            stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="m2 5 6 6 6-6" />
+          </svg>
+        </summary>
+        <div class="accordion-body small">
+          <p>
+            Minden kép a Wikimedia Commonsról származik. A képeket kivágtuk, átméreteztük és WebP formátumba
+            alakítottuk.
+          </p>
+          <ul class="mb-0">
+              <li>Óriás tukán: <a href="https://commons.wikimedia.org/wiki/File:006_Toco_toucan_in_Encontro_das_%C3%81guas_State_Park_Photo_by_Giles_Laurent.jpg">Giles Laurent</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a></li>
+              <li>Arakanga: <a href="https://commons.wikimedia.org/wiki/File:Scarlet_macaw_(Ara_macao_cyanopterus)_Copan.jpg">Charles J. Sharp</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a></li>
+              <li>Kék morfólepke: <a href="https://commons.wikimedia.org/wiki/File:Blue_Morpho_Butterfly_at_University_of_Florida.jpg">Terry Foote</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a></li>
+              <li>Barnatorkú lajhár: <a href="https://commons.wikimedia.org/wiki/File:Bradypus.jpg">Stefan Laube</a>, közkincs</li>
+              <li>Borneói orangután: <a href="https://commons.wikimedia.org/wiki/File:Tanjung_Puting30477.jpg">Nanosanchez</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a></li>
+              <li>Szumátrai tigris: <a href="https://commons.wikimedia.org/wiki/File:Sumatran_Tiger_Berlin_Tierpark.jpg">Captain Herbert</a>, <a href="https://creativecommons.org/licenses/by-sa/3.0">CC BY-SA 3.0</a></li>
+              <li>Hárpia: <a href="https://commons.wikimedia.org/wiki/File:Harpia_harpyja_001_800.jpg">birdphotos.com</a>, <a href="https://creativecommons.org/licenses/by/3.0">CC BY 3.0</a></li>
+              <li>Okapi: <a href="https://commons.wikimedia.org/wiki/File:Saint-Aignan_(Loir-et-Cher)._Okapi.jpg">Daniel Jolivet</a>, <a href="https://creativecommons.org/licenses/by/2.0">CC BY 2.0</a></li>
+              <li>Arany nyílméregbéka: <a href="https://commons.wikimedia.org/wiki/File:Schrecklicherpfeilgiftfrosch-01.jpg">Wilfried Berns</a>, <a href="https://creativecommons.org/licenses/by-sa/2.0/de/deed.en">CC BY-SA 2.0 de</a></li>
+              <li>Brazil vándorpók: <a href="https://commons.wikimedia.org/wiki/File:Esta%C3%A7%C3%A3o_Ecol%C3%B3gica_de_Santa_B%C3%A1rbara_Giordano_Rossi_(12).jpg">Gionorossi</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a></li>
+              <li>Lándzsakígyó: <a href="https://commons.wikimedia.org/wiki/File:Bothrops_atrox_113840233.jpg">Darío De la Fuente</a>, <a href="https://creativecommons.org/licenses/by/4.0">CC BY 4.0</a></li>
+              <li>Golyóhangya: <a href="https://commons.wikimedia.org/wiki/File:Paraponera_clavata.jpg">Hans Hillewaert</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a></li>
+              <li>Vörösszemű levelibéka: <a href="https://commons.wikimedia.org/wiki/File:Red-eyed_Tree_Frog_(Agalychnis_callidryas)_1.png">Geoff Gallice, átdolgozás: B kimmel</a>, <a href="https://creativecommons.org/licenses/by/2.0">CC BY 2.0</a></li>
+              <li>Rozsdásfarkú kolibri: <a href="https://commons.wikimedia.org/wiki/File:Rufous-tailed_hummingbird_(Amazilia_tzacatl_fuscicaudata)_male_Las_Tangaras.jpg">Charles J. Sharp</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a></li>
+              <li>Párduckaméleon: <a href="https://commons.wikimedia.org/wiki/File:Panther_chameleon_(Furcifer_pardalis)_male_Nosy_Be.jpg">Charles J. Sharp</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a></li>
+              <li>Hegyi gorilla: <a href="https://commons.wikimedia.org/wiki/File:Susa_group,_mountain_gorilla.jpg">d_proffer</a>, <a href="https://creativecommons.org/licenses/by/2.0">CC BY 2.0</a></li>
+              <li>Szumátrai orrszarvú: <a href="https://commons.wikimedia.org/wiki/File:Sumatran_Rhinoceros_at_Sumatran_Rhino_Sanctuary_Lampung_Indonesia_2013.JPG">26Isabella</a>, <a href="https://creativecommons.org/licenses/by-sa/3.0">CC BY-SA 3.0</a></li>
+              <li>Bonobó: <a href="https://commons.wikimedia.org/wiki/File:Apeldoorn_Apenheul_zoo_Bonobo.jpg">natataek</a>, <a href="https://creativecommons.org/licenses/by-sa/3.0">CC BY-SA 3.0</a></li>
+              <li>Festett nyílméregbéka: <a href="https://commons.wikimedia.org/wiki/File:Dendrobates_tinctorius_-_Karlsruhe_Zoo_05.jpg">H. Zell</a>, <a href="https://creativecommons.org/licenses/by-sa/3.0">CC BY-SA 3.0</a></li>
+              <li>Korallkígyó: <a href="https://commons.wikimedia.org/wiki/File:Aquatic_Coralsnake_(Micrurus_surinamensis)_in_Peru.jpg">dhfischer</a>, <a href="https://creativecommons.org/licenses/by/4.0">CC BY 4.0</a></li>
+              <li>Skorpió (Tityus obscurus): <a href="https://commons.wikimedia.org/wiki/File:Tityus_obscurus_(10.3897-zookeys.764.25108)_Figure_12.jpg">Eric Ythier (ZooKeys 764)</a>, <a href="https://creativecommons.org/licenses/by/4.0">CC BY 4.0</a></li>
+          </ul>
+        </div>
+      </details>
+    </section>
+  </main>
+  <footer>
+    <div class="bg-light pt-10">
+      <div class="container mb-8">
+        <div class="row gy-8">
+          <div class="col-12 md:col-6 lg:col-3">
+            <a class="footer-brand d-inline-block mb-4" href="../index.html">
+              <img src="../assets/brand/brand-logo.webp" alt="Esőerdők világa" class="w-50 rounded-5" />
+            </a>
+            <p class="mb-0">
+              Iskolai projekt az esőerdők élővilágáról, túraútvonalairól és a vadonban hasznos tudásról.
+            </p>
+          </div>
+          <div class="col-12 md:col-6 lg:col-3">
+            <h2 class="footer-title h6 pb-2 mb-4">Oldalak</h2>
+            <ul class="list-unstyled vstack gap-2 mb-0">
+              <li><a href="elovilag.html">Élővilág</a></li>
+              <li><a href="kviz.html">Kvíz</a></li>
+              <li><a href="terkep.html">Térkép</a></li>
+              <li><a href="tippek.html">Tippek</a></li>
+            </ul>
+          </div>
+          <div class="col-12 md:col-6 lg:col-3">
+            <h2 class="footer-title h6 pb-2 mb-4">Hasznos linkek</h2>
+            <ul class="list-unstyled vstack gap-2 mb-0">
+              <li><a href="#">Források</a></li>
+              <li><a href="#">Kapcsolat</a></li>
+              <li><a href="#">Adatvédelem</a></li>
+              <li><a href="#">Felhasználási feltételek</a></li>
+            </ul>
+          </div>
+          <div class="col-12 md:col-6 lg:col-3">
+            <h2 class="footer-title h6 pb-2 mb-4">A projektről</h2>
+            <p class="mb-2">Készítették: Káldor Levente és Ménes Megyer</p>
+          </div>
+        </div>
+      </div>
+      <div class="container copyright-footer pt-8 pb-4">
+        <p class="text-center">&copy; 2026 Esőerdők világa</p>
+      </div>
+    </div>
+  </footer>
+
+  <a href="#top" class="btn-solid btn-icon hover-lift position-fixed bottom-0 end-0 m-6 z-3 is-hidden" id="backToTop"
+    aria-label="Vissza a tetejére">
+    <svg class="bi" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
+      <path fill-rule="evenodd"
+        d="M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708z" />
+    </svg>
+  </a>
+
+  <script src="../js/bootstrap.bundle.min.js"></script>
+  <script src="../js/script.js"></script>
+</body>
+
+</html>

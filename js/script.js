@@ -31,8 +31,10 @@ const applyTheme = () => {
     body.classList.toggle("light", isLight)
     document.documentElement.setAttribute("data-bs-theme", isLight ? "light" : "dark")
 
-    brandLogo.src = isLight ? "assets/brand/icon-light.webp" : "assets/brand/icon-dark.webp"
-    footerLogo.src = isLight ? "assets/brand/brand-light.webp" : "assets/brand/brand-dark.webp"
+    // csak a fájlnevet cseréljük, így az aloldalak ../ útvonala is megmarad
+    const variant = isLight ? "light" : "dark"
+    brandLogo.src = brandLogo.getAttribute("src").replace(/icon-(dark|light)/, `icon-${variant}`)
+    footerLogo.src = footerLogo.getAttribute("src").replace(/brand-(logo|dark|light)/, `brand-${variant}`)
 
     themeItems.forEach((item) => {
         const isSelected = item.dataset.themeValue === currentTheme
@@ -67,7 +69,7 @@ let probaKerdes = document.querySelector("#probaKerdes")
 let probaHelyes = document.querySelector("#probaHelyes")
 let probaHibas = document.querySelector("#probaHibas")
 
-probaKerdes.addEventListener("submit", (event) => {
+probaKerdes?.addEventListener("submit", (event) => {
     event.preventDefault()
     const isCorrect = probaKerdes.elements.proba.value === "lajhar"
     probaHelyes.hidden = !isCorrect
