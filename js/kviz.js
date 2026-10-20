@@ -1,144 +1,120 @@
-let kviz = document.querySelector("#kviz")
-let questions = [...kviz.querySelectorAll("fieldset")]
-let haladas = document.querySelector("#kvizHaladas")
-let haladasSzoveg = document.querySelector("#kvizHaladasSzoveg")
-let haladasSav = haladas.querySelector(".progress")
-let sugo = document.querySelector("#kvizSugo")
-let visszaGomb = document.querySelector("#kvizVissza")
-let tovabbGomb = document.querySelector("#kvizTovabb")
-let kiertekelesGomb = document.querySelector("#kvizKiertekeles")
+const VERDICTS = [
+    { maxScore: 4, text: "Most még nehezen boldogulnál. A Tippek oldalon az alapokkal kezdheted." },
+    { maxScore: 7, text: "Az alapokat ismered, de egy-két hiba a vadonban sokba kerülhet." },
+    { maxScore: Infinity, text: "Jól felkészültél. Túravezető mellett biztonsággal mozognál az esőerdőben." },
+]
 
-let eredmeny = document.querySelector("#eredmeny")
-let eredmenyTitle = document.querySelector("#eredmenyTitle")
-let eredmenyPont = document.querySelector("#eredmenyPont")
-let eredmenySzazalek = document.querySelector("#eredmenySzazalek")
-let eredmenySav = document.querySelector("#eredmenySav")
-let eredmenyErtekeles = document.querySelector("#eredmenyErtekeles")
-let eredmenyValaszok = document.querySelector("#eredmenyValaszok")
-
-const ICON_HELYES = '<svg class="bi flex-shrink-0" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/></svg>'
-const ICON_HIBAS = '<svg class="bi flex-shrink-0" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293z"/></svg>'
-
-let current = 0
-
-const isAnswered = (question) => question.querySelector("input:checked") !== null
-
-const updateButtons = () => {
-    const answered = isAnswered(questions[current])
-    tovabbGomb.disabled = !answered
-    kiertekelesGomb.disabled = !answered
-    sugo.hidden = answered
+const ICONS = {
+    correct: '<svg class="bi flex-shrink-0" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/></svg>',
+    wrong: '<svg class="bi flex-shrink-0" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293z"/></svg>',
 }
 
-const showQuestion = (index, moveFocus) => {
-    current = index
+const form = document.querySelector("#kviz")
+const questions = [...form.querySelectorAll("fieldset")]
+const progress = document.querySelector("#kvizHaladas")
+const progressLabel = document.querySelector("#kvizHaladasSzoveg")
+const hint = document.querySelector("#kvizSugo")
+const prevButton = document.querySelector("#kvizVissza")
+const nextButton = document.querySelector("#kvizTovabb")
+const submitButton = document.querySelector("#kvizKiertekeles")
+const result = document.querySelector("#eredmeny")
+
+let currentIndex = 0
+
+const selectedValue = (question) => question.querySelector("input:checked")?.value
+const answerLabel = (question, value) => question.querySelector(`input[value="${value}"] + label`).textContent
+const isCorrect = (question) => selectedValue(question) === question.dataset.correct
+
+const setProgressBar = (bar, value, max) => {
+    bar.setAttribute("aria-valuenow", value)
+    bar.querySelector(".progress-bar").style.width = `${(value / max) * 100}%`
+}
+
+const createParagraph = (className, text) => {
+    const paragraph = document.createElement("p")
+    paragraph.className = className
+    paragraph.textContent = text
+    return paragraph
+}
+
+const updateNavigation = () => {
+    const isAnswered = selectedValue(questions[currentIndex]) !== undefined
+    nextButton.disabled = !isAnswered
+    submitButton.disabled = !isAnswered
+    hint.hidden = isAnswered
+}
+
+const showQuestion = (index, { moveFocus = true } = {}) => {
+    currentIndex = index
     const isLast = index === questions.length - 1
 
-    questions.forEach((question, i) => {
-        question.hidden = i !== index
-    })
-
-    haladasSzoveg.textContent = `${index + 1}. kérdés / ${questions.length}`
-    haladasSav.setAttribute("aria-valuenow", index + 1)
-    haladasSav.querySelector(".progress-bar").style.width = `${((index + 1) / questions.length) * 100}%`
-
-    visszaGomb.disabled = index === 0
-    tovabbGomb.hidden = isLast
-    kiertekelesGomb.hidden = !isLast
-    updateButtons()
+    questions.forEach((question, i) => (question.hidden = i !== index))
+    progressLabel.textContent = `${index + 1}. kérdés / ${questions.length}`
+    setProgressBar(progress.querySelector(".progress"), index + 1, questions.length)
+    prevButton.disabled = index === 0
+    nextButton.hidden = isLast
+    submitButton.hidden = !isLast
+    updateNavigation()
 
     if (moveFocus) questions[index].querySelector("legend").focus()
 }
 
-const labelText = (question, value) => question.querySelector(`input[value="${value}"] + label`).textContent
+const createAnswerReview = (question) => {
+    const correct = isCorrect(question)
+    const item = document.createElement("li")
+    item.className = "list-group-item"
 
-const ertekeles = (pont) => {
-    if (pont <= 4) return "Most még nehezen boldogulnál. A Tippek oldalon az alapokkal kezdheted."
-    if (pont <= 7) return "Az alapokat ismered, de egy-két hiba a vadonban sokba kerülhet."
-    return "Jól felkészültél. Túravezető mellett biztonsággal mozognál az esőerdőben."
+    const status = createParagraph(`d-flex align-items-center gap-2 fw-semibold mb-1 ${correct ? "fg-success" : "fg-danger"}`, "")
+    status.innerHTML = correct ? ICONS.correct : ICONS.wrong
+    status.append(correct ? "Helyes" : "Hibás")
+
+    item.append(status, createParagraph("mb-1", question.querySelector("legend").textContent))
+    if (!correct) item.append(createParagraph("small mb-1", `A te válaszod: ${answerLabel(question, selectedValue(question))}`))
+    item.append(
+        createParagraph("small mb-1", `Helyes válasz: ${answerLabel(question, question.dataset.correct)}`),
+        createParagraph("small text-muted mb-0", question.dataset.explanation)
+    )
+    return item
 }
 
 const showResult = () => {
-    let pont = 0
-    eredmenyValaszok.replaceChildren()
+    const score = questions.filter(isCorrect).length
+    const percent = Math.round((score / questions.length) * 100)
 
-    questions.forEach((question) => {
-        const valasz = question.querySelector("input:checked").value
-        const helyes = question.dataset.correct
-        const isCorrect = valasz === helyes
-        if (isCorrect) pont++
+    document.querySelector("#eredmenyPont").textContent = `${score} / ${questions.length}`
+    document.querySelector("#eredmenySzazalek").textContent = `${percent}%`
+    setProgressBar(document.querySelector("#eredmenySav"), percent, 100)
+    document.querySelector("#eredmenyErtekeles").textContent = VERDICTS.find((verdict) => score <= verdict.maxScore).text
+    document.querySelector("#eredmenyValaszok").replaceChildren(...questions.map(createAnswerReview))
 
-        const item = document.createElement("li")
-        item.className = "list-group-item"
+    form.hidden = true
+    result.hidden = false
+    document.querySelector("#eredmenyTitle").focus()
+}
 
-        const cim = document.createElement("p")
-        cim.className = `d-flex align-items-center gap-2 fw-semibold mb-1 ${isCorrect ? "fg-success" : "fg-danger"}`
-        cim.innerHTML = isCorrect ? ICON_HELYES : ICON_HIBAS
-        cim.append(isCorrect ? "Helyes" : "Hibás")
-
-        const kerdes = document.createElement("p")
-        kerdes.className = "mb-1"
-        kerdes.textContent = question.querySelector("legend").textContent
-
-        item.append(cim, kerdes)
-
-        if (!isCorrect) {
-            const sajat = document.createElement("p")
-            sajat.className = "small mb-1"
-            sajat.textContent = `A te válaszod: ${labelText(question, valasz)}`
-            item.append(sajat)
-        }
-
-        const jo = document.createElement("p")
-        jo.className = "small mb-1"
-        jo.textContent = `Helyes válasz: ${labelText(question, helyes)}`
-
-        const magyarazat = document.createElement("p")
-        magyarazat.className = "small text-muted mb-0"
-        magyarazat.textContent = question.dataset.explanation
-
-        item.append(jo, magyarazat)
-        eredmenyValaszok.append(item)
-    })
-
-    const szazalek = pont * 10
-    eredmenyPont.textContent = `${pont} / ${questions.length}`
-    eredmenySzazalek.textContent = `${szazalek}%`
-    eredmenySav.setAttribute("aria-valuenow", szazalek)
-    eredmenySav.querySelector(".progress-bar").style.width = `${szazalek}%`
-    eredmenyErtekeles.textContent = ertekeles(pont)
-
-    kviz.hidden = true
-    eredmeny.hidden = false
-    eredmenyTitle.focus()
+const restart = () => {
+    form.reset()
+    result.hidden = true
+    form.hidden = false
+    showQuestion(0)
 }
 
 questions.forEach((question) => {
     question.querySelector("legend").tabIndex = -1
-    question.addEventListener("change", updateButtons)
+    question.addEventListener("change", updateNavigation)
 })
 
-visszaGomb.addEventListener("click", () => showQuestion(current - 1, true))
-tovabbGomb.addEventListener("click", () => showQuestion(current + 1, true))
+prevButton.addEventListener("click", () => showQuestion(currentIndex - 1))
+nextButton.addEventListener("click", () => showQuestion(currentIndex + 1))
+document.querySelector("#kvizUjra").addEventListener("click", restart)
 
-kviz.addEventListener("submit", (event) => {
+form.addEventListener("submit", (event) => {
     event.preventDefault()
-    const unanswered = questions.findIndex((question) => !isAnswered(question))
-    if (unanswered !== -1) {
-        showQuestion(unanswered, true)
-        return
-    }
-    showResult()
+    const firstUnanswered = questions.findIndex((question) => selectedValue(question) === undefined)
+    if (firstUnanswered === -1) showResult()
+    else showQuestion(firstUnanswered)
 })
 
-document.querySelector("#kvizUjra").addEventListener("click", () => {
-    kviz.reset()
-    eredmeny.hidden = true
-    kviz.hidden = false
-    showQuestion(0, true)
-})
-
-// JavaScript nélkül minden kérdés látszik egymás alatt, ezért a léptetés csak itt kapcsol be
-haladas.hidden = false
-visszaGomb.hidden = false
-showQuestion(0, false)
+progress.hidden = false
+prevButton.hidden = false
+showQuestion(0, { moveFocus: false })
