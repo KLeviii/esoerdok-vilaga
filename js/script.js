@@ -64,7 +64,9 @@ const setupThemeSwitcher = () => {
 }
 
 const resetGalleryCarousels = () => {
-    document.querySelectorAll('.gallery .carousel-indicators [data-bs-slide-to="0"]').forEach((dot) => dot.click())
+    document
+        .querySelectorAll('.gallery .carousel:not([data-bs-autoplay]) [data-bs-slide-to="0"]')
+        .forEach((dot) => dot.click())
 }
 
 const setupTeaserQuestion = () => {

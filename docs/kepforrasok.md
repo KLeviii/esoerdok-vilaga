@@ -1,6 +1,6 @@
 # Képforrások
 
-Az Élővilág oldal képei a Wikimedia Commonsról származnak (letöltve: 2026. október). A képeket kivágtuk, átméreteztük és WebP formátumba alakítottuk. A CC BY és CC BY-SA licenc a szerző és a licenc feltüntetését kéri; ez az oldal alján, a „Képek forrása” részben szerepel.
+A főoldal galériájának és az Élővilág oldalnak a képei a Wikimedia Commonsról származnak (letöltve: 2026. október). A képeket kivágtuk, átméreteztük és WebP formátumba alakítottuk. A CC BY-SA licencű képek módosított változata ugyanazzal a licenccel használható. A CC BY és CC BY-SA licenc a szerző és a licenc feltüntetését kéri; ez az oldal alján, a „Képek forrása” részben szerepel.
 
 | Faj | Fájl | Szerző (Commons oldal) | Licenc |
 |---|---|---|---|
@@ -25,3 +25,15 @@ Az Élővilág oldal képei a Wikimedia Commonsról származnak (letöltve: 2026
 | Festett nyílméregbéka | `assets/img/elovilag/galeria-mergezo-1.webp` | [H. Zell](https://commons.wikimedia.org/wiki/File:Dendrobates_tinctorius_-_Karlsruhe_Zoo_05.jpg) | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0) |
 | Korallkígyó | `assets/img/elovilag/galeria-mergezo-2.webp` | [dhfischer](https://commons.wikimedia.org/wiki/File:Aquatic_Coralsnake_(Micrurus_surinamensis)_in_Peru.jpg) | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0) |
 | Skorpió (Tityus obscurus) | `assets/img/elovilag/galeria-mergezo-3.webp` | [Eric Ythier (ZooKeys 764)](https://commons.wikimedia.org/wiki/File:Tityus_obscurus_(10.3897-zookeys.764.25108)_Figure_12.jpg) | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0) |
+| Lombkorona alulról nézve, a koronák között kék ég látszik | `assets/img/gallery/fooldal-a-1.webp` | [Mark J. Fisher](https://commons.wikimedia.org/wiki/File:JigsawCanopy.jpg) | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0) |
+| Az Amazonas-esőerdő felülről, kanyargó folyóval | `assets/img/gallery/fooldal-a-2.webp` | [lubasi](https://commons.wikimedia.org/wiki/File:Aerial_view_of_the_Amazon_Rainforest.jpg) | [CC BY-SA 2.0](https://creativecommons.org/licenses/by-sa/2.0) |
+| Kapokfa emelkedik a lombkorona fölé Peruban | `assets/img/gallery/fooldal-a-3.webp` | [Klaus Schönitzer](https://commons.wikimedia.org/wiki/File:Panguana-Lupuna-2008-2.jpg) | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0) |
+| Az Amazonas ágai és szigetei légi felvételen | `assets/img/gallery/fooldal-c-1.webp` | [CIAT](https://commons.wikimedia.org/wiki/File:Amazon17_(5641020319).jpg) | [CC BY-SA 2.0](https://creativecommons.org/licenses/by-sa/2.0) |
+| Az Amazonas torkolata műholdfelvételen | `assets/img/gallery/fooldal-c-2.webp` | [Európai Űrügynökség (ESA)](https://commons.wikimedia.org/wiki/File:Amazon_River_ESA387332.jpg) | [CC BY-SA 3.0 igo](https://creativecommons.org/licenses/by-sa/3.0/igo/deed.en) |
+| Párás felhőerdő a Monteverde rezervátumban, Costa Ricán | `assets/img/gallery/fooldal-c-3.webp` | [Haakon S. Krohn](https://commons.wikimedia.org/wiki/File:Monteverde_bosque.jpg) | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0) |
+| Széles támasztógyökerek egy trópusi fa tövében | `assets/img/gallery/fooldal-d-1.webp` | [Patti Neumann](https://commons.wikimedia.org/wiki/File:Buttress_roots.JPG) | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0) |
+| A Kaieteur-vízesés Guyanában, a párában szivárvánnyal | `assets/img/gallery/fooldal-d-2.webp` | [Sorenriise](https://commons.wikimedia.org/wiki/File:GuyanaKaieteurFalls2004.jpg) | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0) |
+| Liánokkal benőtt fák az erdőben | `assets/img/gallery/fooldal-d-3.webp` | [Mark Marathon](https://commons.wikimedia.org/wiki/File:Lianas.jpg) | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0) |
+| A Daintree-esőerdő Queenslandben, Ausztráliában | `assets/img/gallery/fooldal-e-1.webp` | [Robert Linsdell](https://commons.wikimedia.org/wiki/File:Daintree_Rainforest,_Queensland_(483855)_(9440811465).jpg) | [CC BY 2.0](https://creativecommons.org/licenses/by/2.0) |
+| Reggeli köd a Danum-völgy esőerdeje fölött, Borneón | `assets/img/gallery/fooldal-e-2.webp` | [Christopher Michel](https://commons.wikimedia.org/wiki/File:Morning_fog_over_Danum_Valley_(27329938517).jpg) | [CC BY 2.0](https://creativecommons.org/licenses/by/2.0) |
+| Sűrű erdő a Manu folyó partján, Peruban | `assets/img/gallery/fooldal-e-3.webp` | [As578](https://commons.wikimedia.org/wiki/File:Manu_riverbank.jpg) | [CC BY-SA 2.5](https://creativecommons.org/licenses/by-sa/2.5) |
