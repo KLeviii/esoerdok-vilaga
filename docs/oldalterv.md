@@ -85,7 +85,7 @@ Javasolt fajok (kategóriánként 4):
 | Egzotikus | Kék morfólepke | *Morpho peleides* | Cserjeszint | A szárny színét a pikkelyek szerkezete adja, nem festék |
 | Egzotikus | Barnatorkú lajhár | *Bradypus variegatus* | Lombkorona | Bundájában algák nőnek |
 | Veszélyeztetett | Borneói orangután | *Pongo pygmaeus* | Lombkorona | CR; élőhelyét olajpálma-ültetvények szűkítik |
-| Veszélyeztetett | Szumátrai tigris | *Panthera tigris sondaica* | Talajszint | CR |
+| Veszélyeztetett | Szumátrai tigris | *Panthera tigris sumatrae* | Talajszint | CR |
 | Veszélyeztetett | Hárpia | *Harpia harpyja* | Kiemelkedő fák | VU; majmokra és lajhárokra vadászik |
 | Veszélyeztetett | Okapi | *Okapia johnstoni* | Talajszint | EN; a zsiráf legközelebbi élő rokona |
 | Mérgező | Arany nyílméregbéka | *Phyllobates terribilis* | Talajszint | Bőre érintésre is veszélyes; élénk színe figyelmeztetés |
@@ -93,7 +93,7 @@ Javasolt fajok (kategóriánként 4):
 | Mérgező | Lándzsakígyó | *Bothrops atrox* | Talajszint | Mérges marás; sok kígyómarásos baleset okozója Dél-Amerikában |
 | Mérgező | Golyóhangya | *Paraponera clavata* | Talajszint | Az egyik legfájdalmasabb rovarcsípés |
 
-A besorolásokat beépítés előtt az IUCN Vörös Listán ellenőrizzük, és a forrást a forráslistába írjuk.
+A besorolások ellenőrizve (2026. október): orangután CR, szumátrai tigris CR, okapi EN, arany nyílméregbéka EN, hárpia VU. A szumátrai tigrisnél a *P. t. sondaica* név helyett *P. t. sumatrae* szerepel, mert a *sondaica* hagyományosan a kihalt jávai tigrist jelöli.
 
 **3.3 Galéria** (`bg-dark` sáv, mint a főoldalon)
 - A főoldali bento galéria újrahasznosítva, 3 csempével, kategóriánként egy carousellel. Így nem kell új CSS.
@@ -106,7 +106,7 @@ Két oszlop (`lg:col-5` + `lg:col-7`), mobilon egymás alatt.
   - Peru: 106 mentők, 116 tűzoltóság, 105 rendőrség
   - Kolumbia: 123 egységes segélyhívó
   - Alatta: „Térerő nélkül a túravezetőnél lévő műholdas telefon vagy jeladó segít.” és link a Térkép oldalra (mentőpontok, idegenvezetők elérhetősége).
-  - A számokat beépítés előtt hivatalos forrásból ellenőrizzük.
+  - A számok ellenőrizve (2026. október). Peruban a 106 nem minden régióban érhető el, ilyenkor a 105.
 - Jobb: accordion helyzetenként, mindegyikben 3–5 lépés számozott listában:
   - Eltévedtél
   - Kígyómarás
@@ -174,4 +174,3 @@ A válaszok sorrendje kérdésenként változzon, hogy a helyes ne mindig ugyano
 ## 5. Nyitott kérdések
 - Képek: az Élővilág oldalhoz kategóriánként 4 fotó kell (szabad licencű, pl. Wikimedia Commons), a forrással együtt. Generált kép ne kerüljön valódi fajként az oldalra.
 - Forráslista: hol legyen (lábléc vagy Tippek oldal)? Ezt a Tippek oldal készítőivel kell egyeztetni.
-- Szerzők neve a láblécben: a főoldalon „Ménes Megyer” szerepel, a git szerzőnél „Megyer Menes”. Melyik a helyes?
