@@ -74,15 +74,6 @@ probaKerdes.addEventListener("submit", (event) => {
     probaHibas.hidden = isCorrect
 })
 
-let backToTop = document.querySelector("#backToTop")
-
-const updateBackToTop = () => {
-    backToTop.classList.toggle("is-hidden", window.scrollY < window.innerHeight)
-}
-
-window.addEventListener("scroll", updateBackToTop, { passive: true })
-updateBackToTop()
-
 let siteHeader = document.querySelector("#siteHeader")
 let lastScrollY = window.scrollY
 
@@ -94,3 +85,25 @@ const updateNavbar = () => {
 }
 
 window.addEventListener("scroll", updateNavbar, { passive: true })
+
+let backToTop = document.querySelector("#backToTop")
+let isMobile = window.matchMedia("(width < 768px)")
+let prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)")
+
+const updateBackToTop = () => {
+    // mobilon lefelé görgetéskor elrejtjük, hogy ne takarja a galéria lapozó gombjait
+    const scrollingDown = isMobile.matches && siteHeader.classList.contains("header-hidden")
+    backToTop.classList.toggle("is-hidden", window.scrollY < window.innerHeight || scrollingDown)
+}
+
+backToTop.addEventListener("click", (event) => {
+    event.preventDefault()
+    window.scrollTo({ top: 0, behavior: prefersReducedMotion.matches ? "auto" : "smooth" })
+    // a fókusz ne maradjon az eltűnő gombon
+    backToTop.blur()
+    document.querySelector(".navbar-brand").focus({ preventScroll: true })
+})
+
+window.addEventListener("scroll", updateBackToTop, { passive: true })
+isMobile.addEventListener("change", updateBackToTop)
+updateBackToTop()

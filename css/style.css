@@ -145,6 +145,8 @@ html {
 }
 
 body {
+    /* clip: nem hoz létre görgetési konténert, így a sticky header működik tovább */
+    overflow-x: clip;
     background-color: var(--bg);
     color: var(--text);
     --bs-bg-body: var(--bg);
@@ -353,6 +355,16 @@ nav .btn-outline:hover {
 @media (prefers-reduced-motion: reduce) {
     #backToTop {
         transition: none;
+    }
+}
+
+/* érintőképernyőn a :hover a koppintás után beragad -> ne maradjon felemelve és átszínezve */
+@media (hover: none) {
+    #backToTop:hover {
+        background-color: var(--primary);
+        border-color: var(--primary);
+        transform: none;
+        box-shadow: none;
     }
 }
 
@@ -612,8 +624,27 @@ nav .btn-outline:hover {
         font-family: var(--font-heading);
     }
 
+    /* a drawerben az ms-auto me-4 jobbra tolná a menüpontokat */
+    .navbar .drawer .navbar-nav {
+        margin-inline: 0;
+    }
+
     .navbar .drawer .nav-link {
+        display: flex;
+        justify-content: flex-start;
+        width: 100%;
+        padding: 0.625rem 0.75rem;
         border-radius: var(--bs-radius-5);
+    }
+
+    .navbar .drawer .nav-link.active {
+        background-color: color-mix(in oklch, var(--primary) 15%, transparent);
+    }
+
+    .navbar .drawer .theme-switcher {
+        margin-top: 1rem;
+        padding-top: 1rem;
+        border-top: 1px solid var(--border-muted);
     }
 
     .navbar .drawer .nav-link:hover {
@@ -637,6 +668,27 @@ nav .btn-outline:hover {
 
     .hero h1 {
         font-size: 3rem;
+    }
+
+    /* keskeny kijelzőn a 4 fül nem fér ki egy sorban -> 2x2 rács görgetősáv helyett */
+    .szint-tabs {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.5rem;
+        border-bottom: 0;
+    }
+
+    .szint-tabs .nav-link {
+        width: 100%;
+        margin: 0;
+        border: 1px solid var(--border-muted);
+        border-radius: var(--bs-radius-5);
+    }
+
+    .szint-tabs .nav-link.active {
+        background-color: var(--primary);
+        border-color: var(--primary);
+        color: var(--on-primary);
     }
 }
 
