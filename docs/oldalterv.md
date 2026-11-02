@@ -1,6 +1,6 @@
 # Oldalterv: Főoldal, Élővilág, Kvíz
 
-A dokumentum a mi három oldalunk tartalmi szerkezetét és kinézetét rögzíti. A Térkép és a Tippek oldal (elérhetőségek, tévhitek, GYIK) a csapat másik feléé, ide csak a rájuk mutató hivatkozások kerülnek.
+A dokumentum a mi három oldalunk tartalmi szerkezetét és kinézetét rögzíti. A Térkép és a Tippek oldal (elérhetőségek, tévhitek, GYIK) a csapat másik feléé, ide csak a rájuk mutató hivatkozások kerülnek. Wireframe-jük a másik háromhoz hasonló formában elkészült: [terkep-wireframe.png](terkep-wireframe.png), [tippek-wireframe.png](tippek-wireframe.png). A korábbi kézi vázlatok a `vazlatok` mappában vannak.
 
 A dizájn mintája a főoldal. Minden új oldal ugyanazokat a tokeneket, betűtípusokat, gombokat és szekcióritmust használja.
 
