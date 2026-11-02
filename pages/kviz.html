@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="hu">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Tíz kérdés arról, hogyan boldogulnál az esőerdőben, pontszámmal és a helyes válaszokkal." />
+  <link rel="icon" href="../assets/brand/icon-logo.webp" type="image/webp" />
+  <link rel="stylesheet" href="../css/bootstrap.min.css" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <title>Túlélő kvíz – Esőerdők világa</title>
+</head>
+
+<body>
+  <script>
+    try {
+      const saved = localStorage.getItem("theme")
+      if (saved === "light" || (saved !== "dark" && matchMedia("(prefers-color-scheme: light)").matches)) {
+        document.body.classList.add("light")
+      }
+    } catch {}
+  </script>
+  <a class="visually-hidden-focusable" href="#main">Ugrás a tartalomra</a>
+  <header class="sticky-top" id="siteHeader">
+    <nav class="navbar md:navbar-expand bg-1" id="pageTop">
+      <div class="container">
+        <a class="navbar-brand d-flex align-items-center gap-2" href="../index.html">
+          <img src="../assets/brand/icon-dark.webp" alt="" width="30" height="30" />
+          Esőerdők világa
+        </a>
+        <button class="btn-icon navbar-toggler" type="button" data-bs-toggle="drawer" data-bs-target="#navbarDrawer"
+          aria-controls="navbarDrawer" aria-expanded="false" aria-label="Menü megnyitása">
+          <span class="navbar-toggler-icon" aria-hidden="true"></span>
+        </button>
+        <dialog class="drawer drawer-end" tabindex="-1" id="navbarDrawer" aria-labelledby="navbarDrawerLabel">
+          <div class="drawer-header">
+            <h5 class="drawer-title" id="navbarDrawerLabel">Menü</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="drawer" aria-label="Bezárás"></button>
+          </div>
+          <div class="drawer-body mb-2 md:mb-0">
+            <ul class="nav navbar-nav ms-auto me-4">
+              <li class="nav-item">
+                <a class="nav-link" href="../index.html">Főoldal</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="elovilag.html">Élővilág</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="kviz.html">Kvíz</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="terkep.html">Térkép</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="tippek.html">Tippek</a>
+              </li>
+            </ul>
+
+            <div class="theme-switcher">
+              <button type="button" class="btn-outline theme-switcher-toggle" id="themeToggle" data-bs-toggle="menu"
+                data-bs-placement="bottom-end" aria-expanded="false" aria-label="Téma választása">
+                <span class="theme-switcher-icon" id="themeToggleIcon"><svg class="bi" width="16"
+                    height="16" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
+                    <path d="M8 15A7 7 0 1 0 8 1zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16" />
+                  </svg></span>
+                <svg class="bi" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"
+                  aria-hidden="true">
+                  <path
+                    d="M3.646 9.146a.5.5 0 0 1 .708 0L8 12.793l3.646-3.647a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 0-.708m0-2.292a.5.5 0 0 0 .708 0L8 3.207l3.646 3.647a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 0 0 0 .708" />
+                </svg>
+              </button>
+              <div class="menu" aria-labelledby="themeToggle">
+                <button class="menu-item" type="button" data-theme-value="light" aria-pressed="false">
+                  <svg class="bi menu-item-icon" width="16" height="16" fill="currentColor"
+                    viewBox="0 0 16 16" aria-hidden="true">
+                    <path
+                      d="M12 8a4 4 0 1 1-8 0 4 4 0 0 1 8 0M8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0m0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13m8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5M3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8m10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0m-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0m9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707M4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708" />
+                  </svg>
+                  <span class="menu-item-content">Világos</span>
+                  <svg class="bi menu-item-check" width="16" height="16" fill="currentColor"
+                    viewBox="0 0 16 16" aria-hidden="true">
+                    <path
+                      d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0" />
+                  </svg>
+                </button>
+                <button class="menu-item" type="button" data-theme-value="dark" aria-pressed="false">
+                  <svg class="bi menu-item-icon" width="16" height="16" fill="currentColor"
+                    viewBox="0 0 16 16" aria-hidden="true">
+                    <path
+                      d="M6 .278a.77.77 0 0 1 .08.858 7.2 7.2 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277q.792-.001 1.533-.16a.79.79 0 0 1 .81.316.73.73 0 0 1-.031.893A8.35 8.35 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.75.75 0 0 1 6 .278" />
+                  </svg>
+                  <span class="menu-item-content">Sötét</span>
+                  <svg class="bi menu-item-check" width="16" height="16" fill="currentColor"
+                    viewBox="0 0 16 16" aria-hidden="true">
+                    <path
+                      d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0" />
+                  </svg>
+                </button>
+                <button class="menu-item" type="button" data-theme-value="auto" aria-pressed="false">
+                  <svg class="bi menu-item-icon" width="16" height="16" fill="currentColor"
+                    viewBox="0 0 16 16" aria-hidden="true">
+                    <path d="M8 15A7 7 0 1 0 8 1zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16" />
+                  </svg>
+                  <span class="menu-item-content">Automatikus</span>
+                  <svg class="bi menu-item-check" width="16" height="16" fill="currentColor"
+                    viewBox="0 0 16 16" aria-hidden="true">
+                    <path
+                      d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </dialog>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <div class="bg-dark py-12">
+      <div class="container">
+        <h1 class="mb-4">Túlélő kvíz</h1>
+        <p class="mb-6 col-12 lg:col-8">
+          10 kérdés arról, hogyan boldogulnál egyedül az esőerdőben. Nincs időkorlát, az eredményt és a helyes
+          válaszokat a végén látod.
+        </p>
+        <a class="btn-solid btn-lg" href="#kviz">Kezdés</a>
+      </div>
+    </div>
+
+    <div class="container my-12">
+      <div class="row justify-content-center">
+        <div class="col-12 lg:col-8">
+          <form id="kviz" aria-label="Túlélő kvíz" novalidate>
+            <div class="mb-8" id="kvizHaladas" hidden>
+              <p class="fw-semibold mb-2" id="kvizHaladasSzoveg">1. kérdés / 10</p>
+              <div class="progress" role="progressbar" aria-labelledby="kvizHaladasSzoveg" aria-valuemin="1"
+                aria-valuemax="10" aria-valuenow="1">
+                <div class="progress-bar" style="width: 10%"></div>
+              </div>
+            </div>
+
+            <fieldset class="mb-8" data-correct="c"
+              data-explanation="A pólón átszűrt víz tisztább lesz, de a kórokozók benne maradnak. A forralás elpusztítja őket.">
+              <legend class="h4 mb-4">1. Mit tegyél a patak vizével, mielőtt megiszod?</legend>
+              <div class="vstack gap-2">
+                <div class="form-field form-field-card"><input class="radio" type="radio" name="k1" id="k1a" value="a" /><label for="k1a">Szűrd át egy pólón.</label></div>
+                <div class="form-field form-field-card"><input class="radio" type="radio" name="k1" id="k1b" value="b" /><label for="k1b">Hagyd állni egy órát.</label></div>
+                <div class="form-field form-field-card"><input class="radio" type="radio" name="k1" id="k1c" value="c" /><label for="k1c">Forrald legalább egy percig.</label></div>
+                <div class="form-field form-field-card"><input class="radio" type="radio" name="k1" id="k1d" value="d" /><label for="k1d">Semmit, a folyó víz tiszta.</label></div>
+              </div>
+            </fieldset>
+
+            <fieldset class="mb-8" data-correct="a"
+              data-explanation="Egy távolabb lehullott zápor után a kiszáradt meder percek alatt megtelhet vízzel.">
+              <legend class="h4 mb-4">2. Hol a legveszélyesebb éjszakára tábort verni?</legend>
+              <div class="vstack gap-2">
+                <div class="form-field form-field-card"><input class="radio" type="radio" name="k2" id="k2a" value="a" /><label for="k2a">Kiszáradt patakmederben.</label></div>
+                <div class="form-field form-field-card"><input class="radio" type="radio" name="k2" id="k2b" value="b" /><label for="k2b">Enyhe lejtőn.</label></div>
+                <div class="form-field form-field-card"><input class="radio" type="radio" name="k2" id="k2c" value="c" /><label for="k2c">Két fa között.</label></div>
+                <div class="form-field form-field-card"><input class="radio" type="radio" name="k2" id="k2d" value="d" /><label for="k2d">Az ösvénytől pár méterre.</label></div>
+              </div>
+            </fieldset>
+
+            <fieldset class="mb-8" data-correct="b"
+              data-explanation="Függőágyban vagy megemelt fekhelyen a talaj nedvessége, a rovarok és a kígyók nem érnek el.">
+              <legend class="h4 mb-4">3. Miért érdemes a talajtól felemelve aludni?</legend>
+              <div class="vstack gap-2">
+                <div class="form-field form-field-card"><input class="radio" type="radio" name="k3" id="k3a" value="a" /><label for="k3a">Fent melegebb van.</label></div>
+                <div class="form-field form-field-card"><input class="radio" type="radio" name="k3" id="k3b" value="b" /><label for="k3b">A földön rovarok, kígyók és nedvesség érhet.</label></div>
+                <div class="form-field form-field-card"><input class="radio" type="radio" name="k3" id="k3c" value="c" /><label for="k3c">Onnan messzebbre látsz.</label></div>
+                <div class="form-field form-field-card"><input class="radio" type="radio" name="k3" id="k3d" value="d" /><label for="k3d">Reggel gyorsabban felkelsz.</label></div>
+              </div>
+            </fieldset>
+
+            <fieldset class="mb-8" data-correct="d"
+              data-explanation="Aki mozog, azt nehezebb megtalálni. A keresés az utolsó ismert helyedtől indul.">
+              <legend class="h4 mb-4">4. Mi az első teendő, ha eltévedtél?</legend>
+              <div class="vstack gap-2">
+                <div class="form-field form-field-card"><input class="radio" type="radio" name="k4" id="k4a" value="a" /><label for="k4a">Elindulsz a legközelebbi hang felé.</label></div>
+                <div class="form-field form-field-card"><input class="radio" type="radio" name="k4" id="k4b" value="b" /><label for="k4b">Éjszaka is továbbmész.</label></div>
+                <div class="form-field form-field-card"><input class="radio" type="radio" name="k4" id="k4c" value="c" /><label for="k4c">Felmászol a legmagasabb fára.</label></div>
+                <div class="form-field form-field-card"><input class="radio" type="radio" name="k4" id="k4d" value="d" /><label for="k4d">Megállsz, megnyugszol, és ott maradsz, ahol vagy.</label></div>
+              </div>
+            </fieldset>
+
+            <fieldset class="mb-8" data-correct="b"
+              data-explanation="A falvak és az utak többnyire a folyók mentén vannak, folyásirányban lefelé előbb érsz lakott helyre.">
+              <legend class="h4 mb-4">5. Ha folyót találsz, merre érdemes követni?</legend>
+              <div class="vstack gap-2">
+                <div class="form-field form-field-card"><input class="radio" type="radio" name="k5" id="k5a" value="a" /><label for="k5a">Folyásiránnyal szemben.</label></div>
+                <div class="form-field form-field-card"><input class="radio" type="radio" name="k5" id="k5b" value="b" /><label for="k5b">Folyásirányban lefelé.</label></div>
+                <div class="form-field form-field-card"><input class="radio" type="radio" name="k5" id="k5c" value="c" /><label for="k5c">Mindegy.</label></div>
+                <div class="form-field form-field-card"><input class="radio" type="radio" name="k5" id="k5d" value="d" /><label for="k5d">Nem érdemes követni.</label></div>
+              </div>
+            </fieldset>
+
+            <fieldset class="mb-8" data-correct="c"
+              data-explanation="A mozgás gyorsítja a méreg terjedését. A bevágás, a kiszívás és az elszorítás többet árt, mint használ.">
+              <legend class="h4 mb-4">6. Mit tegyél kígyómarás után?</legend>
+              <div class="vstack gap-2">
+                <div class="form-field form-field-card"><input class="radio" type="radio" name="k6" id="k6a" value="a" /><label for="k6a">Szívd ki a mérget.</label></div>
+                <div class="form-field form-field-card"><input class="radio" type="radio" name="k6" id="k6b" value="b" /><label for="k6b">Szorítsd el erősen a végtagot.</label></div>
+                <div class="form-field form-field-card"><input class="radio" type="radio" name="k6" id="k6c" value="c" /><label for="k6c">Maradj nyugton, mozgasd minél kevésbé a végtagot, és hívj segítséget.</label></div>
+                <div class="form-field form-field-card"><input class="radio" type="radio" name="k6" id="k6d" value="d" /><label for="k6d">Vágd be a sebet.</label></div>
+              </div>
+            </fieldset>
+
+            <fieldset class="mb-8" data-correct="a"
+              data-explanation="Az élénk szín figyelmeztetés a ragadozóknak: azt jelzi, hogy az állat mérgező vagy rossz ízű.">
+              <legend class="h4 mb-4">7. Mi jelzi gyakran, hogy egy béka mérgező?</legend>
+              <div class="vstack gap-2">
+                <div class="form-field form-field-card"><input class="radio" type="radio" name="k7" id="k7a" value="a" /><label for="k7a">Élénk, feltűnő színe.</label></div>
+                <div class="form-field form-field-card"><input class="radio" type="radio" name="k7" id="k7b" value="b" /><label for="k7b">Nagy mérete.</label></div>
+                <div class="form-field form-field-card"><input class="radio" type="radio" name="k7" id="k7c" value="c" /><label for="k7c">Hangos brekegése.</label></div>
+                <div class="form-field form-field-card"><input class="radio" type="radio" name="k7" id="k7d" value="d" /><label for="k7d">Hogy vízben él.</label></div>
+              </div>
+            </fieldset>
+
+            <fieldset class="mb-8" data-correct="d"
+              data-explanation="Sok trópusi bogyó mérgező, és a madarak olyat is megehetnek, ami az emberre veszélyes.">
+              <legend class="h4 mb-4">8. Ismeretlen bogyót találsz. Mit teszel?</legend>
+              <div class="vstack gap-2">
+                <div class="form-field form-field-card"><input class="radio" type="radio" name="k8" id="k8a" value="a" /><label for="k8a">Megkóstolsz belőle keveset.</label></div>
+                <div class="form-field form-field-card"><input class="radio" type="radio" name="k8" id="k8b" value="b" /><label for="k8b">Megeszed, ha a madarak is eszik.</label></div>
+                <div class="form-field form-field-card"><input class="radio" type="radio" name="k8" id="k8c" value="c" /><label for="k8c">Megfőzöd, és megeszed.</label></div>
+                <div class="form-field form-field-card"><input class="radio" type="radio" name="k8" id="k8d" value="d" /><label for="k8d">Nem eszed meg.</label></div>
+              </div>
+            </fieldset>
+
+            <fieldset class="mb-8" data-correct="b"
+              data-explanation="A talajon fekvő ágak átáznak. Az álló, elhalt ágak és a kéreg alatti réteg szárazabb, ezekből lehet tüzet rakni.">
+              <legend class="h4 mb-4">9. Miért nehéz tüzet gyújtani az esőerdőben?</legend>
+              <div class="vstack gap-2">
+                <div class="form-field form-field-card"><input class="radio" type="radio" name="k9" id="k9a" value="a" /><label for="k9a">Mert kevés a fa.</label></div>
+                <div class="form-field form-field-card"><input class="radio" type="radio" name="k9" id="k9b" value="b" /><label for="k9b">Mert szinte minden nedves, száraz anyagot csak álló, elhalt ágakon vagy kéreg alatt találsz.</label></div>
+                <div class="form-field form-field-card"><input class="radio" type="radio" name="k9" id="k9c" value="c" /><label for="k9c">Mert a levegőben kevés az oxigén.</label></div>
+                <div class="form-field form-field-card"><input class="radio" type="radio" name="k9" id="k9d" value="d" /><label for="k9d">Mert a fák nem gyúlnak meg.</label></div>
+              </div>
+            </fieldset>
+
+            <fieldset class="mb-8" data-correct="c"
+              data-explanation="A sűrű lombkorona alól fentről nem látszol. A tisztás és a folyópart nyitott terület, ott észrevehetnek.">
+              <legend class="h4 mb-4">10. Hogyan vehet észre legkönnyebben egy mentőhelikopter?</legend>
+              <div class="vstack gap-2">
+                <div class="form-field form-field-card"><input class="radio" type="radio" name="k10" id="k10a" value="a" /><label for="k10a">Kiabálsz.</label></div>
+                <div class="form-field form-field-card"><input class="radio" type="radio" name="k10" id="k10b" value="b" /><label for="k10b">Zseblámpával világítasz a fák alól.</label></div>
+                <div class="form-field form-field-card"><input class="radio" type="radio" name="k10" id="k10c" value="c" /><label for="k10c">Tisztásra vagy folyópartra mész, ahol fentről látszol.</label></div>
+                <div class="form-field form-field-card"><input class="radio" type="radio" name="k10" id="k10d" value="d" /><label for="k10d">Tüzet raksz a sűrű erdőben.</label></div>
+              </div>
+            </fieldset>
+
+            <p class="small text-muted mb-4" id="kvizSugo" hidden>Válassz egy választ a továbblépéshez.</p>
+            <div class="d-flex flex-wrap justify-content-between gap-4">
+              <button type="button" class="btn-outline" id="kvizVissza" hidden>Vissza</button>
+              <button type="button" class="btn-solid ms-auto" id="kvizTovabb" hidden>Tovább</button>
+              <button type="submit" class="btn-solid ms-auto" id="kvizKiertekeles">Kiértékelés</button>
+            </div>
+          </form>
+
+          <section id="eredmeny" aria-labelledby="eredmenyTitle" hidden>
+            <div class="card mb-8">
+              <div class="card-body">
+                <h2 class="h4 mb-6" id="eredmenyTitle" tabindex="-1">Eredményed</h2>
+                <div class="d-flex flex-wrap justify-content-between align-items-end gap-4 mb-4">
+                  <div>
+                    <p class="h2 mb-0" id="eredmenyPont">0 / 10</p>
+                    <p class="text-muted mb-0">helyes válasz</p>
+                  </div>
+                  <div class="text-end">
+                    <p class="h2 mb-0" id="eredmenySzazalek">0%</p>
+                    <p class="text-muted mb-0">túlélési esély</p>
+                  </div>
+                </div>
+                <div class="progress mb-6" role="progressbar" aria-label="Túlélési esély" aria-valuemin="0"
+                  aria-valuemax="100" aria-valuenow="0" id="eredmenySav">
+                  <div class="progress-bar" style="width: 0%"></div>
+                </div>
+                <p class="mb-6" id="eredmenyErtekeles"></p>
+                <div class="d-flex flex-wrap align-items-center gap-4">
+                  <a class="btn-solid" href="tippek.html">Tippek oldal</a>
+                  <button type="button" class="btn-outline" id="kvizUjra">Újrakezdés</button>
+                  <a href="elovilag.html">Élővilág</a>
+                </div>
+              </div>
+            </div>
+            <h3 class="h5 mb-4">Válaszaid</h3>
+            <ul class="list-group" id="eredmenyValaszok"></ul>
+          </section>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <div class="bg-light pt-10">
+      <div class="container mb-8">
+        <div class="row gy-8">
+          <div class="col-12 md:col-6 lg:col-3">
+            <a class="footer-brand d-inline-block mb-4" href="../index.html">
+              <img src="../assets/brand/brand-logo.webp" alt="Esőerdők világa" class="w-50 rounded-5" />
+            </a>
+            <p class="mb-0">
+              Iskolai projekt az esőerdők élővilágáról, túraútvonalairól és a vadonban hasznos tudásról.
+            </p>
+          </div>
+          <div class="col-12 md:col-6 lg:col-3">
+            <h2 class="footer-title h6 pb-2 mb-4">Oldalak</h2>
+            <ul class="list-unstyled vstack gap-2 mb-0">
+              <li><a href="elovilag.html">Élővilág</a></li>
+              <li><a href="kviz.html">Kvíz</a></li>
+              <li><a href="terkep.html">Térkép</a></li>
+              <li><a href="tippek.html">Tippek</a></li>
+            </ul>
+          </div>
+          <div class="col-12 md:col-6 lg:col-3">
+            <h2 class="footer-title h6 pb-2 mb-4">Hasznos linkek</h2>
+            <ul class="list-unstyled vstack gap-2 mb-0">
+              <li><a href="#">Források</a></li>
+              <li><a href="#">Kapcsolat</a></li>
+              <li><a href="#">Adatvédelem</a></li>
+              <li><a href="#">Felhasználási feltételek</a></li>
+            </ul>
+          </div>
+          <div class="col-12 md:col-6 lg:col-3">
+            <h2 class="footer-title h6 pb-2 mb-4">A projektről</h2>
+            <p class="mb-2">Készítették: Káldor Levente és Ménes Megyer</p>
+          </div>
+        </div>
+      </div>
+      <div class="container copyright-footer pt-8 pb-4">
+        <p class="text-center">&copy; 2026 Esőerdők világa</p>
+      </div>
+    </div>
+  </footer>
+
+  <a href="#top" class="btn-solid btn-icon hover-lift position-fixed bottom-0 end-0 m-6 z-3 is-hidden" id="backToTop"
+    aria-label="Vissza a tetejére">
+    <svg class="bi" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
+      <path fill-rule="evenodd"
+        d="M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708z" />
+    </svg>
+  </a>
+
+  <script src="../js/bootstrap.bundle.min.js"></script>
+  <script src="../js/script.js"></script>
+  <script src="../js/kviz.js"></script>
+</body>
+
+</html>

@@ -1,6 +1,5 @@
 @font-face {
     font-family: "Inter";
-    font-style: normal;
     font-weight: 100 900;
     font-display: swap;
     src: url("../fonts/inter-latin.woff2") format("woff2");
@@ -9,7 +8,6 @@
 
 @font-face {
     font-family: "Inter";
-    font-style: normal;
     font-weight: 100 900;
     font-display: swap;
     src: url("../fonts/inter-latin-ext.woff2") format("woff2");
@@ -18,7 +16,6 @@
 
 @font-face {
     font-family: "Fraunces";
-    font-style: normal;
     font-weight: 100 900;
     font-display: swap;
     src: url("../fonts/fraunces-latin.woff2") format("woff2");
@@ -27,7 +24,6 @@
 
 @font-face {
     font-family: "Fraunces";
-    font-style: normal;
     font-weight: 100 900;
     font-display: swap;
     src: url("../fonts/fraunces-latin-ext.woff2") format("woff2");
@@ -35,98 +31,42 @@
 }
 
 :root {
-    /* --- Betűtípusok ---
-       Fraunces (serif): címek h1-h6, hero cím, navbar márkanév -> karakter, "természetes" hangulat
-       Inter (sans): minden más -> törzsszöveg, gombok, input, táblázat, accordion, kvíz, footer
-       A Bootstrap ezeket a változókat olvassa, így minden komponens automatikusan átveszi. */
     --font-heading: "Fraunces", Georgia, "Times New Roman", serif;
     --font-body: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
     --bs-heading-font-family: var(--font-heading);
     --bs-body-font-family: var(--font-body);
-
-    /* Bootstrap 6 :root-on scrollbar-gutter: stable-t állít -> üres sáv jobb oldalt */
     scrollbar-gutter: auto;
+    scroll-padding-top: 3.5rem;
 
-    /* dark: zöld alapú háttér, a megadott színek pontosan szerepelnek */
-
-    /* --- Háttér és felületek (spec 3.3) ---
-       Rétegzés: minél "magasabban" van egy elem, annál közelebb a bg-light-hoz.
-       Beágyazás sorrendje: oldal (bg) -> kártya (bg-light) -> kártyán belüli mező (bg vagy bg-dark) */
-    /* legmélyebb réteg: oldalsáv, footer, beágyazott mezők hátterének mélyítése */
     --bg-dark: oklch(0.17 0.03 162);
-    /* oldal alap háttere (body) */
     --bg: oklch(0.22 0.04 162);
-    /* emelt felületek: kártya, modal, dropdown, input háttér */
     --bg-light: oklch(0.27 0.045 162);
-    /* hover, kijelölt sor, aktív menüpont háttere */
     --highlight: oklch(0.52 0.07 162);
-
-    /* --- Szöveg és keretek (spec 3.4) --- */
-    /* törzsszöveg, címek; #eddfef */
     --text: oklch(0.92 0.026 322);
-    /* segédszöveg, dátum, placeholder, kikapcsolt elem */
     --text-muted: oklch(0.75 0.03 322);
-    /* kártya, input, gomb kerete, látható elválasztó; #285943 */
     --border: oklch(0.423 0.066 162);
-    /* finom elválasztó vonal, táblázat sorai */
     --border-muted: oklch(0.32 0.05 162);
-
-    /* --- Márkaszínek (spec 3.5) --- */
-    /* fő gomb, link, aktív állapot, fókusz gyűrű, kiemelt ikon; a #285943 világosított változata */
     --primary: oklch(0.72 0.1 162);
-    /* másodlagos gomb, címke, díszítő kiemelés, csillag/értékelés; #efe9ae */
     --secondary: oklch(0.925 0.076 103);
-    /* #362417; dark módban alig különbözik a háttértől -> NE szövegnek/ikonnak,
-       csak finom hangulati felületnek (pl. kiemelt sáv háttere).
-       Light módban = text szín, ott szövegnek és sötét felületnek is jó */
     --accent: oklch(0.279 0.035 56);
-    /* szöveg primary/secondary háttéren (fő és másodlagos gomb, kiválasztott menüelem, badge):
-       dark módban bg-dark, light módban bg-light (spec 3.7) */
     --on-primary: var(--bg-dark);
-
-    /* --- Állapotszínek (spec 3.6) ---
-       Dark módban világosabb, light módban sötétebb árnyalat a kontraszt miatt */
-    /* hiba, törlés gomb, hibás mező kerete, érvénytelen állapot
-       (hibaüzenet: háttér danger ~15% átlátszósággal, szöveg + keret danger) */
     --danger: oklch(0.7 0.08 30);
-    /* figyelmeztetés, nem végleges vagy kockázatos művelet */
     --warning: oklch(0.78 0.08 90);
-    /* sikeres mentés, kész állapot, megerősítés.
-       Hasonlít a primary-re -> sikert mindig ikonnal/szöveggel is jelezd, ne csak színnel */
     --success: oklch(0.72 0.09 150);
-    /* semleges tájékoztatás, tipp, súgó */
     --info: oklch(0.72 0.07 240);
-
-    /* --- Gyakori párosítások (spec 3.7) ---
-       Oldal:            háttér bg,          szöveg text,       keret nincs
-       Kártya:           háttér bg-light,    szöveg text,       keret border-muted
-       Fő gomb:          háttér primary,     szöveg bg-dark (light: bg-light)
-       Másodlagos gomb:  háttér secondary,   szöveg bg-dark (light: bg-light)
-       Körvonalas gomb:  háttér átlátszó,    szöveg primary,    keret primary
-       Input:            háttér bg-dark (light: bg-light), szöveg text, keret border, fókuszon primary
-       Hover sor/menü:   háttér highlight,   szöveg text
-       Link:             szöveg primary
-       Segédszöveg:      szöveg text-muted */
 }
 
 body.light {
-    /* light: krémsárga alap, barna szöveg, a zöld a primary
-       Ugyanazok a tokenek, ugyanarra a célra -> használati leírás a :root-ban */
     --bg-dark: oklch(0.9 0.04 103);
     --bg: oklch(0.94 0.035 103);
-    /* #efe9ae halványítva */
     --bg-light: oklch(0.975 0.02 103);
-    --text: oklch(0.279 0.035 56);
-    /* #362417 */
-    --text-muted: oklch(0.43 0.04 56);
     --highlight: oklch(0.99 0.02 103);
+    --text: oklch(0.279 0.035 56);
+    --text-muted: oklch(0.43 0.04 56);
     --border: oklch(0.6 0.05 162);
     --border-muted: oklch(0.72 0.05 162);
     --primary: oklch(0.423 0.066 162);
-    /* #285943 */
     --secondary: oklch(0.5 0.09 95);
-    --accent: oklch(0.279 0.035 56);
-    /* #362417 */
     --on-primary: var(--bg-light);
     --danger: oklch(0.5 0.1 30);
     --warning: oklch(0.52 0.09 85);
@@ -134,18 +74,13 @@ body.light {
     --info: oklch(0.5 0.08 240);
 }
 
-html {
-    scroll-padding-top: 3.5rem;
-}
-
 @media (prefers-reduced-motion: no-preference) {
-    html {
+    :root {
         scroll-behavior: smooth;
     }
 }
 
 body {
-    /* clip: nem hoz létre görgetési konténert, így a sticky header működik tovább */
     overflow-x: clip;
     background-color: var(--bg);
     color: var(--text);
@@ -158,16 +93,21 @@ body {
     --bs-border-subtle: var(--border-muted);
     --bs-link-color: var(--primary);
     --bs-link-hover-color: var(--primary);
+    --bs-focus-ring-color: color-mix(in oklch, var(--primary) 45%, transparent);
+    --bs-control-checked-bg: var(--primary);
+    --bs-control-checked-border-color: var(--primary);
     --bs-primary-base: var(--primary);
     --bs-primary-bg: var(--primary);
     --bs-primary-fg: var(--primary);
+    --bs-primary-border: var(--primary);
     --bs-primary-contrast: var(--on-primary);
-    --bs-control-checked-bg: var(--primary);
-    --bs-control-checked-border-color: var(--primary);
-    --bs-focus-ring-color: color-mix(in oklch, var(--primary) 45%, transparent);
+    --bs-primary-bg-subtle: color-mix(in oklch, var(--primary) 15%, transparent);
     --bs-success-fg: var(--success);
     --bs-success-border: var(--success);
     --bs-success-bg-subtle: color-mix(in oklch, var(--success) 15%, transparent);
+    --bs-warning-fg: var(--warning);
+    --bs-warning-border: var(--warning);
+    --bs-warning-bg-subtle: color-mix(in oklch, var(--warning) 15%, transparent);
     --bs-danger-fg: var(--danger);
     --bs-danger-border: var(--danger);
     --bs-danger-bg-subtle: color-mix(in oklch, var(--danger) 15%, transparent);
@@ -181,47 +121,46 @@ a {
     color: var(--text-muted);
 }
 
-.bg-body {
-    background-color: var(--bg);
-}
-
 .bg-dark {
     background-color: var(--bg-dark);
 }
 
 .bg-light {
-  background-color: var(--bg-light);
+    background-color: var(--bg-light);
 }
 
-.btn-solid {
-    background-color: var(--primary);
-    color: var(--on-primary);
+[tabindex="-1"]:focus {
+    outline: none;
+}
+
+.btn-solid,
+.btn-outline {
     border: 2px solid var(--primary);
 }
 
-.btn-solid:hover {
-    background-color: var(--secondary);
-    border-color: var(--secondary);
+.btn-solid,
+.btn-outline:hover {
+    background-color: var(--primary);
     color: var(--on-primary);
 }
 
 .btn-outline {
     background-color: transparent;
     color: var(--primary);
-    border: 2px solid var(--primary);
 }
 
-.btn-outline:hover {
-    background-color: var(--primary);
-    color: var(--on-primary);
+.btn-solid:hover,
+.hero-buttons .btn-outline:hover {
+    background-color: var(--secondary);
+    border-color: var(--secondary);
 }
 
 .btn-solid *,
-.btn-outline * {
+.btn-outline *,
+.menu-item * {
     color: inherit;
 }
 
-/* --- Navbar --- */
 nav {
     background-color: var(--bg-light);
 }
@@ -253,7 +192,6 @@ nav .btn-outline:hover {
     font-weight: 700;
 }
 
-/* --- Témaválasztó menü --- */
 .theme-switcher-toggle {
     display: inline-flex;
     align-items: center;
@@ -285,20 +223,10 @@ nav .btn-outline:hover {
     color: var(--bs-menu-item-active-color);
 }
 
-.menu-item * {
-    color: inherit;
-}
-
-/* --- Hero --- */
 .hero {
+    --hero-overlay: linear-gradient(90deg, color-mix(in oklch, var(--bg-dark) 90%, transparent), transparent 75%);
     min-height: calc(100vh - 3.625rem);
-    background-image:
-        linear-gradient(90deg, color-mix(in oklch, var(--bg-dark) 90%, transparent) 0%, transparent 75%),
-        url("../assets/img/hero-image.webp");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
+    background: var(--hero-overlay), url("../assets/img/hero-image.webp") center / cover no-repeat fixed;
 }
 
 .hero-container {
@@ -314,12 +242,6 @@ nav .btn-outline:hover {
     font-weight: 700;
 }
 
-.hero-buttons .btn-outline:hover {
-    background-color: var(--secondary);
-    border-color: var(--secondary);
-}
-
-/* az egyetlen díszítő animáció: a nyíl lassan le-fel mozog */
 .hero-scroll {
     color: var(--text);
     text-decoration: none;
@@ -338,11 +260,7 @@ nav .btn-outline:hover {
 }
 
 #backToTop {
-    transition:
-        opacity 0.3s ease,
-        transform 0.3s ease,
-        box-shadow 0.2s ease,
-        visibility 0.3s;
+    transition: opacity 0.3s ease, transform 0.3s ease, box-shadow 0.2s ease, visibility 0.3s;
 }
 
 #backToTop.is-hidden {
@@ -358,7 +276,6 @@ nav .btn-outline:hover {
     }
 }
 
-/* érintőképernyőn a :hover a koppintás után beragad -> ne maradjon felemelve és átszínezve */
 @media (hover: none) {
     #backToTop:hover {
         background-color: var(--primary);
@@ -376,11 +293,7 @@ nav .btn-outline:hover {
     --bs-accordion-btn-bg: var(--bg-light);
 }
 
-.accordion-item {
-    background-color: var(--bg-light);
-    color: var(--text);
-}
-
+.accordion-item,
 .accordion-item summary {
     background-color: var(--bg-light);
     color: var(--text);
@@ -390,19 +303,14 @@ nav .btn-outline:hover {
     background-color: var(--highlight);
 }
 
-
 .card {
     --bs-card-bg: var(--bg-light);
     --bs-card-color: var(--text);
     --bs-card-border-color: var(--border-muted);
-    background-color: var(--bg-light);
-    color: var(--text);
-    border-color: var(--border-muted);
 }
 
-.accordion .card {
-    --bs-card-bg: var(--bg);
-    background-color: var(--bg);
+.progress {
+    --bs-progress-bg: var(--border-muted);
 }
 
 .gallery {
@@ -421,14 +329,8 @@ nav .btn-outline:hover {
     border-radius: 3rem 1rem;
 }
 
-@container gallery (width < 768px) {
-    .gallery-tile:nth-child(even) {
-        border-radius: 1rem 3rem;
-    }
-}
-
 .gallery-tile-a {
-    aspect-ratio: 1 / 1;
+    aspect-ratio: 1;
 }
 
 .gallery-tile-b {
@@ -449,9 +351,9 @@ nav .btn-outline:hover {
 }
 
 .gallery-tile .carousel {
+    --bs-carousel-indicator-bg: var(--text);
     position: absolute;
     inset: 0;
-    --bs-carousel-indicator-bg: var(--text);
 }
 
 .gallery-tile .carousel-inner,
@@ -466,11 +368,15 @@ nav .btn-outline:hover {
     object-fit: cover;
 }
 
-.gallery-controls {
+.gallery-controls,
+.gallery-tile-action {
     position: absolute;
     inset-block-end: 1rem;
-    inset-inline-end: 1rem;
     z-index: 1;
+}
+
+.gallery-controls {
+    inset-inline-end: 1rem;
     display: flex;
     align-items: center;
     gap: 0.25rem;
@@ -506,10 +412,7 @@ nav .btn-outline:hover {
 }
 
 .gallery-tile-action {
-    position: absolute;
-    inset-block-end: 1rem;
     inset-inline-start: 1rem;
-    z-index: 1;
     font-weight: 700;
 }
 
@@ -540,19 +443,13 @@ nav .btn-outline:hover {
     color: var(--text-muted);
 }
 
-.footer-title {
-  display: inline-block;
-  border-bottom: 3px solid var(--secondary);
-  border-bottom-right-radius: 4px;
+@container gallery (width < 768px) {
+    .gallery-tile:nth-child(even) {
+        border-radius: 1rem 3rem;
+    }
 }
 
-.copyright-footer {
-  border-top: 1px solid var(--border);
-  color: var(--text-muted);
-}
-
-
-@container gallery (width >=768px) {
+@container gallery (width >= 768px) {
     .gallery .grid {
         grid-auto-rows: 13rem;
     }
@@ -574,7 +471,6 @@ nav .btn-outline:hover {
     }
 
     .gallery-tile-c {
-        grid-row: span 1;
         border-radius: 2.5rem 1rem;
     }
 
@@ -589,11 +485,20 @@ nav .btn-outline:hover {
     }
 }
 
+.footer-title {
+    display: inline-block;
+    border-bottom: 3px solid var(--secondary);
+    border-bottom-right-radius: 4px;
+}
+
+.copyright-footer {
+    border-top: 1px solid var(--border);
+    color: var(--text-muted);
+}
+
 @media (width < 768px) {
     .hero {
-        background-image:
-            linear-gradient(color-mix(in oklch, var(--bg-dark) 75%, transparent), color-mix(in oklch, var(--bg-dark) 75%, transparent)),
-            url("../assets/img/hero-image.webp");
+        --hero-overlay: linear-gradient(color-mix(in oklch, var(--bg-dark) 75%, transparent) 0 0);
     }
 
     .hero-container {
@@ -624,7 +529,6 @@ nav .btn-outline:hover {
         font-family: var(--font-heading);
     }
 
-    /* a drawerben az ms-auto me-4 jobbra tolná a menüpontokat */
     .navbar .drawer .navbar-nav {
         margin-inline: 0;
     }
@@ -641,23 +545,20 @@ nav .btn-outline:hover {
         background-color: color-mix(in oklch, var(--primary) 15%, transparent);
     }
 
+    .navbar .drawer .nav-link:hover {
+        background-color: var(--highlight);
+    }
+
     .navbar .drawer .theme-switcher {
         margin-top: 1rem;
         padding-top: 1rem;
         border-top: 1px solid var(--border-muted);
     }
-
-    .navbar .drawer .nav-link:hover {
-        background-color: var(--highlight);
-    }
 }
 
-@media (width <=600px) {
+@media (width <= 600px) {
     .hero-buttons {
         flex-direction: column;
-    }
-
-    .hero-buttons {
         width: 80%;
         margin-inline: auto;
     }
@@ -670,7 +571,6 @@ nav .btn-outline:hover {
         font-size: 3rem;
     }
 
-    /* keskeny kijelzőn a 4 fül nem fér ki egy sorban -> 2x2 rács görgetősáv helyett */
     .szint-tabs {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -692,8 +592,8 @@ nav .btn-outline:hover {
     }
 }
 
-@media (width >=1920px) {
-    html {
+@media (width >= 1920px) {
+    :root {
         font-size: clamp(16px, calc(100vw / 120), 32px);
     }
 
@@ -702,8 +602,6 @@ nav .btn-outline:hover {
     }
 
     .hero {
-        background-image:
-            linear-gradient(90deg, var(--bg-dark) 0%, transparent 75%),
-            url("../assets/img/hero-image.webp");
+        --hero-overlay: linear-gradient(90deg, var(--bg-dark), transparent 75%);
     }
 }
