@@ -59,7 +59,7 @@ A tervezést (oldaltérkép, színek, tipográfia, wireframe-ek) és a záró el
 
 ## Elérhetőség
 *   Élő oldal: https://kleviii.github.io/esoerdok-vilaga/
-*   Projektdokumentáció: `docs/Projektdokumentacio-Esoerdok-vilaga-v1.3.docx`
+*   Projektdokumentáció: `docs/Projektdokumentacio-Esoerdok-vilaga-v1.4.docx` (PDF: `docs/Projektdokumentacio-Esoerdok-vilaga-v1.4.pdf`)
 
 ---
 
