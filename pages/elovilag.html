@@ -13,14 +13,7 @@
 </head>
 
 <body>
-  <script>
-    try {
-      const saved = localStorage.getItem("theme")
-      if (saved === "light" || (saved !== "dark" && matchMedia("(prefers-color-scheme: light)").matches)) {
-        document.body.classList.add("light")
-      }
-    } catch {}
-  </script>
+  <script src="../js/tema.js"></script>
   <a class="visually-hidden-focusable" href="#main">Ugrás a tartalomra</a>
   <header class="sticky-top" id="siteHeader">
     <nav class="navbar md:navbar-expand bg-1" id="pageTop">
@@ -123,14 +116,15 @@
         <h1 class="mb-4">Élővilág</h1>
         <p class="mb-6 col-12 lg:col-8">
           Az esőerdőkben él a Föld ismert állat- és növényfajainak több mint fele. Ezen az oldalon három csoportban
-          mutatunk be néhányat: feltűnő, veszélyeztetett és mérgező fajokat. A végén azt is leírjuk, mit tegyél, ha
-          baj történik.
+          mutatunk be néhány állatot: feltűnő, veszélyeztetett és mérgező fajokat, utána jellegzetes növényeket. A
+          végén azt is leírjuk, mit tegyél, ha baj történik.
         </p>
         <div role="navigation" aria-label="Az oldal részei">
           <ul class="list-unstyled d-flex flex-wrap gap-2 mb-0">
             <li><a class="btn-outline btn-sm" href="#egzotikus">Egzotikus</a></li>
             <li><a class="btn-outline btn-sm" href="#veszelyeztetett">Veszélyeztetett</a></li>
             <li><a class="btn-outline btn-sm" href="#mergezo">Mérgező</a></li>
+            <li><a class="btn-outline btn-sm" href="#novenyek">Növényvilág</a></li>
             <li><a class="btn-outline btn-sm" href="#galeria">Galéria</a></li>
             <li><a class="btn-outline btn-sm" href="#veszhelyzet">Vészhelyzetben</a></li>
           </ul>
@@ -370,6 +364,84 @@
               <div class="d-flex flex-wrap gap-2 mt-auto">
                 <span class="badge badge-subtle theme-primary">Talajszint</span>
                 <span class="badge badge-subtle theme-danger">Mérges csípés</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="container mb-12" id="novenyek" aria-labelledby="novenyekTitle">
+      <h2 class="mb-4" id="novenyekTitle">Növényvilág</h2>
+      <p class="mb-8">
+        Az esőerdő élővilágát a növények tartják fenn: ők adják a táplálékot, a búvóhelyet és a párás klímát. Néhány
+        jellegzetes faj a lombkorona fölé nyúló fáktól a talajig.
+      </p>
+      <div class="row row-cols-1 md:row-cols-2 lg:row-cols-4 g-6">
+        <div class="col">
+          <article class="card h-100">
+            <img src="../assets/img/gallery/fooldal-a-3.webp" class="card-img-top ratio-4x3 h-auto object-fit-cover" width="800"
+                height="600" loading="lazy" alt="Kapokfa törzse és koronája magasan a környező lombkorona fölé emelkedik" />
+            <div class="card-body d-flex flex-column">
+              <h3 class="h5 mb-1">Kapokfa</h3>
+              <p class="text-muted fst-italic small mb-3">Ceiba pentandra</p>
+              <p>
+                A 60 méteres magasságot is elérheti, koronája kiemelkedik a lombkoronából. Termésében selymes rost van, ezt
+                régen párnák és mentőmellények töltésére használták.
+              </p>
+              <div class="d-flex flex-wrap gap-2 mt-auto">
+                <span class="badge badge-subtle theme-primary">Kiemelkedő fák</span>
+              </div>
+            </div>
+          </article>
+        </div>
+        <div class="col">
+          <article class="card h-100">
+            <img src="../assets/img/elovilag/viktoria.webp" class="card-img-top ratio-4x3 h-auto object-fit-cover" width="800"
+                height="600" loading="lazy" alt="Óriás tavirózsa kerek, felhajló szélű levelei a víz felszínén" />
+            <div class="card-body d-flex flex-column">
+              <h3 class="h5 mb-1">Óriás tavirózsa</h3>
+              <p class="text-muted fst-italic small mb-3">Victoria amazonica</p>
+              <p>
+                Kerek levele két méternél is szélesebb lehet, és egy kisgyereket is megtart. Az Amazonas csendes
+                holtágaiban él, fehér virága csak két éjszakán át nyílik.
+              </p>
+              <div class="d-flex flex-wrap gap-2 mt-auto">
+                <span class="badge badge-subtle theme-primary">Vízpart</span>
+              </div>
+            </div>
+          </article>
+        </div>
+        <div class="col">
+          <article class="card h-100">
+            <img src="../assets/img/elovilag/rafflezia.webp" class="card-img-top ratio-4x3 h-auto object-fit-cover" width="800"
+                height="600" loading="lazy" alt="Hatalmas, vörös, fehér pettyes rafflézia virág az erdő talaján" />
+            <div class="card-body d-flex flex-column">
+              <h3 class="h5 mb-1">Óriás rafflézia</h3>
+              <p class="text-muted fst-italic small mb-3">Rafflesia arnoldii</p>
+              <p>
+                A világ legnagyobb egyedi virága, átmérője közel egy méter. Nincs levele és szára, egy liánon élősködik.
+                Dögszagával legyeket csal magához, amelyek beporozzák.
+              </p>
+              <div class="d-flex flex-wrap gap-2 mt-auto">
+                <span class="badge badge-subtle theme-primary">Talajszint</span>
+              </div>
+            </div>
+          </article>
+        </div>
+        <div class="col">
+          <article class="card h-100">
+            <img src="../assets/img/elovilag/kakao.webp" class="card-img-top ratio-4x3 h-auto object-fit-cover" width="800"
+                height="600" loading="lazy" alt="Piros kakaótermések közvetlenül a fa törzsén és ágain" />
+            <div class="card-body d-flex flex-column">
+              <h3 class="h5 mb-1">Kakaófa</h3>
+              <p class="text-muted fst-italic small mb-3">Theobroma cacao</p>
+              <p>
+                Termései közvetlenül a törzsön és a vastag ágakon nőnek. A magjából készül a csokoládé. Az árnyékos
+                aljnövényzetet szereti, ezért erdő alatt is termeszthető.
+              </p>
+              <div class="d-flex flex-wrap gap-2 mt-auto">
+                <span class="badge badge-subtle theme-primary">Cserjeszint</span>
               </div>
             </div>
           </article>
@@ -681,6 +753,10 @@
               <li>Festett nyílméregbéka: <a href="https://commons.wikimedia.org/wiki/File:Dendrobates_tinctorius_-_Karlsruhe_Zoo_05.jpg">H. Zell</a>, <a href="https://creativecommons.org/licenses/by-sa/3.0">CC BY-SA 3.0</a></li>
               <li>Korallkígyó: <a href="https://commons.wikimedia.org/wiki/File:Aquatic_Coralsnake_(Micrurus_surinamensis)_in_Peru.jpg">dhfischer</a>, <a href="https://creativecommons.org/licenses/by/4.0">CC BY 4.0</a></li>
               <li>Skorpió (Tityus obscurus): <a href="https://commons.wikimedia.org/wiki/File:Tityus_obscurus_(10.3897-zookeys.764.25108)_Figure_12.jpg">Eric Ythier (ZooKeys 764)</a>, <a href="https://creativecommons.org/licenses/by/4.0">CC BY 4.0</a></li>
+              <li>Kapokfa: <a href="https://commons.wikimedia.org/wiki/File:Panguana-Lupuna-2008-2.jpg">Klaus Schönitzer</a>, <a href="https://creativecommons.org/licenses/by-sa/3.0">CC BY-SA 3.0</a></li>
+              <li>Óriás tavirózsa: <a href="https://commons.wikimedia.org/wiki/File:Victoria_amazonica_in_Florida.jpg">P,TO 19104</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a></li>
+              <li>Óriás rafflézia: <a href="https://commons.wikimedia.org/wiki/File:Rafflesia_arnoldii,_Sumatra.jpg">LukeTriton</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a></li>
+              <li>Kakaófa: <a href="https://commons.wikimedia.org/wiki/File:Theobroma_cacao_(red_pods_-_Haiti).jpg">Nick Hobgood</a>, <a href="https://creativecommons.org/licenses/by-sa/3.0">CC BY-SA 3.0</a></li>
           </ul>
         </div>
       </details>
@@ -714,6 +790,7 @@
               <li><a href="#veszhelyzet">Segélyhívó számok</a></li>
               <li><a href="terkep.html">Idegenvezetők elérhetősége</a></li>
               <li><a href="tippek.html">Gyakori kérdések</a></li>
+              <li><a href="tippek.html#mittehetunk">Mit tehetünk az esőerdőkért?</a></li>
             </ul>
           </div>
           <div class="col-12 md:col-6 lg:col-3">

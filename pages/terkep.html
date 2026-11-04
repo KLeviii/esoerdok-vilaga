@@ -14,14 +14,7 @@
 </head>
 
 <body>
-  <script>
-    try {
-      const saved = localStorage.getItem("theme")
-      if (saved === "light" || (saved !== "dark" && matchMedia("(prefers-color-scheme: light)").matches)) {
-        document.body.classList.add("light")
-      }
-    } catch {}
-  </script>
+  <script src="../js/tema.js"></script>
   <a class="visually-hidden-focusable" href="#main">Ugrás a tartalomra</a>
   <header class="sticky-top" id="siteHeader">
     <nav class="navbar md:navbar-expand bg-1" id="pageTop">
@@ -181,7 +174,7 @@
                     <div class="col">
                         <div class="card h-100">
                             <div class="card-body">
-                                <h2 class="card-title h4">Amazonas Gerilla <span class="badge">Beszülött</span></h2>
+                                <h2 class="card-title h4">Amazonas Gerilla <span class="badge">Bennszülött vezetővel</span></h2>
                                 <p>
                                     Nehezen megközelíthető terep, ahol utak helyett csak folyók vezetnek át a sűrű
                                     dzsungelen. A párás meleg, a mocsarak és az áthatolhatatlan növényzet miatt itt csak
@@ -191,6 +184,55 @@
                         </div>
                     </div>
 
+                </div>
+            </div>
+        </section>
+        <section class="px-5 pb-5 utvonalak" aria-labelledby="utvonalakTitle">
+            <div class="container">
+                <h2 class="h4 mb-4" id="utvonalakTitle">Az útvonalak összehasonlítása</h2>
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <caption>A túrahosszak tájékoztató jellegűek, a helyi szervezőktől és az időjárástól függnek.</caption>
+                        <thead>
+                            <tr>
+                                <th scope="col">Útvonal</th>
+                                <th scope="col">Kiindulópont</th>
+                                <th scope="col">Jellemző hossz</th>
+                                <th scope="col">Nehézség</th>
+                                <th scope="col">Ajánlott szint</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <th scope="row">Ecuadori Amazónia (Morona-Santiago / Cuyabeno)</th>
+                            <td>Lago Agrio, Macas</td>
+                            <td>2–6 km, félnapos séták</td>
+                            <td>Könnyű</td>
+                            <td>Kezdő</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Leticia / perui-kolumbiai határvidék</th>
+                            <td>Leticia, Puerto Nariño</td>
+                            <td>6–12 km, egész napos túrák</td>
+                            <td>Közepes</td>
+                            <td>Haladó</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Manaus (Brazília)</th>
+                            <td>Manaus, Presidente Figueiredo</td>
+                            <td>10–20 km naponta, 2–4 napos túrák</td>
+                            <td>Nehéz</td>
+                            <td>Profi</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Amazonas Gerilla</th>
+                            <td>Folyami kikötők, csónakkal</td>
+                            <td>Többnapos, folyón és gyalog</td>
+                            <td>Nagyon nehéz</td>
+                            <td>Bennszülött vezetővel</td>
+                        </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </section>
@@ -206,8 +248,8 @@
 
                     <div class="col">
                         <section class="card" style="max-width: 320px">
-                            <img src="../assets/idegenvezeto.webp" class="card-img-top"
-                                alt="...">
+                            <img src="../assets/idegenvezeto.webp" class="card-img-top h-auto" width="800" height="800" loading="lazy"
+                                alt="Mateo Silva mosolyogva áll egy esőerdei ösvényen, kezében túrabottal, nyakában távcsővel">
                             <div class="card-body">
                                 <div class="accordion">
                                     <details class="accordion-item">
@@ -227,7 +269,7 @@
                                                     tanösvényeket.</li>
                                                 <li>Kifejezetten kezdőknek, családoknak és fotózni vágyóknak tart
                                                     pihentető, látványos sétákat, ahol a hangsúly a természethez való
-                                                    kapcsolódáson,biztonságon és a
+                                                    kapcsolódáson, a biztonságon és a
                                                     növényvilág játékos bemutatásán van.</li>
                                             </ul>
                                         </div>
@@ -241,8 +283,8 @@
 
                     <div class="col">
                         <section class="card" style="max-width: 320px">
-                            <img src="../assets/idegenvezeto.webp" class="card-img-top"
-                                alt="...">
+                            <img src="../assets/idegenvezeto-carlos.webp" class="card-img-top h-auto" width="800" height="800" loading="lazy"
+                                alt="Carlos Mendoza térdig érő vízben vezeti a csoportját egy folyó mentén, kezével előre mutat">
                             <div class="card-body">
                                 <div class="accordion">
                                     <details class="accordion-item">
@@ -274,8 +316,8 @@
 
                     <div class="col">
                         <section class="card" style="max-width: 320px">
-                            <img src="../assets/idegenvezeto.webp" class="card-img-top"
-                                alt="...">
+                            <img src="../assets/idegenvezeto-gabriel.webp" class="card-img-top h-auto" width="800" height="800" loading="lazy"
+                                alt="Gabriel Santos egy folyóban egy anakondát emel ki a vízből, mögötte a csónakban a túrázók">
                             <div class="card-body">
                                 <div class="accordion">
                                     <details class="accordion-item">
@@ -293,7 +335,7 @@
                                                     dzsungelszakértő, aki a legmostohább körülmények között is otthon
                                                     van.</li>
                                                 <li>Több mint 20 év az esőerdő legérintetlenebb, mély zónáiban,
-                                                    beleértve az éjszakai és túlélelési túrákat is.</li>
+                                                    beleértve az éjszakai és túlélési túrákat is.</li>
                                                 <li>Kifejezetten profi túrázóknak tart többnapos,
                                                     kihívásokkal teli dzsungeltúrákat és éjszakai felfedezőutakat.</li>
                                             </ul>
@@ -336,23 +378,23 @@
                             <button class="btn-icon btn-sm" type="button" data-bs-target="#carouselStackedIndicators"
                                 data-bs-slide="prev">
                                 <span class="carousel-icon-prev" aria-hidden="true"></span>
-                                <span class="visually-hidden">Previous</span>
+                                <span class="visually-hidden">Előző</span>
                             </button>
                             <button class="btn-icon btn-sm" type="button" data-bs-target="#carouselStackedIndicators"
                                 data-bs-slide="next">
                                 <span class="carousel-icon-next" aria-hidden="true"></span>
-                                <span class="visually-hidden">Next</span>
+                                <span class="visually-hidden">Következő</span>
                             </button>
                         </div>
                         <div class="carousel-indicators">
                             <button type="button" data-bs-target="#carouselStackedIndicators" data-bs-slide-to="0"
-                                class="active" aria-current="true" aria-label="Slide 1"></button>
+                                class="active" aria-current="true" aria-label="1. kép"></button>
                             <button type="button" data-bs-target="#carouselStackedIndicators" data-bs-slide-to="1"
-                                aria-label="Slide 2"></button>
+                                aria-label="2. kép"></button>
                             <button type="button" data-bs-target="#carouselStackedIndicators" data-bs-slide-to="2"
-                                aria-label="Slide 3"></button>
+                                aria-label="3. kép"></button>
                             <button type="button" data-bs-target="#carouselStackedIndicators" data-bs-slide-to="3"
-                                aria-label="Slide 4"></button>
+                                aria-label="4. kép"></button>
                         </div>
                     </div>
                 </div>
@@ -389,6 +431,7 @@
               <li><a href="elovilag.html#veszhelyzet">Segélyhívó számok</a></li>
               <li><a href="terkep.html">Idegenvezetők elérhetősége</a></li>
               <li><a href="tippek.html">Gyakori kérdések</a></li>
+              <li><a href="tippek.html#mittehetunk">Mit tehetünk az esőerdőkért?</a></li>
             </ul>
           </div>
           <div class="col-12 md:col-6 lg:col-3">

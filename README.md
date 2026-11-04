@@ -33,13 +33,15 @@ A projekt célja egy olyan oktató és szemléletformáló digitális platform l
 
 ## Felhasznált technológiák
 *   **Frontend:** HTML5, CSS3 / Flexbox / Grid, JavaScript (ES6+)
+*   **Keretrendszer:** Bootstrap 6.0.0-alpha.1 (helyi CSS és bundle JS)
+*   **Térkép:** Google My Maps beágyazás
 *   **Verziókezelés:** Git & GitHub
 
 ## Helyi futtatás (Telepítés)
 
 1. Klónozd a repozitóriumot:
    ```bash
-   git clone https://github.com
+   git clone https://github.com/KLeviii/esoerdok-vilaga.git
    ```
 2. Lépj be a projekt mappájába:
    ```bash
@@ -50,8 +52,14 @@ A projekt célja egy olyan oktató és szemléletformáló digitális platform l
 ---
 
 ## Csapattagok és feladatkörök
-*   **Káldor Levente (Projektmenedzser / Kutató):** Tartalom összeállítása, Git munkafolyamat koordinálása.
-*   **Ménes Megyer (UI/UX Designer / Frontend fejlesztő):** Dizájntervek elkészítése, CSS struktúra és reszponzivitás.
+A tervezést (oldaltérkép, színek, tipográfia, wireframe-ek) és a záró ellenőrzést közösen végeztük, a megvalósításon oldalak szerint osztoztunk.
+
+*   **Káldor Levente:** Főoldal, Kvíz és Élővilág oldal; a közös stíluskészlet (design tokenek, világos/sötét téma, témaváltó, navigáció, lábléc, betűtípusok); képek feldolgozása és a képforrás-jegyzék; oldalterv.
+*   **Ménes Megyer:** Térkép és Tippek oldal (Google My Maps beágyazás, túraútvonalak, idegenvezetők, tévhitek, gyakori kérdések); a specifikáció és a wireframe-ek.
+
+## Elérhetőség
+*   Élő oldal: https://kleviii.github.io/esoerdok-vilaga/
+*   Projektdokumentáció: `docs/Projektdokumentacio-Esoerdok-vilaga-v1.3.docx`
 
 ---
 

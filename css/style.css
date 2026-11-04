@@ -313,10 +313,6 @@ nav .btn-outline:hover {
     --bs-progress-bg: var(--border-muted);
 }
 
-.gallery {
-    container: gallery / inline-size;
-}
-
 .gallery .grid {
     grid-template-rows: none;
 }
@@ -469,13 +465,14 @@ nav .btn-outline:hover {
     color: var(--text-muted);
 }
 
-@container gallery (width < 768px) {
+/* A galéria .container-ben van, ami 1024 px alatt 768 px-nél keskenyebb, ezért itt vált az elrendezés. */
+@media (width < 1024px) {
     .gallery-tile:nth-child(even) {
         border-radius: 1rem 3rem;
     }
 }
 
-@container gallery (width >= 768px) {
+@media (width >= 1024px) {
     .gallery .grid {
         grid-auto-rows: 13rem;
     }
@@ -524,7 +521,7 @@ nav .btn-outline:hover {
 
 @media (width < 768px) {
     .hero {
-        --hero-overlay: linear-gradient(color-mix(in oklch, var(--bg-dark) 75%, transparent) 0 0);
+        --hero-overlay: linear-gradient(color-mix(in oklch, var(--bg-dark) 75%, transparent), color-mix(in oklch, var(--bg-dark) 75%, transparent));
     }
 
     .hero-container {

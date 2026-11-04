@@ -13,14 +13,7 @@
 </head>
 
 <body>
-  <script>
-    try {
-      const saved = localStorage.getItem("theme")
-      if (saved === "light" || (saved !== "dark" && matchMedia("(prefers-color-scheme: light)").matches)) {
-        document.body.classList.add("light")
-      }
-    } catch {}
-  </script>
+  <script src="js/tema.js"></script>
   <a class="visually-hidden-focusable" href="#main">Ugrás a tartalomra</a>
   <header class="sticky-top" id="siteHeader">
     <nav class="navbar md:navbar-expand bg-1" id="pageTop">
@@ -549,6 +542,7 @@
               <li><a href="pages/elovilag.html#veszhelyzet">Segélyhívó számok</a></li>
               <li><a href="pages/terkep.html">Idegenvezetők elérhetősége</a></li>
               <li><a href="pages/tippek.html">Gyakori kérdések</a></li>
+              <li><a href="pages/tippek.html#mittehetunk">Mit tehetünk az esőerdőkért?</a></li>
             </ul>
           </div>
           <div class="col-12 md:col-6 lg:col-3">
