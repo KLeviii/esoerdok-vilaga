@@ -23,7 +23,7 @@ Kérted, hogy a saját döntéseimről itt értesítselek. Röviden: a dokument�
 4. **Apró javítások a Térkép oldalon.** „Beszülött” → „Bennszülött vezetővel” (a kártyacímkén és a táblázatban), „túlélelési” → „túlélési”, „kapcsolódáson,biztonságon” → „kapcsolódáson, a biztonságon”. A carousel angol „Previous/Next/Slide” feliratai magyarra változtak.
 5. **Fenntarthatósági tippek.** 6 ötlet lett, nem 5 (a feladat legalább 4–5-öt kér). Ez nem kártyarács, hanem számozott lista, hogy ne nézzen ki „AI-sablonnak”.
 6. **Galéria-töréspont.** A galéria a `.container`-ben van, ami 1024 px alatt 768 px-nél keskenyebb. A `@media (width >= 1024px)` ezért pontosan ugyanott vált, ahol eddig a container query. Mértem 700, 900, 1023, 1040 és 1300 px-en.
-7. **Commit-szám a dokumentációban.** 69 commitot írtam bele (54 Levente, 15 Megyer; merge nélkül 60), ez a dokumentációs committal együtt értendő.
+7. **Commit-szám a dokumentációban.** 74 commitot írtam bele (56 Levente, 18 Megyer; merge nélkül 63; 11 összefésítés). Ez az utolsó, számokat frissítő committal együtt értendő.
 
 ## Ellenőrzés
 
@@ -42,5 +42,11 @@ Kérted, hogy a saját döntéseimről itt értesítselek. Röviden: a dokument�
 
 ## Git
 
-- Új branch: `fix/nyitott-pontok`, két commit: kód és dokumentáció. Attribúció egyikben sincs.
-- A branchet fast-forwarddal a `main`-be is összefésültem, és mindkettőt pusholtam, hogy a GitHub Pages frissüljön. Ha inkább PR-t szerettél volna, a branch megvan; a `main` visszaállítható az előző `fd9a142` commitra.
+- Új branch: `fix/nyitott-pontok`. Attribúció egyik commitban sincs.
+  - `da392a8`: kódjavítások (erre a hashre hivatkozik a dokumentáció 9. fejezete)
+  - `45aa40b`: dokumentáció v1.3 és ez a jegyzet
+  - `c5b6d80`: merge. Pushkor kiderült, hogy Megyer 11. 03-án három commitot tett a `main`-re ("finomitasok a dizajnon", "vegleges" és egy merge). A nettó változásuk egyetlen új kép: `assets/pexels-davidriano-975771.jpg` (2,2 MB JPG). Ezt összefésültem, nem dobtam el, de **sehol nincs hivatkozva**: kérdezd meg Megyert, mire szánta. Ha az oldalon használni akarja, WebP-re kellene alakítani.
+  - az utolsó commit: commitszámok frissítése a dokumentációban a merge után
+- A rebase helyett azért választottam a merge-et, hogy a dokumentációban hivatkozott `da392a8` hash ne változzon.
+- A `main`-t fast-forwarddal erre a branchre állítottam, és mindkettőt pusholtam, hogy a GitHub Pages frissüljön. Ha inkább PR-t szerettél volna, a branch megvan; a `main` korábbi állapota `718afc9` (Megyer utolsó commitja).
+- Helyben a `fix/nyitott-pontok` branch van kicsekkolva. A `main`-re váltás a zárolt v1.2 Word-fájl miatt addig nem megy, amíg nem törlöd (lásd fent). Utána: `git checkout main && git pull`.
