@@ -9,24 +9,30 @@ body {
 
 }
 
-.kepek{
+.kepek {
     max-width: 300px;
     max-height: 300px;
     object-fit: contain;
 }
 
-.tarolo{
-    margin-top:20px ;
+.tarolo {
+    margin-top: 20px;
     margin-bottom: 20px;
     width: 100%;
 }
 
-.szovegTarolo{
+.szovegTarolo {
     width: 70%;
-    
+
 }
 
-.kepTarolo{
+.kulonalloKep {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.kepTarolo {
     width: 30%;
 }
 
@@ -37,11 +43,14 @@ body {
     background-color: var(--bg);
 }
 
-@media (max-width: 850px){
-    .szovegTarolo,.kepTarolo{
+@media (max-width: 850px) {
+
+    .szovegTarolo,
+    .kepTarolo {
         width: 100%;
     }
-    .kepTarolo{
+
+    .kepTarolo {
         text-align: center;
     }
-} 
+}
