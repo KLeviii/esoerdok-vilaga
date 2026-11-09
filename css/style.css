@@ -542,10 +542,17 @@ nav .btn-outline:hover {
     }
 
     .navbar .drawer {
+        --bs-drawer-transition-property: opacity, visibility;
         --bs-drawer-bg: var(--bg-light);
         --bs-drawer-color: var(--text);
         --bs-drawer-border-color: var(--border-muted);
         --bs-drawer-backdrop-bg: color-mix(in oklch, var(--bg-dark) 60%, transparent);
+    }
+
+    /* A bezárt menü ne lógjon ki a képernyő jobb szélén (vízszintes túlcsordulás mobilon). */
+    .navbar .drawer:not([open]) {
+        transform: none;
+        opacity: 0;
     }
 
     .navbar .drawer-title {
