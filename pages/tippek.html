@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Tévhitek az esőerdőkről, gyakori kérdések és túlélő technikák.">
+    <meta name="description" content="Tévhitek az esőerdőkről, mit tehetünk az esőerdők megóvásáért, gyakori kérdések és túlélő technikák.">
     <link rel="icon" href="../assets/brand/icon-logo.webp" type="image/webp">
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/style.css">
@@ -13,14 +13,7 @@
 </head>
 
 <body>
-  <script>
-    try {
-      const saved = localStorage.getItem("theme")
-      if (saved === "light" || (saved !== "dark" && matchMedia("(prefers-color-scheme: light)").matches)) {
-        document.body.classList.add("light")
-      }
-    } catch {}
-  </script>
+  <script src="../js/tema.js"></script>
   <a class="visually-hidden-focusable" href="#main">Ugrás a tartalomra</a>
   <header class="sticky-top" id="siteHeader">
     <nav class="navbar md:navbar-expand bg-1" id="pageTop">
@@ -189,10 +182,37 @@
 
                 </div>
                 <div class="kepTarolo">
-                    <img src="..\assets\img\dzsungelVagyEsoerdo.webp" alt="Illusztráció: bal oldalon a rétegzett esőerdő, jobb oldalon sűrű liánokkal benőtt dzsungel a folyóparton" width="896" height="1120" class="kepek kulonalloKep">
+                    <img src="../assets/img/dzsungelVagyEsoerdo.webp" alt="Illusztráció: bal oldalon a rétegzett esőerdő, jobb oldalon sűrű liánokkal benőtt dzsungel a folyóparton" width="896" height="1120" class="kepek kulonalloKep">
                 </div>
             </div>
 
+        </section>
+        <section class="harmadikSzekcio" id="mittehetunk" aria-labelledby="mittehetunkTitle">
+            <div class="container">
+                <h2 class="my-8" id="mittehetunkTitle">Mit tehetünk mi az esőerdőkért?</h2>
+                <p>Az esőerdők pusztulásának nagy része ahhoz kötődik, amit a világ többi része vásárol és fogyaszt.
+                    Ezért itthonról is tehetünk ellene, apró, mindennapi döntésekkel.</p>
+                <ol class="list-group list-group-numbered mb-8">
+                    <li class="list-group-item">
+                        <strong>Vásárolj tanúsított fát és papírt.</strong> A bútorokon, füzeteken és csomagolásokon keresd az FSC jelölést. Ez azt igazolja, hogy a fa nem illegális vagy esőerdőből kivágott területről származik.
+                    </li>
+                    <li class="list-group-item">
+                        <strong>Figyeld a pálmaolajat és a szóját.</strong> Az olajpálma- és szójaültetvények miatt tűnik el a legtöbb trópusi erdő. Nézd meg az összetevőket, és válaszd a pálmaolaj nélküli vagy RSPO-tanúsított termékeket.
+                    </li>
+                    <li class="list-group-item">
+                        <strong>Egyél kevesebb marhahúst.</strong> Az Amazonas-vidéken kivágott erdők nagy részén legelő vagy takarmányszója lesz. Ha hetente néhány nappal kevesebb húst eszel, kisebb területet foglal a te étkezésed is.
+                    </li>
+                    <li class="list-group-item">
+                        <strong>Használd tovább a dolgaidat.</strong> A mobiltelefonok és laptopok fémjeinek egy részét esőerdei bányákban termelik ki. Ha tovább használod, javíttatod vagy leadod újrahasznosításra a régi eszközt, kevesebb új nyersanyag kell.
+                    </li>
+                    <li class="list-group-item">
+                        <strong>Csokinál és kávénál nézd a címkét.</strong> A kakaó és a kávé gyakran erdőirtással nyert földön terem. A Fairtrade vagy Rainforest Alliance jelölésű termékek termelőinek tartaniuk kell magukat az erdővédelmi szabályokhoz.
+                    </li>
+                    <li class="list-group-item">
+                        <strong>Támogass és mesélj róla.</strong> Egy kisebb adomány egy esőerdő-védelmi szervezetnek, vagy egy iskolai előadás erről a témáról is számít. Minél többen tudnak az okokról, annál nagyobb a nyomás a cégeken.
+                    </li>
+                </ol>
+            </div>
         </section>
         <section class="masodikSzekcio pb-5 ">
             <div class="container">
@@ -373,6 +393,7 @@
               <li><a href="elovilag.html#veszhelyzet">Segélyhívó számok</a></li>
               <li><a href="terkep.html">Idegenvezetők elérhetősége</a></li>
               <li><a href="tippek.html">Gyakori kérdések</a></li>
+              <li><a href="tippek.html#mittehetunk">Mit tehetünk az esőerdőkért?</a></li>
             </ul>
           </div>
           <div class="col-12 md:col-6 lg:col-3">
